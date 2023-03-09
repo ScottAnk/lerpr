@@ -24,6 +24,8 @@ export default function Sandbox({ curves }) {
     const board = document.querySelector('#sandbox')
     const pen = board.getContext('2d')
 
+    pen.clearRect(0, 0, board.width, board.height)
+
     // add utility function to pen for drawing marker circles
     pen.drawCircle = function (x, y, r, solid = false) {
       this.beginPath()
