@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Resources from '../Resources/Resources'
 import Community from '../Community/Community'
 import Editor from '../Editor/Editor'
-import Header from '../../component/Header/Header'
+import Header from '../../components/Header/Header'
 import Team from '../Team/Team'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
