@@ -1,0 +1,18 @@
+.ControlPointContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+}
+
+.CurveLabel {
+  grid-column: 1;
+}
+
+.XLabel {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.YLabel {
+  grid-area: 2 / 2 / 3 / 3;
+}
