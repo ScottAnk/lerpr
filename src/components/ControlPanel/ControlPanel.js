@@ -16,12 +16,23 @@ export default function ControlPanel({ curves, setCurves }) {
   //   ],
   // ]
 
+  function modifyCurve(curveIndex, modifiedCurve) {
+    const newCurves = [...curves]
+    newCurves[curveIndex] = modifiedCurve
+    setCurves(newCurves)
+  }
+
   return (
     <div>
       <h3>Control Panel</h3>
       <ul>
         {curves.map((curve, index) => (
-          <ControlPoint key={index} curve={curve} number={index} />
+          <ControlPoint
+            key={index}
+            curve={curve}
+            curveIndex={index}
+            modifyCurve={modifyCurve}
+          />
         ))}
       </ul>
     </div>
