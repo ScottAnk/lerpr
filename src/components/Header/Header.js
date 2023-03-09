@@ -1,3 +1,5 @@
+import NavBar from "../../components/NavBar/NavBar"
+
 export default function Header({ user }) {
   function handleSignIn() {
     console.log('Sign In')
@@ -21,7 +23,7 @@ export default function Header({ user }) {
           <p onClick={handleSignIn}>Sign In</p>
         )}
       </div>
-      {/* </NavBar >  */}
+      <NavBar />
     </main>
   )
 }
