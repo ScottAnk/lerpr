@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 
 export default function Sandbox({ curves }) {
+  // TODO express point coordinates as fractions of dynamic canvase dimentions
+
   // this component expects a curves prop of this format:
   // const curves = [
   //   [
