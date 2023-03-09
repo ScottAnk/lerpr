@@ -6,13 +6,33 @@ export default function NavBar({ user }) {
 
   return (
     <div className="NavBarContainer">
-      <NavLink to="/editor" onClick={<Navigate to="/editor" />}>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? 'nav-active nav-link' : 'nav-link'
+        }
+        to="/editor"
+        onClick={<Navigate to="/editor" />}
+      >
         Editor
       </NavLink>
-      <NavLink to="/resources" onClick={<Navigate to="/resources" />}>
+      &nbsp; | &nbsp;
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? 'nav-active nav-link' : 'nav-link'
+        }
+        to="/resources"
+        onClick={<Navigate to="/resources" />}
+      >
         Resources
       </NavLink>
-      <NavLink to="/community" onClick={<Navigate to="/community" />}>
+      &nbsp; | &nbsp;
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? 'nav-active nav-link' : 'nav-link'
+        }
+        to="/community"
+        onClick={<Navigate to="/community" />}
+      >
         Community
       </NavLink>
     </div>
