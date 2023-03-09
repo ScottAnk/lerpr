@@ -23,7 +23,7 @@ export default function Header({ user }) {
           <p onClick={handleSignIn}>Sign In</p>
         )}
       </div>
-      {/* </NavBar >  */}
+      <NavBar />
     </main>
   )
 }
