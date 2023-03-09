@@ -1,11 +1,22 @@
 import { useEffect } from 'react'
 
 export default function Sandbox({ curves }) {
-  // curves = [
-  //   [{x:0, y:0},{x:0, y:0},{x:0, y:0},{x:100, y:100}],
-  //   [{x:100, y:100},{x:0, y:0},{x:0, y:0},{x:0, y:0}],
-  //   [{x:0, y:0},{x:0, y:0},{x:0, y:0},{x:0, y:0}],
+  // this component expects a curves prop of this format:
+  // const curves = [
+  //   [
+  //     { x: 100, y: 100, solid: true },
+  //     { x: 200, y: 500, solid: false },
+  //     { x: 300, y: 100, solid: false },
+  //     { x: 400, y: 200, solid: true },
+  //   ],
+  //   [
+  //     { x: 400, y: 200, solid: true },
+  //     { x: 100, y: 600, solid: false },
+  //     { x: 600, y: 400, solid: false },
+  //     { x: 600, y: 600, solid: true },
+  //   ],
   // ]
+
   useEffect(() => {
     console.log('use effect')
     const board = document.querySelector('#sandbox')
