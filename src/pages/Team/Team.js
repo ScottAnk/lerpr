@@ -1,4 +1,9 @@
 import './Team.css'
+import scott from '../../assets/scott.jpeg'
+import pault from '../../assets/PaulT.jpeg'
+import eddie from '../../assets/eddie.jpeg'
+import pauls from '../../assets/PaulS.jpeg'
+import quentin from '../../assets/quentin.jpeg'
 
 import React, { useState } from 'react'
 
@@ -8,53 +13,34 @@ export default function Team() {
   return (
     <main className="TeamContainer">
       <div className="TeamHeader">
-        <h1>Community</h1>
+        <h1>Team</h1>
       </div>
       <div className="TeamMain">
-        <div>
-          <img></img>
-          Scott Ankiewicz
-          <ul>
-            <li>
-              <a>LinkedIn</a>
-            </li>
-          </ul>
+        <div className="TeamMemberCard">
+          <img className="img" src={scott}></img>
+          <p>Scott Ankiewicz</p>
+
+          <a href="#">LinkedIn</a>
         </div>
-        <div>
-          <img></img>
+        <div className="TeamMemberCard">
+          <img className="img" src={pault}></img>
           Paul Truitt
-          <ul>
-            <li>
-              <a>LinkedIn</a>
-            </li>
-          </ul>
+          <a href="#">LinkedIn</a>
         </div>
-        <div>
-          <img></img>
+        <div className="TeamMemberCard">
+          <img className="img" src={eddie}></img>
           Eddie Hernandez
-          <ul>
-            <li>
-              <a>LinkedIn</a>
-            </li>
-          </ul>
+          <a href="#">LinkedIn</a>
         </div>
-        <div>
-          <img></img>
+        <div className="TeamMemberCard">
+          <img className="img" src={pauls}></img>
           Paul Seabrook
-          <ul>
-            <li>
-              <a>LinkedIn</a>
-            </li>
-          </ul>
+          <a href="#">LinkedIn</a>
         </div>
-        <div>
-          <img></img>
+        <div className="TeamMemberCard">
+          <img className="img" src={quentin}></img>
           Quentin Lee
-          <ul>
-            <li>
-              <a>LinkedIn</a>
-            </li>
-          </ul>
+          <a href="#">LinkedIn</a>
         </div>
       </div>
     </main>
