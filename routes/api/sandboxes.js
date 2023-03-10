@@ -4,12 +4,14 @@ const sandboxesCtrl = require('../../controllers/api/users')
 // const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // POST /api/sandboxes/
-router.post('/sandboxes', sandboxesCtrl.create)
+router.post('/', sandboxesCtrl.create)
 // GET /api/sandboxes/
-router.get('/sandboxes', sandboxesCtrl.show)
+router.get('/', sandboxesCtrl.index)
 // PATCH /api/sandboxes/:id
-router.patch('/sandboxes/:id', sandboxesCtrl.update)
+router.patch('/:id', sandboxesCtrl.update)
 // DELETE /api/sandboxes/:id
-router.delete('/sandboxes/:id', sandboxesCtrl.delete)
+router.delete('/:id', sandboxesCtrl.delete)
+// GET /api/sandboxes/:ownerId
+router.get('/:ownerId', sandboxesCtrl.showByOwner)
 
 module.exports = router
