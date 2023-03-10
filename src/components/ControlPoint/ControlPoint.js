@@ -14,7 +14,7 @@ export default function ControlPoint({ curve, curveIndex, modifyCurve }) {
       <span className="CurveLabel">curve {curveIndex}</span>
       <span className="XLabel">X</span>
       <span className="YLabel">Y</span>
-      {/* : list out x.y coordinates */}
+      {/* list out x.y coordinates */}
       {curve.map((point, index) => (
         <Coordinate
           key={index}
