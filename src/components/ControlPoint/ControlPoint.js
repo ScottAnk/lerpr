@@ -4,7 +4,7 @@ import Coordinate from '../Coordinate/Coordinate'
 
 export default function ControlPoint({ curve, curveIndex, modifyCurve }) {
   function modifyCoordinate(coordinateIndex, newCoordinate) {
-    const newCurve = [...curve]
+    const newCurve = { ...curve }
     newCurve[coordinateIndex] = newCoordinate
     modifyCurve(curveIndex, newCurve)
   }
@@ -15,14 +15,31 @@ export default function ControlPoint({ curve, curveIndex, modifyCurve }) {
       <span className="XLabel">X</span>
       <span className="YLabel">Y</span>
       {/* list out x.y coordinates */}
-      {curve.map((point, index) => (
-        <Coordinate
-          key={index}
-          point={point}
-          coordinateIndex={index}
-          modifyCoordinate={modifyCoordinate}
-        />
-      ))}
+      {/* {curve.map((point, index) => ( */}
+      <Coordinate
+        key={0}
+        point={curve.startPoint}
+        coordinateIndex={'startPoint'}
+        modifyCoordinate={modifyCoordinate}
+      />
+      <Coordinate
+        key={1}
+        point={curve.control1}
+        coordinateIndex={'control1'}
+        modifyCoordinate={modifyCoordinate}
+      />
+      <Coordinate
+        key={2}
+        point={curve.control2}
+        coordinateIndex={'control2'}
+        modifyCoordinate={modifyCoordinate}
+      />
+      <Coordinate
+        key={3}
+        point={curve.endPoint}
+        coordinateIndex={'endPoint'}
+        modifyCoordinate={modifyCoordinate}
+      />
     </li>
   )
 }
