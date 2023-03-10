@@ -29,6 +29,7 @@ export default function Resources() {
         <h1>Sandbox</h1>
         <Sandbox curves={curves} />
         <ControlPanel curves={curves} setCurves={setCurves} />
+        <GradientDisplay curves={curves} />
       </>
     </main>
   )
