@@ -15,7 +15,15 @@ const sandboxSchema = new Schema(
     },
     curves: [
       curveSchema
-    ]
+    ],
+    colorStart: {
+      type: Schema.Types.Mixed,
+      required: false
+    },
+    colorEnd: {
+      type: Schema.Types.Mixed,
+      required: false
+    }
   },
   {
     timestamps: true,

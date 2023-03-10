@@ -1,22 +1,22 @@
-const mongooose = require('mongoose')
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const curveSchema = new Schema(
     {
         startPoint: {
-            type: Mixed,
+            type: Schema.Types.Mixed,
             required: true,
         },
         endPoint: {
-            type: Mixed,
+            type: Schema.Types.Mixed,
             required: true,
         },
         control1: {
-            type: Mixed,
+            type: Schema.Types.Mixed,
             required: true,
         },
         control2 : {
-            type: Mixed,
+            type: Schema.Types.Mixed,
             required: true
         },
         color: {
