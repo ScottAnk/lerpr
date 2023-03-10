@@ -19,7 +19,10 @@ export default function App() {
       <Routes>
         <Route path="/resources" element={<Resources />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/editor" element={<Editor />} />
+        <Route
+          path="/editor"
+          element={<Editor setUser={setUser} user={user} />}
+        />
         <Route path="/team" element={<Team />} />
         <Route path="/*" element={<Navigate to="/editor" />} />
       </Routes>

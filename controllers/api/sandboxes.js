@@ -1,4 +1,3 @@
-const sandbox = require('../../models/sandbox')
 const Sandbox = require('../../models/sandbox')
 
 //Create
