@@ -3,6 +3,10 @@ const Schema = mongoose.Schema
 
 const sandboxSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: 'User',
