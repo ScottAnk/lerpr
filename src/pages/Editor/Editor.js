@@ -11,6 +11,7 @@ import AuthPage from '../AuthPage/AuthPage'
 export default function Editor({ setUser, user }) {
   const [open, setOpen] = useState(false)
   const [openSignIn, setOpenSignIn] = useState(false)
+  const [openClearPrompt, setOpenClearPrompt] = useState(false)
   // TODO this needs to be initialized to an empty array in deployment
   const linkedPoint = { x: 400, y: 200, solid: true }
   const [curves, setCurves] = useState([
@@ -44,6 +45,9 @@ export default function Editor({ setUser, user }) {
           setCurves={setCurves}
           setOpenSignIn={setOpenSignIn}
           user={user}
+          openClearPrompt={openClearPrompt}
+          setOpenClearPrompt={setOpenClearPrompt}
+          open={openClearPrompt}
         />
 
         <div>
