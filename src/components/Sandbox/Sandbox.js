@@ -69,7 +69,7 @@ export default function Sandbox({ curves }) {
       id="sandbox"
       width="900"
       height="600"
-      style={{ border: 'solid 1px black' }}
+      style={{ border: 'solid 1px black', backgroundColor: 'white' }}
     ></canvas>
   )
 }
