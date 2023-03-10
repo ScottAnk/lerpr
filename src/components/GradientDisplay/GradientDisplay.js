@@ -12,24 +12,34 @@ export default function GradientDisplay({ curves }) {
     b: colorStop.b - colorStart.b,
   }
 
-  // sample points along the curve
+  // sample points along the curves
+  console.log('processing first curve')
   let curveSamples = sample100points(curves[0])
+  for (let i = 1; i < curves.length; i++) {
+    console.log(`processing curve ${i}`)
+    console.log(curves[i])
+    curveSamples = curveSamples.concat(sample100points(curves[i]))
+  }
+  console.log(
+    `drawing gradient. processed ${curveSamples.length} curve samples`
+  )
 
-  // convert curve's (x,y) coordinates into stops on the gradient
+  // convert curves's (x,y) coordinates into stops on the gradient
   let gradientStops = ''
   for (let point of curveSamples) {
     console.log('point: ', point)
+    // CSS gradient stop points needs a % value to position the stop point on the object's dimensions
     const gradientProgess = Math.floor(
       ((point.x - curves[0].startPoint.x) /
-        (curves[0].endPoint.x - curves[0].startPoint.x)) *
+        (curves[curves.length - 1].endPoint.x - curves[0].startPoint.x)) *
         100
     )
-    const normalizedCurveHeight =
+    const normalizedSamplePoint =
       (point.y - curves[0].startPoint.y) /
-      (curves[0].endPoint.y - curves[0].startPoint.y)
-    const r = Math.floor(normalizedCurveHeight * gamut.r + colorStart.r)
-    const g = Math.floor(normalizedCurveHeight * gamut.g + colorStart.g)
-    const b = Math.floor(normalizedCurveHeight * gamut.b + colorStart.b)
+      (curves[curves.length - 1].endPoint.y - curves[0].startPoint.y)
+    const r = Math.floor(normalizedSamplePoint * gamut.r + colorStart.r)
+    const g = Math.floor(normalizedSamplePoint * gamut.g + colorStart.g)
+    const b = Math.floor(normalizedSamplePoint * gamut.b + colorStart.b)
     gradientStops += `, rgb(${r},${g},${b}) ${gradientProgess}%`
   }
   const gradientString = `linear-gradient(90deg${gradientStops})`
