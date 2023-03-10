@@ -42,21 +42,21 @@ export default function Sandbox({ curves }) {
       console.log(curve)
 
       // draw circles at each anchor and control point
-      for (let point of curve) {
+      for (let point in curve) {
         console.log(point)
-        pen.drawCircle(point.x, point.y, 5, point.solid)
+        pen.drawCircle(curve[point].x, curve[point].y, 5, curve[point].solid)
       }
 
       // draw the bezier curve
       pen.beginPath()
-      pen.moveTo(curve[0].x, curve[0].y)
+      pen.moveTo(curve.startPoint.x, curve.startPoint.y)
       pen.bezierCurveTo(
-        curve[1].x,
-        curve[1].y,
-        curve[2].x,
-        curve[2].y,
-        curve[3].x,
-        curve[3].y
+        curve.control1.x,
+        curve.control1.y,
+        curve.control2.x,
+        curve.control2.y,
+        curve.endPoint.x,
+        curve.endPoint.y
       )
       pen.stroke()
     }
