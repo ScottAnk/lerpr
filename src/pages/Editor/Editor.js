@@ -1,16 +1,15 @@
 import './Editor.css'
 import 'react-responsive-modal/styles.css'
-
-import React, { useState } from 'react'
 import { Modal } from 'react-responsive-modal'
+import React, { useState } from 'react'
 import Sandbox from '../../components/Sandbox/Sandbox'
 import ControlPanel from '../../components/ControlPanel/ControlPanel'
 import TaskBar from '../../components/TaskBar/TaskBar'
 import AuthPage from '../AuthPage/AuthPage'
 
-export default function Editor({ setUser, user }) {
+export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
   const [open, setOpen] = useState(false)
-  const [openSignIn, setOpenSignIn] = useState(false)
+
   // TODO this needs to be initialized to an empty array in deployment
   const linkedPoint = { x: 400, y: 200, solid: true }
   const [curves, setCurves] = useState([
