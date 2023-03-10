@@ -1,0 +1,9 @@
+.TaskBar {
+  display: flex;
+  align-items: left;
+  justify-content: space-evenly;
+}
+
+.TaskBar > * {
+  margin: 10px;
+}

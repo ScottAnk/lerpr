@@ -43,6 +43,7 @@ a {
 
 .img {
   width: 200px;
+  max-height: 200px;
   border-radius: 100px;
   border: solid black 5px;
 }
