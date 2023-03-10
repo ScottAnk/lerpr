@@ -13,6 +13,9 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
 
   const [open, setOpen] = useState(false)
 
+  const [openSignIn, setOpenSignIn] = useState(false)
+  const [openClearPrompt, setOpenClearPrompt] = useState(false)
+
   // TODO this needs to be initialized to an empty array in deployment
   const linkedPoint = { x: 300, y: 300, solid: true }
   const linkedPoint2 = { x: 600, y: 0, solid: true }
@@ -54,6 +57,9 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
           setCurves={setCurves}
           setOpenSignIn={setOpenSignIn}
           user={user}
+          openClearPrompt={openClearPrompt}
+          setOpenClearPrompt={setOpenClearPrompt}
+          open={openClearPrompt}
         />
 
         <div>
