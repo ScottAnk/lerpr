@@ -1,13 +1,17 @@
 .Header {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    justify-content: space-between;
-    background-color: bisque;
-    z-index: 1;
+    text-align: center;
 }
 
 .HeaderAuthContainer {
     display: flex;
-    flex-direction: row;
+    flex-flow: row flex;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px;
+    padding: 0 20px 0 20px;
+}
+
+.AppTitle {
+    flex-grow: 1;
 }
