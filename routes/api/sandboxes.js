@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const sandboxesCtrl = require('../../controllers/api/users')
+const sandboxesCtrl = require('../../controllers/api/sandboxes')
 // const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // POST /api/sandboxes/
