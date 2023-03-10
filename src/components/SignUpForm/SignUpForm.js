@@ -1,9 +1,11 @@
+import '../../pages/AuthPage/AuthPage.css'
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { signUp } from '../../utilities/users-service'
 
-export default function SignUpForm({ setUser, showSignUp, handleShowSignUp }) {
+export default function SignUpForm({ setUser, setOpenSignIn }) {
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
@@ -18,17 +20,17 @@ export default function SignUpForm({ setUser, showSignUp, handleShowSignUp }) {
   async function handleSubmit(event) {
     event.preventDefault()
     try {
+      console.log(formData)
       const signUpData = { ...formData }
       delete signUpData.confirmPassword
+      console.log(signUpData)
       // The promise returned by the signUp service method
       // will resolve to the user object included in the
       // payload of the JSON Web Token (JWT)
-      const user = await signUp(formData)
+      const user = await signUp(signUpData)
       // Update user state with user
       setUser(user)
-
-      // send new users to the room creation screen
-      navigate('/room/create')
+      setOpenSignIn(false)
     } catch {
       // Invalid signup
       setError('Sign Up Failed - Try Again')
@@ -47,10 +49,8 @@ export default function SignUpForm({ setUser, showSignUp, handleShowSignUp }) {
   return (
     <div>
       <div className="CardContainer">
-        <h2 className="AuthHeader">
-          <u>Let's Sign Ya Up!</u>
-        </h2>
-        <form autoComplete="off" onSubmit={handleSubmit}>
+        <h2 className="AuthHeader"></h2>
+        <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
           <label>Name</label>
           <input
             type="text"
@@ -93,19 +93,6 @@ export default function SignUpForm({ setUser, showSignUp, handleShowSignUp }) {
         </form>
         <div className="BreakContainer">
           <div className="SectionBreak"></div>
-        </div>
-        <div className="LoginOrSignUp">
-          <h4
-            style={{
-              marginTop: '-10px',
-              marginBottom: '5px',
-            }}
-          >
-            Already have an account?
-          </h4>
-          <button onClick={handleShowSignUp}>
-            {showSignUp ? 'Login To Your Account' : 'Create New Account'}
-          </button>
         </div>
       </div>
       <p className="error-message">{error}</p>

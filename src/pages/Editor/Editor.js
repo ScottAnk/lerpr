@@ -6,12 +6,11 @@ import { Modal } from 'react-responsive-modal'
 import Sandbox from '../../components/Sandbox/Sandbox'
 import ControlPanel from '../../components/ControlPanel/ControlPanel'
 import TaskBar from '../../components/TaskBar/TaskBar'
-import SignUpForm from '../../components/SignUpForm/SignUpForm'
+import AuthPage from '../AuthPage/AuthPage'
 
-export default function Resources() {
+export default function Editor({ setUser, user }) {
   const [open, setOpen] = useState(false)
   const [openSignIn, setOpenSignIn] = useState(false)
-  const [user, setUser] = useState()
   // TODO this needs to be initialized to an empty array in deployment
   const linkedPoint = { x: 400, y: 200, solid: true }
   const [curves, setCurves] = useState([
@@ -57,7 +56,7 @@ export default function Resources() {
             onClose={() => setOpenSignIn(false)}
             center
           >
-            <SignUpForm />
+            <AuthPage setUser={setUser} setOpenSignIn={setOpenSignIn} />
           </Modal>
         </div>
       </div>
