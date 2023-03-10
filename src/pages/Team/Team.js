@@ -20,27 +20,27 @@ export default function Team() {
           <img className="img" src={scott}></img>
           <p>Scott Ankiewicz</p>
 
-          <a href="#">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/scott-ankiewicz/">LinkedIn</a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={pault}></img>
           Paul Truitt
-          <a href="#">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/paultruittdev/">LinkedIn</a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={eddie}></img>
           Eddie Hernandez
-          <a href="#">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/edhz/">LinkedIn</a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={pauls}></img>
           Paul Seabrook
-          <a href="#">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/paulwarrenseabrook/">LinkedIn</a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={quentin}></img>
           Quentin Lee
-          <a href="#">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/quentinjlee/">LinkedIn</a>
         </div>
       </div>
     </main>
