@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const curveSchema = require('./curve')
 const Schema = mongoose.Schema
 
 const sandboxSchema = new Schema(
@@ -12,6 +13,9 @@ const sandboxSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    curves: [
+      curveSchema
+    ]
   },
   {
     timestamps: true,
