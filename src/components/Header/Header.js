@@ -1,4 +1,5 @@
 import NavBar from "../../components/NavBar/NavBar"
+import './Header.css'
 
 export default function Header({ user }) {
   function handleSignIn() {
