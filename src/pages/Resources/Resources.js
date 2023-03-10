@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
 // import Team from '../Team/Team'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Resources.css'
 
 export default function Resources() {
+  const navigate = useNavigate()
+
   function handleNavigateTeam() {
-    Navigate('/team')
+    navigate('/team')
   }
 
   return (
