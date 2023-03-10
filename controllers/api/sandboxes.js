@@ -1,24 +1,23 @@
 const Sandbox = require('../../models/sandbox')
 
 //Create
+
 async function createSandbox(req, res, next) {
     try {
-        // console.log(req.user)
-        // console.log(req.body)
         const body = req.body
         body.owner = req.user._id
         console.log(req.body)
         const sandbox = await Sandbox.create(req.body)
-        // sandbox.owner = req.user._id
-        res.sendStatus(201).json({ sandbox: sandbox })
-
+        res.status(201).json({ sandbox: sandbox })
     }
     catch(error){
         console.log(error)
         next(error)
     }
 }
+
 //Delete
+
 async function deleteSandbox(req, res, next) {
     try {
     const sandbox = await Sandbox.findById(req.params.id)
@@ -30,7 +29,9 @@ async function deleteSandbox(req, res, next) {
         console.log(error)
     }
 }
+
 //Index
+
 async function indexSandbox(req, res, next) {
     try{
         const sandboxes = await Sandbox.find()
@@ -39,8 +40,6 @@ async function indexSandbox(req, res, next) {
         const sandbox = sandboxes.map(sandboxes => sandboxes)
         console.log(sandbox)
         return res.status(200).json({ sandbox: sandbox})
-
-
     }
     catch(error) {
         next(error)
@@ -48,16 +47,55 @@ async function indexSandbox(req, res, next) {
     }
 }
 
+// find by owner
 
+async function findSandboxesByOwner(req, res, next) {
+    try{
+        const user = req.user._id
+        const sandboxes = await Sandbox.find({ owner: user})
+        if(!sandboxes) return new Error('No sandboxes available')
+        const sandbox = sandboxes.map(sandboxes => sandboxes)
+        console.log(sandbox)
+        return res.status(200).json({ sandbox: sandbox})
+    }
+    catch(error) {
+        next(error)
+        console.log(error)
+    }
+}
 
+// show by sandbox id
 
+async function findSandboxById(req, res, next) {
+    try {
+        const sandbox = await Sandbox.findById(req.params.id)
+        if(!sandbox) return new Error('No sandbox available')
+        return res.status(200).json({ sandbox: sandbox })
+    }
+    catch(error) {
+        next(error)
+        console.log(error)
+    }
+}
 
+//Update
 
-
-
+async function updateSandbox(req, res, next) {
+    try {
+        const sandbox = await Sandbox.findById(req.params.id)
+        return sandbox.updateOne(req.body.sandbox)
+            .then(res.sendStatus(204))
+    } catch(error) {
+        next(error)
+        console.log(error)
+    }
+}
 
 module.exports = {
     createSandbox,
     indexSandbox,
-    deleteSandbox
+    deleteSandbox,
+    findSandboxesByOwner,
+    findSandboxById,
+    updateSandbox,
 }
