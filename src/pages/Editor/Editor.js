@@ -6,6 +6,7 @@ import { Modal } from 'react-responsive-modal'
 import Sandbox from '../../components/Sandbox/Sandbox'
 import ControlPanel from '../../components/ControlPanel/ControlPanel'
 import TaskBar from '../../components/TaskBar/TaskBar'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
 
 export default function Resources() {
   const [open, setOpen] = useState(false)
@@ -56,7 +57,7 @@ export default function Resources() {
             onClose={() => setOpenSignIn(false)}
             center
           >
-            <h3>Sign In</h3>
+            <SignUpForm />
           </Modal>
         </div>
       </div>

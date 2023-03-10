@@ -20,8 +20,11 @@
 .customOverlay {
 }
 .customModal {
+  height: 50vh;
   width: 100%;
   color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 /* this class comes with the react-responsive-modal package */
