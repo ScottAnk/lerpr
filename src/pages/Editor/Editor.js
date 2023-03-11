@@ -8,12 +8,9 @@ import GradientDisplay from '../../components/GradientDisplay/GradientDisplay'
 import TaskBar from '../../components/TaskBar/TaskBar'
 import AuthPage from '../AuthPage/AuthPage'
 
-
 export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
-
   const [open, setOpen] = useState(false)
 
-  const [openSignIn, setOpenSignIn] = useState(false)
   const [openClearPrompt, setOpenClearPrompt] = useState(false)
 
   // TODO this needs to be initialized to an empty array in deployment
@@ -47,8 +44,10 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
 
         <div className="MainEditorContainer">
           <Sandbox curves={curves} />
-          <ControlPanel curves={curves} setCurves={setCurves} />
-          <GradientDisplay curves={curves} />
+          <div className="InnerEditorContainer">
+            <ControlPanel curves={curves} setCurves={setCurves} />
+            <GradientDisplay curves={curves} />
+          </div>
         </div>
       </main>
       <div className="FooterEditorContainer">

@@ -7,6 +7,21 @@
 
 .MainEditorContainer {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+}
+
+.InnerEditorContainer {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: space-between;
+}
+
+.InnerEditorContainer > * {
+  margin: 0px px 0px 50px;
 }
 
 .FooterEditorContainer {

@@ -1,3 +1,5 @@
+import './ControlPanel.css'
+
 import ControlPoint from '../ControlPoint/ControlPoint'
 export default function ControlPanel({ curves, setCurves }) {
   // this component expects a curves prop of this format:
@@ -23,7 +25,7 @@ export default function ControlPanel({ curves, setCurves }) {
   }
 
   return (
-    <div>
+    <div className="ControlPanelMain">
       <h3>Control Panel</h3>
       <ul>
         {curves.map((curve, index) => (
