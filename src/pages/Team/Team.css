@@ -22,7 +22,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  height: 60vh;
 }
 
 .TeamMain > * {
@@ -58,4 +57,13 @@ a {
 
 .LinkedIn:hover {
   background-color: rgba(109, 107, 107, 0.408);
+}
+
+@media (max-width: 1200px) {
+  .TeamMain {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }
