@@ -26,11 +26,14 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
         <div className='UserSign'>
           {user ? (
             <>
-              <p>Hello, {user.name} |</p>
-              <p onClick={handleSignOut}> Sign Out </p>
+              <p>Hello, <span style={{
+                textDecoration: "underline",
+                fontWeight: "bold"
+              }}>{user.name}</span>&nbsp; | &nbsp;</p>
+              <p className="link" onClick={handleSignOut}> Sign Out </p>
             </>
           ) : (
-            <p onClick={handleSignIn}>Sign In</p>
+            <p className="link" onClick={handleSignIn}>Sign In</p>
           )}
         </div>
       </div>
