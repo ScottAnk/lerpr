@@ -6,7 +6,6 @@ async function createSandbox(req, res, next) {
     try {
         const body = req.body
         body.owner = req.user._id
-        console.log(req.body)
         const sandbox = await Sandbox.create(req.body)
         res.status(201).json({ sandbox: sandbox })
     }
