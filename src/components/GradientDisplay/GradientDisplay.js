@@ -1,11 +1,30 @@
 import { sample100points } from '../../utilities/curves-service'
 import './GradientDisplayContainer.css'
 
-export default function GradientDisplay({ curves }) {
+export default function GradientDisplay({ curves , colorStart, colorStop, setColorStart, setColorStop}) {
   // TODO later these colors will come from the sandbox properties
-  const colorStart = { r: 0, g: 212, b: 255 }
-  const colorStop = { r: 255, g: 0, b: 0 }
+  // const colorStart = { r: 0, g: 212, b: 255 }
+  // const colorStop = { r: 255, g: 0, b: 0 }
 
+  function hexToRGB(hexCode){
+    console.log('hextorgb input: ',hexCode)
+    const red = '0x'+hexCode.slice(1,3)
+    const green = '0x'+hexCode.slice(3,5)
+    const blue = '0x'+hexCode.slice(5,7)
+
+    console.log('hextorgb return: ', {r:Number(red), g:Number(green), b:Number(blue)})
+    return{r:Number(red), g:Number(green), b:Number(blue)}
+  }
+
+  function RGBToHex(rgb){
+    console.log('RGBtoHex input: ',rgb)
+    let hexCode='#'
+    hexCode += rgb.r.toString(16).padStart(2,'0')
+    hexCode += rgb.g.toString(16).padStart(2,'0')
+    hexCode += rgb.b.toString(16).padStart(2,'0')
+    console.log('RGBToHex return: ',hexCode)
+    return hexCode
+  }
   // calculate the range of the gradient colors
   const gamut = {
     r: colorStop.r - colorStart.r,
@@ -53,6 +72,13 @@ export default function GradientDisplay({ curves }) {
   return (
     <div className="GradientDisplayContainer">
       <h3>Gradient Display</h3>
+      <div style={{display: 'flex', justifyContent:'space-between'}}>
+        {/* CODE REVIEW: should I be using arrow functions here? */}
+        <label for="colorStart">start:</label>
+        <input name="colorStart" id="colorStart" type="color" value={RGBToHex(colorStart)} onChange={function(event){setColorStart(hexToRGB(event.target.value))}} />
+        <label for="colorStop">stop:</label>
+        <input name="colorStop" id="colorStop" type="color" value={RGBToHex(colorStop)} onChange={function(event){setColorStop(hexToRGB(event.target.value))}}/>
+      </div>
       <div style={gradientStyle}></div>
     </div>
   )
