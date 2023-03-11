@@ -3,7 +3,12 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 2px;
-  grid-row-gap: 0px;
+  grid-row-gap: 2px;
+
+  border-radius: 10px;
+}
+.ControlPointContainer > * {
+  padding: 5px;
 }
 
 .CurveLabel {
@@ -20,9 +25,11 @@
 
 .CoordinateX {
   grid-row: 1;
+  width: 50px;
 }
 .CoordinateY {
   grid-row: 2;
+  width: 50px;
 }
 
 .ControlPointContainer > form {

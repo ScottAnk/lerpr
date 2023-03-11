@@ -1,4 +1,5 @@
 import { sample100points } from '../../utilities/curve-service'
+import './GradientDisplayContainer.css'
 
 export default function GradientDisplay({ curves }) {
   // TODO later these colors will come from the sandbox properties
@@ -49,5 +50,10 @@ export default function GradientDisplay({ curves }) {
     background: gradientString,
   }
 
-  return <div style={gradientStyle}></div>
+  return (
+    <div className="GradientDisplayContainer">
+      <h3>Gradient Display</h3>
+      <div style={gradientStyle}></div>
+    </div>
+  )
 }
