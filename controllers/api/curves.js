@@ -4,7 +4,7 @@ const Sandbox = require('../../models/sandbox')
 async function createCurve(req, res, next) {
   try {
     const curve = req.body
-    const sandboxId = req.body.sandboxId
+    const sandboxId = req.params.sandboxId
     const sandbox = await Sandbox.findById(sandboxId)
     sandbox.curves.push(curve)
     return sandbox.save().then((sandbox) => {

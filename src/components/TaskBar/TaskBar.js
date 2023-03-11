@@ -2,16 +2,23 @@ import './TaskBar.css'
 
 import { Modal } from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
+import * as sandboxesServices from '../../utilities/sandboxes-services'
 
 export default function TaskBar({
   setOpenSignIn,
   user,
   openClearPrompt,
   setOpenClearPrompt,
+  curves,
+  setCurves,
+  sandbox,
+  setSandbox,
 }) {
-  function handleSave() {
-    console.log('Save')
+  async function handleSave() {
     if (!user) setOpenSignIn(true)
+    if (user) {
+      await sandboxesServices.saveFirstSandbox(sandbox, curves)
+    }
   }
 
   function handleClear() {

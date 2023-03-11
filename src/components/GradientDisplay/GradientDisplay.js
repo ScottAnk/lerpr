@@ -1,4 +1,4 @@
-import { sample100points } from '../../utilities/curve-service'
+import { sample100points } from '../../utilities/curves-service'
 import './GradientDisplayContainer.css'
 
 export default function GradientDisplay({ curves }) {
