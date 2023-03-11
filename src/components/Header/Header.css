@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
 .Header {
     text-align: center;
 }
@@ -5,13 +7,23 @@
 .HeaderAuthContainer {
     display: flex;
     flex-flow: row flex;
-    border: 1px solid black;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 20px 20px;
+    margin: 5px 20px;
     padding: 0 20px 0 20px;
 }
 
-.AppTitle {
+.Blank {
     flex-grow: 1;
+}
+
+.AppTitle {
+    /* border: 1px solid black; */
+    font-family: 'Bungee Shade', cursive;
+}
+
+.UserSign {
+    display: flex;
+    align-items: stretch;
+    /* border: 1px solid black; */
 }

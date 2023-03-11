@@ -1,4 +1,3 @@
-import 'react-responsive-modal/styles.css'
 import './App.css'
 import React, { useState } from 'react'
 import Resources from '../Resources/Resources'
@@ -7,7 +6,6 @@ import Editor from '../Editor/Editor'
 import Header from '../../components/Header/Header'
 import Team from '../Team/Team'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Modal } from 'react-responsive-modal'
 import { getUser } from '../../utilities/users-service'
 
 export default function App() {

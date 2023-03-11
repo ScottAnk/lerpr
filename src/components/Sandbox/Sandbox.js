@@ -1,3 +1,4 @@
+import './Sandbox.css'
 import { useEffect } from 'react'
 
 export default function Sandbox({ curves }) {
@@ -65,11 +66,6 @@ export default function Sandbox({ curves }) {
   }, [curves])
 
   return (
-    <canvas
-      id="sandbox"
-      width="900"
-      height="600"
-      style={{ border: 'solid 1px black', backgroundColor: 'white' }}
-    ></canvas>
+    <canvas className="Sandbox" id="sandbox" width="900" height="600"></canvas>
   )
 }
