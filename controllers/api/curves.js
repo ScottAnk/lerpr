@@ -17,8 +17,21 @@ async function createCurve(req, res, next) {
     }
 }
 
-// Delete
+// Delete all curves (clear button)
+async function clearCurves(req, res, next) {
+    try {
+        const sandboxId = req.body.sandboxId
+        const sandbox = await Sandbox.findById(sandboxId)
+        sandbox.curves.pull({})
+        return sandbox.save()
+            .then(() => res.sendStatus(204))
+    } catch(error) {
+        console.log(error)
+        next(error)
+    }
+}
 
 module.exports = {
     createCurve,
+    clearCurves,
 }
