@@ -8,10 +8,12 @@ router.post('/', sandboxesCtrl.createSandbox)
 // GET /api/sandboxes/
 router.get('/', sandboxesCtrl.indexSandbox)
 // PATCH /api/sandboxes/:id
-// router.patch('/:id', sandboxesCtrl.update)
+router.patch('/update/:id', sandboxesCtrl.updateSandbox)
 // DELETE /api/sandboxes/:id
 router.delete('/:id', sandboxesCtrl.deleteSandbox)
-// // GET /api/sandboxes/:ownerId
-// router.get('/:ownerId', sandboxesCtrl.showByOwner)
+// // GET /api/sandboxes/owner/:id
+router.get('/owner/:id', sandboxesCtrl.findSandboxesByOwner)
+// GET /api/sandboxes/:id
+router.get('/:id', sandboxesCtrl.findSandboxById)
 
 module.exports = router
