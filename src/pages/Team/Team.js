@@ -18,29 +18,44 @@ export default function Team() {
       <div className="TeamMain">
         <div className="TeamMemberCard">
           <img className="img" src={scott}></img>
-          <p>Scott Ankiewicz</p>
-
-          <a href="https://www.linkedin.com/in/scott-ankiewicz/">LinkedIn</a>
+          <h3>Scott Ankiewicz</h3>
+          <a
+            class="LinkedIn"
+            href="https://www.linkedin.com/in/scott-ankiewicz/"
+          >
+            LinkedIn
+          </a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={pault}></img>
-          Paul Truitt
-          <a href="https://www.linkedin.com/in/paultruittdev/">LinkedIn</a>
+          <h3>Paul Truitt</h3>
+          <a class="LinkedIn" href="https://www.linkedin.com/in/paultruittdev/">
+            LinkedIn
+          </a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={eddie}></img>
-          Eddie Hernandez
-          <a href="https://www.linkedin.com/in/edhz/">LinkedIn</a>
+          <h3>Eddie Hernandez</h3>
+          <a class="LinkedIn" href="https://www.linkedin.com/in/edhz/">
+            LinkedIn
+          </a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={pauls}></img>
-          Paul Seabrook
-          <a href="https://www.linkedin.com/in/paulwarrenseabrook/">LinkedIn</a>
+          <h3>Paul Seabrook</h3>
+          <a
+            class="LinkedIn"
+            href="https://www.linkedin.com/in/paulwarrenseabrook/"
+          >
+            LinkedIn
+          </a>
         </div>
         <div className="TeamMemberCard">
           <img className="img" src={quentin}></img>
-          Quentin Lee
-          <a href="https://www.linkedin.com/in/quentinjlee/">LinkedIn</a>
+          <h3>Quentin Lee</h3>
+          <a class="LinkedIn" href="https://www.linkedin.com/in/quentinjlee/">
+            LinkedIn
+          </a>
         </div>
       </div>
     </main>
