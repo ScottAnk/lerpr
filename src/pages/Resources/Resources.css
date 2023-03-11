@@ -1,11 +1,74 @@
 .Resources {
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bezier-container {
+  text-align: center;
+  background-color: rgba(249, 249, 249, 0.408);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 20px;
+  flex: 3;
+}
+
+.pierre-container {
+  text-align: center;
+  background-color: rgba(249, 249, 249, 0.408);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 20px;
+  flex: 3;
+}
+
+.links-container {
+  text-align: center;
+  background-color: rgba(249, 249, 249, 0.408);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+.right {
+  float: right;
+  padding: 0 20px 20px 0;
+}
+
+.pierre {
+  border-radius: 75%;
+}
+
+.TeamLink {
+  padding: 20px;
+  background-color: rgba(249, 249, 249, 0.408);
+  border-radius: 10px;
+}
+
+.TeamLink:hover {
+  background-color: rgba(109, 107, 107, 0.408);
+}
+
+@media (max-width: 1000px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .flex-container > * {
+    margin-bottom: 50px;
+  }
 }

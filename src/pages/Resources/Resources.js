@@ -2,6 +2,8 @@
 import { useNavigate } from 'react-router-dom'
 import './Resources.css'
 
+import pierre from '../../assets/pierre.jpeg'
+
 export default function Resources() {
   const navigate = useNavigate()
 
@@ -14,9 +16,9 @@ export default function Resources() {
       <>
         <h1>Resources</h1>
         {/* link for team page */}
-        <div className="grid-container">
+        <div className="flex-container">
           <div className="bezier-container">
-            What is a Bézier Curve?
+            <h4>What is a Bézier Curve?</h4>
             <div className="curve-info">
               <p>
                 A Bézier curve is a parametric curve used in computer graphics
@@ -33,7 +35,8 @@ export default function Resources() {
             </div>
           </div>
           <div className="pierre-container">
-            Who was Pierre Bézier?
+            <h4>Who was Pierre Bézier?</h4>
+            <img className="right pierre" src={pierre}></img>
             <div className="pierre-info">
               <p>
                 Pierre Étienne Bézier was a French engineer and one of the
@@ -48,16 +51,18 @@ export default function Resources() {
             </div>
           </div>
           <div className="links-container">
-            Want to learn more?
-            <div className='links'>
-              <a href='https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s'>
+            <h3>Want to learn more?</h3>
+            <div className="links">
+              <a href="https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s">
                 The Continuity of Splines
               </a>
             </div>
           </div>
         </div>
         <footer>
-          <p onClick={handleNavigateTeam}>Team</p>
+          <p className="TeamLink" onClick={handleNavigateTeam}>
+            Meet the Team
+          </p>
         </footer>
       </>
     </main>

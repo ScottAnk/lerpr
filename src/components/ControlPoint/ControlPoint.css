@@ -4,32 +4,47 @@
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 2px;
   grid-row-gap: 2px;
-
   border-radius: 10px;
+  border: rgb(191, 184, 184) solid;
+  margin: 10px;
+  background-color: rgba(249, 249, 249, 0.408);
 }
 .ControlPointContainer > * {
   padding: 5px;
+  margin: 5px;
 }
 
 .CurveLabel {
   grid-area: 1/1/3/1;
   line-height: 2em;
+  display: flex;
+  align-items: center;
 }
 
 .XLabel {
   grid-area: 1 / 2 / 1 / 2;
+  display: flex;
+  align-items: right;
+  justify-content: right;
 }
 .YLabel {
   grid-area: 2 / 2 / 3 / 2;
+  display: flex;
+  align-items: right;
+  justify-content: right;
 }
 
 .CoordinateX {
   grid-row: 1;
   width: 50px;
+  background-color: rgba(205, 96, 96, 0.754);
+  color: rgb(231, 228, 228);
 }
 .CoordinateY {
   grid-row: 2;
   width: 50px;
+  background-color: rgb(123, 183, 123);
+  color: rgb(231, 228, 228);
 }
 
 .ControlPointContainer > form {
