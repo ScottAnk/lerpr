@@ -19,10 +19,10 @@ async function createCurve(req, res, next) {
 // Delete all curves (clear button)
 async function clearCurves(req, res, next) {
   try {
-    const sandboxId = req.body.sandboxId
+    const sandboxId = req.body.sandbox._id
     const sandbox = await Sandbox.findById(sandboxId)
     sandbox.curves.pull({})
-    return sandbox.save().then(() => res.sendStatus(204))
+    sandbox.save().then(() => res.sendStatus(204))
   } catch (error) {
     console.log(error)
     next(error)

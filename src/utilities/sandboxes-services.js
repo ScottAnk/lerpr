@@ -10,5 +10,15 @@ export async function saveFirstSandbox(sandboxData, curveData) {
     curvesAPI.createCurve(sandboxId, curve)
   })
 
-  return sandbox
+  const newSandbox = await sandboxesAPI.findSandboxById(sandboxId)
+
+  return newSandbox
+}
+
+// delete sandbox
+
+/* WORKS, THROWS A STRANGE "UNEXPECTED END OF INPUT (JSON) ERROR" THOUGH */
+export async function deleteSandbox(sandbox) {
+  const sandboxId = sandbox.sandbox._id
+  await sandboxesAPI.deleteSandbox(sandboxId)
 }

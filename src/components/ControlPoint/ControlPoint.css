@@ -5,9 +5,10 @@
   grid-column-gap: 2px;
   grid-row-gap: 2px;
   border-radius: 10px;
-  border: rgb(191, 184, 184) solid;
+  border: 5px solid #7E5A3D;
   margin: 10px;
-  background-color: rgba(249, 249, 249, 0.408);
+  padding: 10px;
+  background-color: #F8ECDE;
 }
 .ControlPointContainer > * {
   padding: 5px;

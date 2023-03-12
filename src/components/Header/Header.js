@@ -1,9 +1,10 @@
 import NavBar from '../../components/NavBar/NavBar'
 import './Header.css'
-import 'react-responsive-modal/styles.css'
+// import 'react-responsive-modal/styles.css'
 import { Modal } from 'react-responsive-modal'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 import { logOut } from '../../utilities/users-service'
+import lerpr from '../../assets/lerpr.png'
 
 export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
   function handleSignIn() {
@@ -22,18 +23,34 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
     <main className="Header">
       <div className="HeaderAuthContainer">
         <h3>Lerp Coin</h3>
-        <h1 className='AppTitle'>Lerpr</h1>
-        <div className='UserSign'>
+        <div className='TitleContainer'>
+          <img className="AppLogo" src={lerpr}></img>
+          <h1 className="AppTitle">Lerpr</h1>
+        </div>
+        <div className="UserSign">
           {user ? (
             <>
-              <p>Hello, <span style={{
-                textDecoration: "underline",
-                fontWeight: "bold"
-              }}>{user.name}</span>&nbsp; | &nbsp;</p>
-              <p className="link" onClick={handleSignOut}> Sign Out </p>
+              <p>
+                Hello,{' '}
+                <span
+                  style={{
+                    textDecoration: 'underline',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {user.name}
+                </span>
+                &nbsp; | &nbsp;
+              </p>
+              <p className="link" onClick={handleSignOut}>
+                {' '}
+                Sign Out{' '}
+              </p>
             </>
           ) : (
-            <p className="link" onClick={handleSignIn}>Sign In</p>
+            <p className="link" onClick={handleSignIn}>
+              Sign In
+            </p>
           )}
         </div>
       </div>
