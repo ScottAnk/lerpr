@@ -3,4 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 10px;
+}
+
+.GradientDisplayContainer > * {
+  padding: 5px;
+  margin: 5px;
+}
+
+.ColorPickerLabel {
+  display: flex;
+  align-items: center;
 }
