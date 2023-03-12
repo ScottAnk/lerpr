@@ -14,21 +14,14 @@ export default function GradientDisplay({ curves }) {
   }
 
   // sample points along the curves
-  console.log('processing first curve')
   let curveSamples = sample100points(curves[0])
   for (let i = 1; i < curves.length; i++) {
-    console.log(`processing curve ${i}`)
-    console.log(curves[i])
     curveSamples = curveSamples.concat(sample100points(curves[i]))
   }
-  console.log(
-    `drawing gradient. processed ${curveSamples.length} curve samples`
-  )
 
   // convert curves's (x,y) coordinates into stops on the gradient
   let gradientStops = ''
   for (let point of curveSamples) {
-    console.log('point: ', point)
     // CSS gradient stop points needs a % value to position the stop point on the object's dimensions
     const gradientProgess = Math.floor(
       ((point.x - curves[0].startPoint.x) /
@@ -48,6 +41,8 @@ export default function GradientDisplay({ curves }) {
     height: '100px',
     width: '400px',
     background: gradientString,
+    border: '5px solid #7E5A3D',
+    borderRadius: '10px'
   }
 
   return (

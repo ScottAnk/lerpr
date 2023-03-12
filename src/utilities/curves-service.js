@@ -1,3 +1,6 @@
+import * as sandboxesAPI from './sandboxes-api'
+import * as curvesAPI from './curves-api'
+
 export function sample100points(curve) {
   const subsamples = []
 
@@ -26,4 +29,11 @@ export function sample100points(curve) {
     subsamples.push({ x, y })
   }
   return subsamples
+}
+
+export async function clearAllCurves(sandbox) {
+  await curvesAPI.clearCurves(sandbox)
+  const sansCurves = await sandboxesAPI.findSandboxById(sandbox.sandbox._id)
+
+  return sansCurves
 }

@@ -21,7 +21,6 @@ export default function Sandbox({ curves }) {
   // ]
 
   useEffect(() => {
-    console.log('use effect')
     const board = document.querySelector('#sandbox')
     const pen = board.getContext('2d')
 
@@ -40,11 +39,9 @@ export default function Sandbox({ curves }) {
     for (let i = 0; i < curves.length; i++) {
       // loop over each curve in cuves
       const curve = curves[i]
-      console.log(curve)
 
       // draw circles at each anchor and control point
       for (let point in curve) {
-        console.log(point)
         pen.drawCircle(curve[point].x, curve[point].y, 5, curve[point].solid)
       }
 

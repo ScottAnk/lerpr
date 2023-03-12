@@ -36,13 +36,6 @@ a {
   cursor: inherit;
 }
 
-.img {
-  width: 200px;
-  max-height: 200px;
-  border-radius: 100px;
-  border: solid black 5px;
-}
-
 .LinkedIn {
   padding: 20px;
   background-color: rgba(249, 249, 249, 0.408);

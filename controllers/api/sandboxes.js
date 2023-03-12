@@ -20,8 +20,8 @@ async function createSandbox(req, res, next) {
 async function deleteSandbox(req, res, next) {
     try {
     const sandbox = await Sandbox.findById(req.params.id)
-    sandbox.deleteOne()
-    return res.sendStatus(204)
+    return sandbox.deleteOne()
+        .then(() => res.sendStatus(204))
     }
     catch(error){
         next(error)
@@ -34,10 +34,8 @@ async function deleteSandbox(req, res, next) {
 async function indexSandbox(req, res, next) {
     try{
         const sandboxes = await Sandbox.find()
-        console.log(sandboxes)
         if(!sandboxes) return new Error('No sandboxes available')
         const sandbox = sandboxes.map(sandboxes => sandboxes)
-        console.log(sandbox)
         return res.status(200).json({ sandbox: sandbox})
     }
     catch(error) {
@@ -54,7 +52,6 @@ async function findSandboxesByOwner(req, res, next) {
         const sandboxes = await Sandbox.find({ owner: user})
         if(!sandboxes) return new Error('No sandboxes available')
         const sandbox = sandboxes.map(sandboxes => sandboxes)
-        console.log(sandbox)
         return res.status(200).json({ sandbox: sandbox})
     }
     catch(error) {
