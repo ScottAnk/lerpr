@@ -17,28 +17,29 @@ export default function TaskBar({
   sandbox,
   setSandbox,
   makeThumbnail,
-  exportRef
+  exportRef,
 }) {
-
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
 
   async function handleSave() {
     if (!user) setOpenSignIn(true)
     if (user) {
-     const savedSandbox = await sandboxesServices.saveFirstSandbox(sandbox, curves)
-    //  const savedCurves = savedSandbox.curves
-    //  setCurves(savedCurves)
-     setSandbox(savedSandbox)
+      const savedSandbox = await sandboxesServices.saveFirstSandbox(
+        sandbox,
+        curves
+      )
+      //  const savedCurves = savedSandbox.curves
+      //  setCurves(savedCurves)
+      setSandbox(savedSandbox)
     }
   }
-
 
   async function handleThumbnail() {
     // scott helped with this
     const thumbnail = await exportAsImage(exportRef.current)
-    setSandbox({...sandbox, dataURL: thumbnail })
+    setSandbox({ ...sandbox, dataURL: thumbnail })
   }
-  
+
   async function handleDeleteCurve() {
     console.log('wow')
   }
@@ -46,6 +47,8 @@ export default function TaskBar({
   async function handleClear() {
     const newSandbox = await curvesServices.clearAllCurves(sandbox)
     setSandbox(newSandbox)
+    setCurves(newSandbox.sandbox.curves)
+    setOpenClearPrompt(false)
   }
 
   async function handleDelete() {
@@ -87,7 +90,9 @@ export default function TaskBar({
         center
       >
         <h3>Are you sure you want to delete your Sandbox?</h3>
-        <h3><b>this cannot be undone!</b></h3>
+        <h3>
+          <b>this cannot be undone!</b>
+        </h3>
         <button onClick={() => setOpenDeletePrompt(false)}>No</button>
         <button onClick={handleDelete}>Yes</button>
       </Modal>
