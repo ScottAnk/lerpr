@@ -3,6 +3,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 10px;
+}
+
+.ColorPickerLabel {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.ColorPickerLabel > input {
+  margin-left: 5px;
 }
 
 .colorpicker {

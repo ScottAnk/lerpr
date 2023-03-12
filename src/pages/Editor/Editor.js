@@ -13,6 +13,9 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
   const [open, setOpen] = useState(false)
   const [openClearPrompt, setOpenClearPrompt] = useState(false)
   const [sandbox, setSandbox] = useState({ name: 'yourSandBox' })
+  const [colorStart, setColorStart]=useState({r:198, g:153, b:128})
+  const [colorStop, setColorStop]=useState({r:162, g:181, b:221})
+
   // TODO this needs to be initialized to an empty array in deployment
   const linkedPoint = { x: 300, y: 300, solid: true }
   const linkedPoint2 = { x: 600, y: 0, solid: true }
@@ -46,7 +49,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
           <Sandbox curves={curves} exportRef={exportRef}/>
           <div className="InnerEditorContainer">
             <ControlPanel curves={curves} setCurves={setCurves} />
-            <GradientDisplay curves={curves} />
+            <GradientDisplay curves={curves} colorStart={colorStart} colorStop={colorStop} setColorStart={setColorStart} setColorStop={setColorStop} />
           </div>
         </div>
       </main>
