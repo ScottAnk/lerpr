@@ -13,6 +13,10 @@ const sandboxSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    dataURL: {
+      type: String,
+      required: true,
+    },
     curves: [
       curveSchema
     ],

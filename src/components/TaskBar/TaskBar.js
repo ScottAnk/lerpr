@@ -1,6 +1,7 @@
 import './TaskBar.css'
 // import 'react-responsive-modal/styles.css'
 
+import exportAsImage from '../../utilities/export-as-image'
 import { Modal } from 'react-responsive-modal'
 import { useState } from 'react'
 import * as sandboxesServices from '../../utilities/sandboxes-services'
@@ -15,6 +16,8 @@ export default function TaskBar({
   setCurves,
   sandbox,
   setSandbox,
+  makeThumbnail,
+  exportRef
 }) {
 
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
@@ -29,14 +32,19 @@ export default function TaskBar({
     }
   }
 
+
+  async function handleThumbnail() {
+    // scott helped with this
+    const thumbnail = await exportAsImage(exportRef.current)
+    setSandbox({...sandbox, dataURL: thumbnail })
+  }
+  
   async function handleDeleteCurve() {
     console.log('wow')
   }
 
   async function handleClear() {
     const newSandbox = await curvesServices.clearAllCurves(sandbox)
-    // suspecting "unexpected end of JSON input" is not allowing console logs to push through
-    console.log(newSandbox)
     setSandbox(newSandbox)
   }
 
@@ -51,6 +59,7 @@ export default function TaskBar({
   return (
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
+      <button onClick={handleThumbnail}>make thumbnail</button>
       <button onClick={handleDeleteCurve}>Delete Selected Curve</button>
       <button onClick={() => setOpenClearPrompt(true)}>Clear Sandbox</button>
       <button onClick={handleSave}>Save Sandbox</button>

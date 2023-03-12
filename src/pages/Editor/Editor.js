@@ -1,7 +1,7 @@
 import './Editor.css'
 import 'react-responsive-modal/styles.css'
 import { Modal } from 'react-responsive-modal'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Sandbox from '../../components/Sandbox/Sandbox'
 import ControlPanel from '../../components/ControlPanel/ControlPanel'
 import GradientDisplay from '../../components/GradientDisplay/GradientDisplay'
@@ -9,8 +9,8 @@ import TaskBar from '../../components/TaskBar/TaskBar'
 import AuthPage from '../AuthPage/AuthPage'
 
 export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
+  const exportRef = useRef()
   const [open, setOpen] = useState(false)
-
   const [openClearPrompt, setOpenClearPrompt] = useState(false)
   const [sandbox, setSandbox] = useState({ name: 'yourSandBox' })
   // TODO this needs to be initialized to an empty array in deployment
@@ -43,7 +43,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
         <h1>Sandbox</h1>
 
         <div className="MainEditorContainer">
-          <Sandbox curves={curves} />
+          <Sandbox curves={curves} exportRef={exportRef}/>
           <div className="InnerEditorContainer">
             <ControlPanel curves={curves} setCurves={setCurves} />
             <GradientDisplay curves={curves} />
@@ -61,6 +61,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
           open={openClearPrompt}
           sandbox={sandbox}
           setSandbox={setSandbox}
+          exportRef={exportRef}
         />
 
         <div>
