@@ -1,5 +1,6 @@
 import './TaskBar.css'
 
+import exportAsImage from '../../utilities/export-as-image'
 import { Modal } from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
 import * as sandboxesServices from '../../utilities/sandboxes-services'
@@ -13,6 +14,8 @@ export default function TaskBar({
   setCurves,
   sandbox,
   setSandbox,
+  makeThumbnail,
+  exportRef
 }) {
   async function handleSave() {
     if (!user) setOpenSignIn(true)
@@ -21,12 +24,18 @@ export default function TaskBar({
     }
   }
 
+  async function handleThumbnail() {
+    const thumbnail = await exportAsImage(exportRef.current)
+    setSandbox({...sandbox, dataURL: thumbnail })
+  }
+
   function handleClear() {
     alert('Yeet')
   }
 
   return (
     <div className="TaskBar">
+      <button onClick={handleThumbnail}>make thumbnail</button>
       <button onClick={() => setOpenClearPrompt(true)}>Clear</button>
       <button>New Sandbox</button>
       <button onClick={handleSave}>Save</button>

@@ -1,7 +1,7 @@
 import './Sandbox.css'
 import { useEffect } from 'react'
 
-export default function Sandbox({ curves }) {
+export default function Sandbox({ curves, exportRef }) {
   // TODO express point coordinates as fractions of dynamic canvase dimentions
 
   // this component expects a curves prop of this format:
@@ -19,6 +19,7 @@ export default function Sandbox({ curves }) {
   //     { x: 600, y: 600, solid: true },
   //   ],
   // ]
+
 
   useEffect(() => {
     console.log('use effect')
@@ -66,6 +67,6 @@ export default function Sandbox({ curves }) {
   }, [curves])
 
   return (
-    <canvas className="Sandbox" id="sandbox" width="900" height="600"></canvas>
+    <canvas className="Sandbox" id="sandbox" width="900" height="600" ref={exportRef}></canvas>
   )
 }
