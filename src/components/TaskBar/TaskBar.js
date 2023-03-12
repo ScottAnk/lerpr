@@ -12,6 +12,7 @@ export default function TaskBar({
   user,
   openClearPrompt,
   setOpenClearPrompt,
+  deleteClass,
   curves,
   setCurves,
   sandbox,
@@ -60,7 +61,8 @@ export default function TaskBar({
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
       <button onClick={handleThumbnail}>make thumbnail</button>
-      <button onClick={handleDeleteCurve}>Delete Selected Curve</button>
+      <button style={{
+        backgroundColor: deleteClass ? "yellow" : ""}} onClick={handleDeleteCurve} value={curves}>Delete Selected Curve</button>
       <button onClick={() => setOpenClearPrompt(true)}>Clear Sandbox</button>
       <button onClick={handleSave}>Save Sandbox</button>
       <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>
