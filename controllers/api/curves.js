@@ -54,8 +54,3 @@ module.exports = {
   clearCurves,
   deleteOneCurve,
 }
-
-// { "sandbox": {
-//   "sandboxId": "640b94f212893c6fc6ca7737"
-// }
-// }
