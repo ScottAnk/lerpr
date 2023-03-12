@@ -90,7 +90,7 @@ export default function GradientDisplay({
       >
         {/* CODE REVIEW: should I be using arrow functions here? */}
         <span className="ColorPickerLabel">
-          <label for="colorStart">start</label>
+          <label htmlFor="colorStart">start</label>
           <input
             name="colorStart"
             id="colorStart"
@@ -102,7 +102,7 @@ export default function GradientDisplay({
           />
         </span>
         <span className="ColorPickerLabel">
-          <label for="colorStop">stop</label>
+          <label htmlFor="colorStop">stop</label>
           <input
             name="colorStop"
             id="colorStop"

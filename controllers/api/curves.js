@@ -16,13 +16,19 @@ async function createCurve(req, res, next) {
   }
 }
 
-// Delete all curves (clear button)
+// Delete all curves and send back default
 async function clearCurves(req, res, next) {
   try {
     const sandboxId = req.body.sandbox._id
     const sandbox = await Sandbox.findById(sandboxId)
     sandbox.curves.pull({})
-    sandbox.save().then(() => res.sendStatus(204))
+    sandbox.curves.push({
+      startPoint: {x:0, y:600, solid: true},
+      endPoint: {x:900, y:0, solid: true},
+      control1: {x:300, y:400, solid: false},
+      control2: {x:600, y:200, solid: false},
+    })
+    sandbox.save().then(() => res.status(201).json({ sandbox: sandbox }))
   } catch (error) {
     console.log(error)
     next(error)
@@ -48,3 +54,8 @@ module.exports = {
   clearCurves,
   deleteOneCurve,
 }
+
+// { "sandbox": {
+//   "sandboxId": "640b94f212893c6fc6ca7737"
+// }
+// }
