@@ -6,12 +6,12 @@
   margin: 10px;
 }
 
-.GradientDisplayContainer > * {
-  padding: 5px;
-  margin: 5px;
-}
-
 .ColorPickerLabel {
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
+}
+
+.ColorPickerLabel > input {
+  margin-left: 5px;
 }

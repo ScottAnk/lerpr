@@ -75,7 +75,9 @@ export default function GradientDisplay({
   const gradientString = `linear-gradient(90deg${gradientStops})`
   const gradientStyle = {
     height: '100px',
-    width: '400px',
+    width: '100%',
+    marginLeft: '40px',
+    boxSizing: 'border-box',
     background: gradientString,
   }
 
@@ -85,7 +87,9 @@ export default function GradientDisplay({
       <div
         style={{
           display: 'flex',
-          width: '400px',
+          width: '100%',
+          paddingLeft: '40px',
+          boxSizing: 'border-box',
           justifyContent: 'space-between',
         }}
       >
