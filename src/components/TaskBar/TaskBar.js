@@ -22,20 +22,27 @@ export default function TaskBar({
 }) {
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
 
+  async function handleThumbnail() {
+      // scott helped with this
+      const thumbnail = await exportAsImage(exportRef.current)
+      setSandbox({...sandbox, dataURL: thumbnail })
+    }
+
   async function handleSave() {
     if (!user) setOpenSignIn(true)
     if (user) {
-      const savedSandbox = await sandboxesServices.saveFirstSandbox(sandbox)
-      setSandbox(savedSandbox)
+      const thumbnail = await exportAsImage(exportRef.current)
+      setSandbox({...sandbox, dataURL: thumbnail })
+      const savedSandbox = await sandboxesServices.saveFirstSandbox(sandbox, curves)
+    //  const savedCurves = savedSandbox.curves
+    //  setCurves(savedCurves)
+     setSandbox(savedSandbox)
     }
   }
 
-  async function handleThumbnail() {
-    // scott helped with this
-    const thumbnail = await exportAsImage(exportRef.current)
-    setSandbox({ ...sandbox, dataURL: thumbnail })
-  }
 
+  
+  
   async function handleDeleteCurve() {
     console.log('wow')
   }

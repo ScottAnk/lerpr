@@ -8,6 +8,13 @@ export async function saveFirstSandbox(sandboxData) {
   return response.sandbox
 }
 
+// indexes all sandboxes for community page
+export async function indexAllSandboxes() {
+  const sandboxes = await sandboxesAPI.indexSandboxes()
+  console.log(sandboxes)
+  return sandboxes.sandbox
+}
+
 // delete sandbox
 
 export async function deleteSandbox(sandbox) {

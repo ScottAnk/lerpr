@@ -5,8 +5,8 @@ export function createSandbox(sandboxData) {
   return sendRequest(BASE_URL + '/api/sandboxes', 'POST', sandboxData)
 }
 
-export function indexSandbox() {
-  return sendRequest(BASE_URL, 'GET')
+export function indexSandboxes() {
+  return sendRequest(BASE_URL + '/api/sandboxes', 'GET')
 }
 
 export function findSandboxesByOwner() {
