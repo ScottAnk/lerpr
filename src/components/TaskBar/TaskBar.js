@@ -25,6 +25,7 @@ export default function TaskBar({
   }
 
   async function handleThumbnail() {
+    // scott helped with this
     const thumbnail = await exportAsImage(exportRef.current)
     setSandbox({...sandbox, dataURL: thumbnail })
   }
