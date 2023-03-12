@@ -15,7 +15,7 @@ const sandboxSchema = new Schema(
     },
     dataURL: {
       type: String,
-      required: true,
+      required: false,
     },
     curves: [
       curveSchema
