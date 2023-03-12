@@ -65,7 +65,7 @@ async function findSandboxesByOwner(req, res, next) {
 async function findSandboxById(req, res, next) {
     try {
         const sandbox = await Sandbox.findById(req.params.id)
-        if(!sandbox) return new Error('No sandbox available')
+        if(!sandbox) return next(new Error('No sandbox available'))
         return res.status(200).json({ sandbox: sandbox })
     }
     catch(error) {
