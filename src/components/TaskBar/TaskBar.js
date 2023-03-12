@@ -25,12 +25,7 @@ export default function TaskBar({
   async function handleSave() {
     if (!user) setOpenSignIn(true)
     if (user) {
-      const savedSandbox = await sandboxesServices.saveFirstSandbox(
-        sandbox,
-        curves
-      )
-      //  const savedCurves = savedSandbox.curves
-      //  setCurves(savedCurves)
+      const savedSandbox = await sandboxesServices.saveFirstSandbox(sandbox)
       setSandbox(savedSandbox)
     }
   }
@@ -48,7 +43,7 @@ export default function TaskBar({
   async function handleClear() {
     const newSandbox = await curvesServices.clearAllCurves(sandbox)
     setSandbox(newSandbox)
-    setCurves(newSandbox.sandbox.curves)
+    setCurves(newSandbox.curves)
     setOpenClearPrompt(false)
   }
 
@@ -64,8 +59,15 @@ export default function TaskBar({
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
       <button onClick={handleThumbnail}>make thumbnail</button>
-      <button style={{
-        backgroundColor: deleteClass ? "yellow" : ""}} onClick={handleDeleteCurve} value={curves}>Delete Selected Curve</button>
+      <button
+        style={{
+          backgroundColor: deleteClass ? 'yellow' : '',
+        }}
+        onClick={handleDeleteCurve}
+        value={curves}
+      >
+        Delete Selected Curve
+      </button>
       <button onClick={() => setOpenClearPrompt(true)}>Clear Sandbox</button>
       <button onClick={handleSave}>Save Sandbox</button>
       <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>

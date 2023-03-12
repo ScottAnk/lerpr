@@ -2,23 +2,15 @@ import * as sandboxesAPI from './sandboxes-api'
 import * as curvesAPI from './curves-api'
 
 // initial sandbox creation
-export async function saveFirstSandbox(sandboxData, curveData) {
-  const sandbox = await sandboxesAPI.createSandbox(sandboxData)
-  const sandboxId = sandbox.sandbox._id
+export async function saveFirstSandbox(sandboxData) {
+  const response = await sandboxesAPI.createSandbox(sandboxData)
 
-  await curveData.forEach((curve) => {
-    curvesAPI.createCurve(sandboxId, curve)
-  })
-
-  const newSandbox = await sandboxesAPI.findSandboxById(sandboxId)
-
-  return newSandbox
+  return response.sandbox
 }
 
 // delete sandbox
 
-/* WORKS, THROWS A STRANGE "UNEXPECTED END OF INPUT (JSON) ERROR" THOUGH */
 export async function deleteSandbox(sandbox) {
-  const sandboxId = sandbox.sandbox._id
+  const sandboxId = sandbox._id
   await sandboxesAPI.deleteSandbox(sandboxId)
 }
