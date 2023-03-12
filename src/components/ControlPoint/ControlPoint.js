@@ -2,16 +2,23 @@ import './ControlPoint.css'
 
 import Coordinate from '../Coordinate/Coordinate'
 
-export default function ControlPoint({ curve, curveIndex, modifyCurve }) {
+export default function ControlPoint({ curve, curveIndex, modifyCurve, deleteClass, setDeleteClass }) {
   function modifyCoordinate(coordinateIndex, newCoordinate) {
     const newCurve = { ...curve }
     newCurve[coordinateIndex] = newCoordinate
     modifyCurve(curveIndex, newCurve)
   }
 
+  function selectCurve() {
+    setDeleteClass(!deleteClass)
+  }
+
   return (
     <li className="ControlPointContainer">
-      <span className="CurveLabel">curve {curveIndex}</span>
+      <span className="CurveLabel" 
+      onClick={selectCurve}
+      style={{cursor: "grab"}}
+      >curve {curveIndex}</span>
       <span className="XLabel">X</span>
       <span className="YLabel">Y</span>
       {/* list out x.y coordinates */}

@@ -16,6 +16,10 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
   const [colorStart, setColorStart]=useState({r:198, g:153, b:128})
   const [colorStop, setColorStop]=useState({r:162, g:181, b:221})
 
+  // selecting specific curves
+  const [selectedCurve, setSelectedCurve] = useState()
+  const [deleteClass, setDeleteClass] = useState(false)
+
   // TODO this needs to be initialized to an empty array in deployment
   const linkedPoint = { x: 300, y: 300, solid: true }
   const linkedPoint2 = { x: 600, y: 0, solid: true }
@@ -40,6 +44,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
     },
   ])
 
+
   return (
     <>
       <main className="Editor">
@@ -48,7 +53,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
         <div className="MainEditorContainer">
           <Sandbox curves={curves} exportRef={exportRef}/>
           <div className="InnerEditorContainer">
-            <ControlPanel curves={curves} setCurves={setCurves} />
+            <ControlPanel curves={curves} setCurves={setCurves} deleteClass={deleteClass} setDeleteClass={setDeleteClass} />
             <GradientDisplay curves={curves} colorStart={colorStart} colorStop={colorStop} setColorStart={setColorStart} setColorStop={setColorStop} />
           </div>
         </div>
@@ -65,6 +70,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
           sandbox={sandbox}
           setSandbox={setSandbox}
           exportRef={exportRef}
+          deleteClass={deleteClass}
         />
 
         <div>

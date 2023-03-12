@@ -31,6 +31,10 @@ export function sample100points(curve) {
   return subsamples
 }
 
+// export async function clearSelectedCurve(curveId) {
+//   await curvesAPI.deleteCurve(curveId, sandboxId)
+// }
+
 export async function clearAllCurves(sandbox) {
   await curvesAPI.clearCurves(sandbox)
   const sansCurves = await sandboxesAPI.findSandboxById(sandbox.sandbox._id)

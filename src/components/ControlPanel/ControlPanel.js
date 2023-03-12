@@ -1,7 +1,7 @@
 import './ControlPanel.css'
 
 import ControlPoint from '../ControlPoint/ControlPoint'
-export default function ControlPanel({ curves, setCurves }) {
+export default function ControlPanel({ curves, setCurves, deleteClass, setDeleteClass }) {
   // this component expects a curves prop of this format:
   // const curves = [
   //   [
@@ -34,6 +34,8 @@ export default function ControlPanel({ curves, setCurves }) {
             curve={curve}
             curveIndex={index}
             modifyCurve={modifyCurve}
+            deleteClass={deleteClass}
+            setDeleteClass={setDeleteClass}
           />
         ))}
       </ul>
