@@ -12,7 +12,7 @@ module.exports = async function (req, res, next) {
     const newSandbox = await Sandbox.create({
       name: baseSandbox.name,
       owner: req.user._id,
-      dataURL: baseSandbox?.dataURL,
+      dataURL: baseSandbox.dataURL,
       curves: baseSandbox.curves,
       colorStart: baseSandbox.colorStart,
       colorEnd: baseSandbox.colorEnd,
