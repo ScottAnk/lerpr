@@ -9,10 +9,7 @@ export default function MySandboxes() {
 
   async function index() {
     const sandboxes = await sandboxServices.indexMySandboxes()
-    const dataIds = sandboxes.map((sandbox) => {
-      return sandbox.dataURL
-    })
-    return dataIds
+    return sandboxes
   }
 
   async function generateThumbnails() {
@@ -27,8 +24,8 @@ export default function MySandboxes() {
 
   return (
     <div className="thumbnail-container">
-      {sandboxes.map((url, index) => (
-        <Thumbnail url={url} key={index} />
+      {sandboxes.map((sandbox, index) => (
+        <Thumbnail sandbox={sandbox} key={index} />
       ))}
     </div>
   )
