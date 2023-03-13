@@ -1,18 +1,28 @@
 import './Thumbnail.css'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function Thumbnail({ sandbox }) {
-
+export default function Thumbnail({ sandboxInstance, setSandbox }) {
   let location = useLocation()
-  console.log(location.pathname)
+
+  function handleLink() {
+    setSandbox(sandboxInstance)
+  }
 
   return (
     <>
-      <Link to="#">
+      <Link to="/editor" onClick={() => handleLink()}>
         <div className="thumbnail-card">
-          <img src={sandbox.dataURL} className="thumbnail" alt="thumbnail"></img>
-          <h3><strong>{sandbox.name}</strong></h3>
-          {location.pathname === '/mysandboxes' ? null : <h5>By {sandbox.owner.name}</h5>}
+          <img
+            src={sandboxInstance.dataURL}
+            className="thumbnail"
+            alt="thumbnail"
+          ></img>
+          <h3>
+            <strong>{sandboxInstance.name}</strong>
+          </h3>
+          {location.pathname === '/mysandboxes' ? null : (
+            <h5>By {sandboxInstance.owner.name}</h5>
+          )}
         </div>
       </Link>
     </>
