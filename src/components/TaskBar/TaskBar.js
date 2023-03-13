@@ -156,7 +156,7 @@ export default function TaskBar({
         Save Sandbox
       </button>
       <button onClick={() => setOpenHelp(true)}>Help</button>
-      <button onClick = {splitCurve}>Split</button>
+      <button onClick = {splitCurve}>Split Curve</button>
       <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>
       <Modal
         classNames={{
