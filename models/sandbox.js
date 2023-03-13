@@ -6,7 +6,7 @@ const sandboxSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     owner: {
       type: Schema.Types.ObjectId,
