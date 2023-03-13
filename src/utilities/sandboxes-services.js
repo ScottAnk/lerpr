@@ -11,7 +11,6 @@ export async function saveFirstSandbox(sandboxData) {
 // indexes all sandboxes for community page
 export async function indexAllSandboxes() {
   const sandboxes = await sandboxesAPI.indexSandboxes()
-  console.log(sandboxes)
   return sandboxes.sandbox
 }
 
