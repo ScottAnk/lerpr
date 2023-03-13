@@ -71,8 +71,8 @@ export default function TaskBar({
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
 
-      <button disabled={deleteStyle ? false : true}
-
+      <button
+        disabled={deleteStyle ? false : true}
         style={{
           backgroundColor: deleteStyle ? '#FFD494' : '',
         }}

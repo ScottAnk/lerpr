@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom'
 import './Resources.css'
 
+import lerpr from '../../assets/lerpr.png'
 import pierre from '../../assets/pierre.jpeg'
 
 export default function Resources() {
@@ -18,6 +19,12 @@ export default function Resources() {
         {/* link for team page */}
         <div className="flex-container">
           <div className="bezier-container">
+            <h4>Why Lerpr?</h4>
+            <p>
+              Lerpr is short for Linear Interpolation which is used for the
+              creation of Bézier curves using linear polynomials. Interpolation
+              helps estimate the value between two points.
+            </p>
             <h4>What is a Bézier Curve?</h4>
             <div className="curve-info">
               <p>
@@ -69,10 +76,34 @@ export default function Resources() {
             </div>
           </div>
         </div>
-        <footer>
-          <p className="TeamLink" onClick={handleNavigateTeam}>
-            Meet the Team
-          </p>
+        <footer className="Footer">
+          <div className="Sources">
+            <h4>Sources</h4>
+            <ul className="SourcesList">
+              <li>
+                <a href="https://www.toppr.com/guides/maths-formulas/linear-interpolation-formula/">
+                  Linear Interpolation
+                </a>
+              </li>
+              <li>
+                <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">
+                  Bézier Curves
+                </a>
+              </li>
+              <li>
+                <a href="https://en.wikipedia.org/wiki/Pierre_B%C3%A9zier">
+                  Pierre Bézier
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="TeamDiv">
+            <p className="TeamLink" onClick={handleNavigateTeam}>
+              Meet the Team
+            </p>
+            <img className="AppLogo" src={lerpr}></img>
+          </div>
         </footer>
       </>
     </main>
