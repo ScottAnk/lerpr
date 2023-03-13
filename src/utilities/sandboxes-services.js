@@ -4,7 +4,6 @@ import * as curvesAPI from './curves-api'
 // initial sandbox creation
 export async function saveFirstSandbox(sandboxData) {
   const response = await sandboxesAPI.createSandbox(sandboxData)
-
   return response.sandbox
 }
 
@@ -19,4 +18,10 @@ export async function indexAllSandboxes() {
 export async function deleteSandbox(sandbox) {
   const sandboxId = sandbox._id
   await sandboxesAPI.deleteSandbox(sandboxId)
+}
+
+// indexes a sandbox by the based on who is logged in
+export async function indexMySandboxes() {
+  const sandboxes = await sandboxesAPI.findSandboxesByOwner()
+  return sandboxes.sandbox
 }
