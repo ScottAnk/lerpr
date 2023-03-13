@@ -2,6 +2,7 @@
   display: flex;
   align-items: left;
   justify-content: space-evenly;
+  border: 1px solid black;
 }
 
 .TaskBar > * {

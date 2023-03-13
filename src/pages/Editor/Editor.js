@@ -44,7 +44,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
 
   // selecting specific curves
   const [selectedCurve, setSelectedCurve] = useState()
-  const [deleteClass, setDeleteClass] = useState(false)
+  const [deleteStyle, setDeleteStyle] = useState(false)
 
   // TODO this needs to be initialized to an empty array in deployment
   const [curves, setCurves] = useState([
@@ -74,13 +74,49 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
         <h1>Sandbox</h1>
 
         <div className="MainEditorContainer">
-          <Sandbox curves={curves} exportRef={exportRef} />
+          <div className="WorkspaceContainer">
+            <Sandbox curves={curves} exportRef={exportRef} />
+            <div className="TaskbarContainer">
+              <TaskBar
+                curves={curves}
+                setCurves={setCurves}
+                setOpenSignIn={setOpenSignIn}
+                user={user}
+                openClearPrompt={openClearPrompt}
+                setOpenClearPrompt={setOpenClearPrompt}
+                open={openClearPrompt}
+                sandbox={sandbox}
+                setSandbox={setSandbox}
+                exportRef={exportRef}
+                deleteStyle={deleteStyle}
+                setDeleteStyle={setDeleteStyle}
+                selectedCurve={selectedCurve}
+                setSelectedCurve={setSelectedCurve}
+              />
+
+              <div>
+                <Modal
+                  classNames={{
+                    overlay: 'customOverlay',
+                    modal: 'customModal',
+                  }}
+                  open={openSignIn}
+                  onClose={() => setOpenSignIn(false)}
+                  center
+                >
+                  <AuthPage setUser={setUser} setOpenSignIn={setOpenSignIn} />
+                </Modal>
+              </div>
+            </div>
+          </div>
           <div className="InnerEditorContainer">
             <ControlPanel
               curves={curves}
               setCurves={setCurves}
-              deleteClass={deleteClass}
-              setDeleteClass={setDeleteClass}
+              deleteStyle={deleteStyle}
+              setDeleteStyle={setDeleteStyle}
+              selectedCurve={selectedCurve}
+              setSelectedCurve={setSelectedCurve}
             />
             <GradientDisplay
               curves={curves}
@@ -92,35 +128,6 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
           </div>
         </div>
       </main>
-      <div className="FooterEditorContainer">
-        <TaskBar
-          curves={curves}
-          setCurves={setCurves}
-          setOpenSignIn={setOpenSignIn}
-          user={user}
-          openClearPrompt={openClearPrompt}
-          setOpenClearPrompt={setOpenClearPrompt}
-          open={openClearPrompt}
-          sandbox={sandbox}
-          setSandbox={setSandbox}
-          exportRef={exportRef}
-          deleteClass={deleteClass}
-        />
-
-        <div>
-          <Modal
-            classNames={{
-              overlay: 'customOverlay',
-              modal: 'customModal',
-            }}
-            open={openSignIn}
-            onClose={() => setOpenSignIn(false)}
-            center
-          >
-            <AuthPage setUser={setUser} setOpenSignIn={setOpenSignIn} />
-          </Modal>
-        </div>
-      </div>
     </>
   )
 }

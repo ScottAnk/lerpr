@@ -1,7 +1,14 @@
 import './ControlPanel.css'
 
 import ControlPoint from '../ControlPoint/ControlPoint'
-export default function ControlPanel({ curves, setCurves, deleteClass, setDeleteClass }) {
+export default function ControlPanel({
+  curves,
+  setCurves,
+  deleteStyle,
+  setDeleteStyle,
+  selectedCurve,
+  setSelectedCurve,
+}) {
   // this component expects a curves prop of this format:
   // const curves = [
   //   [
@@ -25,20 +32,24 @@ export default function ControlPanel({ curves, setCurves, deleteClass, setDelete
   }
 
   return (
-    <div className="ControlPanelMain">
-      <h3>Control Panel</h3>
-      <ul>
-        {curves.map((curve, index) => (
-          <ControlPoint
-            key={index}
-            curve={curve}
-            curveIndex={index}
-            modifyCurve={modifyCurve}
-            deleteClass={deleteClass}
-            setDeleteClass={setDeleteClass}
-          />
-        ))}
-      </ul>
-    </div>
+    <>
+      <h3 style={{textAlign: 'center'}}><u>Control Panel</u></h3>
+      <div className="ControlPanelMain">
+        <ul>
+          {curves.map((curve, index) => (
+            <ControlPoint
+              key={index}
+              curve={curve}
+              curveIndex={index}
+              modifyCurve={modifyCurve}
+              deleteStyle={deleteStyle}
+              setDeleteStyle={setDeleteStyle}
+              selectedCurve={selectedCurve}
+              setSelectedCurve={setSelectedCurve}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }

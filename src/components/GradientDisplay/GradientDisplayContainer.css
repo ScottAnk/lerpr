@@ -6,6 +6,12 @@
   margin: 10px;
 }
 
+.ColorPickerContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
 .ColorPickerLabel {
   display: flex;
   align-items: center;
@@ -14,11 +20,4 @@
 
 .ColorPickerLabel > input {
   margin-left: 5px;
-}
-
-.colorpicker {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
 }

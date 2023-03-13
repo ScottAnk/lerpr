@@ -64,6 +64,6 @@ export default function Sandbox({ curves, exportRef }) {
   }, [curves])
 
   return (
-    <canvas className="Sandbox" id="sandbox" width="900" height="600" ref={exportRef}></canvas>
+    <canvas className="Sandbox" id="sandbox" width="900px" height="600px" ref={exportRef}></canvas>
   )
 }
