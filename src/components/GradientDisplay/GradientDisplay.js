@@ -69,7 +69,6 @@ export default function GradientDisplay({
   const gradientStyle = {
     height: '100px',
     width: '100%',
-    marginLeft: '40px',
     boxSizing: 'border-box',
     background: gradientString,
     border: '5px solid #7E5A3D',
@@ -78,16 +77,8 @@ export default function GradientDisplay({
 
   return (
     <div className="GradientDisplayContainer">
-      <h3>Gradient Display</h3>
-      <div
-        style={{
-          display: 'flex',
-          width: '100%',
-          paddingLeft: '40px',
-          boxSizing: 'border-box',
-          justifyContent: 'space-between',
-        }}
-      >
+      <h3><u>Gradient Display</u></h3>
+      <div className="ColorPickerContainer">
         {/* CODE REVIEW: should I be using arrow functions here? */}
         <span className="ColorPickerLabel">
           <label htmlFor="colorStart">start</label>

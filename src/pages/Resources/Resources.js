@@ -53,9 +53,19 @@ export default function Resources() {
           <div className="links-container">
             <h3>Want to learn more?</h3>
             <div className="links">
-              <a href="https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s">
+              <h2>The Continuity of Splines</h2>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/jvPPXbo87ds"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+              {/* <a href="https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s">
                 The Continuity of Splines
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

@@ -31,6 +31,30 @@ export function sample100points(curve) {
   return subsamples
 }
 
+export async function deleteSelectedCurve(curves, curveIndex) {
+  if (curves.length === 1) return curves
+
+  else if (curveIndex == 0) {
+    const nextCurve = 1
+    curves[nextCurve].startPoint = curves[curveIndex].startPoint
+    curves.splice(curveIndex, 1)
+    // set second curve start point to be bottom-left corner
+  }
+  else if (curveIndex == curves.length - 1) {
+    const previousCurve = curveIndex - 1
+    curves[previousCurve].endPoint = curves[curveIndex].endPoint
+    curves.splice(curveIndex, 1)
+  }
+  else {
+    const nextCurve = curveIndex + 1
+    curves[nextCurve].startPoint = curves[curveIndex].startPoint
+    curves.splice(curveIndex, 1)
+
+    // set the start of the next curve to be the start of the curve being deleted
+  }
+  return curves
+}
+
 export async function clearAllCurves(sandbox) {
   sandbox.curves = [
     {

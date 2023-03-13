@@ -20,6 +20,13 @@
   line-height: 2em;
   display: flex;
   align-items: center;
+  cursor: grab;
+}
+
+.CurveIndex {
+  margin-left: 5px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .XLabel {

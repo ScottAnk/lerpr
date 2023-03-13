@@ -1,39 +1,48 @@
 /* COLOR PALETTE */
 :root {
-    --pagebg: #AB8A6F;
-    --divbg: #F8ECDE;
-    --divborder: #7E5A3D;
-    --olive: #8b956d;
-    --lightbrown: #fce0bc;
-    --darkbrown: #4f433e;
-    --orange: #edc6a8;
-    --text-light: #e3c8b2;
-    --text-dark: #615954;
+  --pagebg: #ab8a6f;
+  --divbg: #f8ecde;
+  --divborder: #7e5a3d;
+  --olive: #8b956d;
+  --lightbrown: #fce0bc;
+  --darkbrown: #4f433e;
+  --orange: #edc6a8;
+  --text-light: #e3c8b2;
+  --text-dark: #615954;
 }
 
 body {
-    background-color: var(--pagebg);
+  background-color: var(--pagebg);
 }
 
 * {
-    font-family: sans-serif;
+  font-family: sans-serif;
+}
+
+ul {
+  padding-inline-start: 0;
 }
 
 .img {
-    width: 200px;
-    max-height: 200px;
-    border-radius: 100px;
-    border: solid black 5px;
-  }
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 5px;
+  border: solid black 5px;
+}
+
+button:disabled {
+  color: white;
+  border-color: lightgrey;
+}
 
 h1 {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 :link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .link {
-    cursor: pointer;
+  cursor: pointer;
 }

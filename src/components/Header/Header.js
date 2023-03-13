@@ -22,36 +22,38 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
   return (
     <main className="Header">
       <div className="HeaderAuthContainer">
-        <h3>Lerp Coin</h3>
-        <div className='TitleContainer'>
+        <h3 className="CoinContainer">Lerp Coin</h3>
+        <div className="TitleContainer">
           <img className="AppLogo" src={lerpr}></img>
           <h1 className="AppTitle">Lerpr</h1>
         </div>
-        <div className="UserSign">
-          {user ? (
-            <>
-              <p>
-                Hello,{' '}
-                <span
-                  style={{
-                    textDecoration: 'underline',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {user.name}
-                </span>
-                &nbsp; | &nbsp;
+        <div className="SignContainer">
+          <div className="UserSign">
+            {user ? (
+              <>
+                <p>
+                  Hello,{' '}
+                  <span
+                    style={{
+                      textDecoration: 'underline',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {user.name}
+                  </span>
+                  &nbsp; | &nbsp;
+                </p>
+                <p className="link" onClick={handleSignOut}>
+                  {' '}
+                  Sign Out{' '}
+                </p>
+              </>
+            ) : (
+              <p className="link" onClick={handleSignIn}>
+                Sign In
               </p>
-              <p className="link" onClick={handleSignOut}>
-                {' '}
-                Sign Out{' '}
-              </p>
-            </>
-          ) : (
-            <p className="link" onClick={handleSignIn}>
-              Sign In
-            </p>
-          )}
+            )}
+          </div>
         </div>
       </div>
       <NavBar />
