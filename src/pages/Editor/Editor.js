@@ -16,7 +16,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
   const linkedPoint = { x: 300, y: 300, solid: true }
   const linkedPoint2 = { x: 600, y: 0, solid: true }
   const [sandbox, setSandbox] = useState({
-    name: 'yourSandBox',
+    name: '',
     colorStart: { r: 198, g: 153, b: 128 },
     colorEnd: { r: 162, g: 181, b: 221 },
     curves: [

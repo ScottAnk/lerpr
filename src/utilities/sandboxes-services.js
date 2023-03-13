@@ -2,9 +2,15 @@ import * as sandboxesAPI from './sandboxes-api'
 import * as curvesAPI from './curves-api'
 
 // initial sandbox creation
-export async function saveFirstSandbox(sandboxData) {
+export async function createNewSandbox(sandboxData) {
   const response = await sandboxesAPI.createSandbox(sandboxData)
   return response.sandbox
+}
+
+// update sandbox
+export async function updateSandbox(sandbox) {
+  const sandboxId = sandbox._id
+  const response = await sandboxesAPI.updateSandbox(sandboxId, sandbox)
 }
 
 // indexes all sandboxes for community page
