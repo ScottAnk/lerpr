@@ -66,9 +66,9 @@ export default function Resources() {
                 height="315"
                 src="https://www.youtube.com/embed/jvPPXbo87ds"
                 title="YouTube video player"
-                frameborder="0"
+                playbackRate='5'
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
               {/* <a href="https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s">
                 The Continuity of Splines
