@@ -13,8 +13,6 @@ export default function TaskBar({
   setOpenClearPrompt,
   deleteStyle,
   setDeleteStyle,
-  curves,
-  setCurves,
   selectedCurve,
   setSelectedCurve,
   sandbox,
@@ -32,8 +30,6 @@ export default function TaskBar({
         ...sandbox,
         dataURL: thumbnail,
       })
-      //  const savedCurves = savedSandbox.curves
-      //  setCurves(savedCurves)
       setSandbox(savedSandbox)
     }
   }
@@ -43,9 +39,6 @@ export default function TaskBar({
       curves,
       selectedCurve
     )
-    // need to make a new deep copy of newCurves bc React UseEffect logic does not recognize
-    // newCurves as a new value
-    setCurves([...newCurves])
     const newSandbox = { ...sandbox, curves: newCurves }
     setSandbox(newSandbox)
     setSelectedCurve(null)
@@ -55,7 +48,6 @@ export default function TaskBar({
   async function handleClear() {
     const newSandbox = await curvesServices.clearAllCurves(sandbox)
     setSandbox(newSandbox)
-    setCurves(newSandbox.curves)
     setOpenClearPrompt(false)
   }
 
@@ -71,8 +63,8 @@ export default function TaskBar({
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
 
-      <button disabled={deleteStyle ? false : true}
-
+      <button
+        disabled={deleteStyle ? false : true}
         style={{
           backgroundColor: deleteStyle ? '#FFD494' : '',
         }}
