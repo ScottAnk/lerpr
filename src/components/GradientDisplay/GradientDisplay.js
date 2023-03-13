@@ -2,8 +2,6 @@ import { sample100points } from '../../utilities/curves-service'
 import './GradientDisplayContainer.css'
 
 export default function GradientDisplay({ sandbox, setSandbox }) {
-  console.log('------drawing gradient. sandbox: -------------')
-  console.log(sandbox)
   const curves = sandbox.curves
   const colorStart = sandbox.colorStart
   const colorEnd = sandbox.colorEnd
