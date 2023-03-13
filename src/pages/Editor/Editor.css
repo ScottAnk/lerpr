@@ -15,6 +15,11 @@
 }
 
 .WorkspaceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
   margin-right: 50px;
 }
 

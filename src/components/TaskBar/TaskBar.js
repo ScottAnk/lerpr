@@ -23,19 +23,37 @@ export default function TaskBar({
 }) {
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
   const [openHelp, setOpenHelp] = useState(false)
+  const [savedState, setSavedState] = useState(false)
+  const [openFirstSave, setOpenFirstSave] = useState(false)
+
+  function nameSandbox(event) {
+    const sandboxName = event.target.value
+    console.log(sandboxName)
+    const namedSandbox = { ...sandbox }
+    namedSandbox.name = sandboxName
+    setSandbox(namedSandbox)
+  }
 
   async function handleSave() {
-    if (!user) setOpenSignIn(true)
-    if (user) {
-      const thumbnail = await exportAsImage(exportRef.current)
-      const savedSandbox = await sandboxesServices.saveFirstSandbox({
-        ...sandbox,
-        dataURL: thumbnail,
-      })
-      //  const savedCurves = savedSandbox.curves
-      //  setCurves(savedCurves)
-      setSandbox(savedSandbox)
-    }
+    setOpenFirstSave(true)
+    const thumbnail = await exportAsImage(exportRef.current)
+    const savedSandbox = await sandboxesServices.createNewSandbox({
+      ...sandbox,
+      dataURL: thumbnail,
+    })
+    setSandbox(savedSandbox)
+    // sets the state of the sandbox from false to true upon first save of the sandbox
+    // this is what determines if "updateSandbox" should run rather than "createNewSandbox"
+  }
+
+  async function handleUpdate() {
+    console.log(sandbox.name)
+    // const thumbnail = await exportAsImage(exportRef.current)
+    const updatedSandbox = await sandboxesServices.updateSandbox({
+      ...sandbox,
+      // dataURL: thumbnail,
+    })
+    setSandbox(updatedSandbox)
   }
 
   async function handleDeleteCurve() {
@@ -59,20 +77,22 @@ export default function TaskBar({
     setOpenClearPrompt(false)
   }
 
-  async function handleDelete() {
+  async function handleDeleteSandbox() {
     await sandboxesServices.deleteSandbox(sandbox)
+    setOpenDeletePrompt(false)
   }
 
   async function testSandbox() {
     console.log(sandbox)
+    console.log(sandbox.name)
   }
 
   return (
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
 
-      <button disabled={deleteStyle ? false : true}
-
+      <button
+        disabled={deleteStyle ? false : true}
         style={{
           backgroundColor: deleteStyle ? '#FFD494' : '',
         }}
@@ -81,8 +101,19 @@ export default function TaskBar({
         Delete Selected Curve
       </button>
       <button onClick={() => setOpenClearPrompt(true)}>Clear Sandbox</button>
-      <button onClick={handleSave}>Save Sandbox</button>
+      <button
+        onClick={() =>
+          !user
+            ? setOpenSignIn(true)
+            : sandbox.name == ''
+            ? setOpenFirstSave(true)
+            : handleUpdate
+        }
+      >
+        Save Sandbox
+      </button>
       <button onClick={() => setOpenHelp(true)}>Help</button>
+      <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>
       <Modal
         classNames={{
           overlay: 'customOverlay',
@@ -94,7 +125,24 @@ export default function TaskBar({
       >
         <HelpModal />
       </Modal>
-      <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>
+      <Modal
+        classNames={{
+          overlay: 'customOverlay',
+          modal: 'customModal',
+        }}
+        open={openFirstSave}
+        onClose={() => setOpenFirstSave(false)}
+        center
+      >
+        <form className="SandboxSaveForm">
+          <h2>Name your sandbox to save:</h2>
+          <label>Enter Sandbox Name Here</label>
+          <input onChange={nameSandbox} />
+          <button type="submit" onClick={handleSave}>
+            Save Sandbox
+          </button>
+        </form>
+      </Modal>
       <Modal
         classNames={{
           overlay: 'customOverlay',
@@ -122,7 +170,7 @@ export default function TaskBar({
           <b>this cannot be undone!</b>
         </h3>
         <button onClick={() => setOpenDeletePrompt(false)}>No</button>
-        <button onClick={handleDelete}>Yes</button>
+        <button onClick={handleDeleteSandbox}>Yes</button>
       </Modal>
     </div>
   )
