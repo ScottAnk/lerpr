@@ -25,13 +25,16 @@ export default function TaskBar({
     if (!user) setOpenSignIn(true)
     if (user) {
       const thumbnail = await exportAsImage(exportRef.current)
-      const savedSandbox = await sandboxesServices.saveFirstSandbox({...sandbox, dataURL: thumbnail })
-    //  const savedCurves = savedSandbox.curves
-    //  setCurves(savedCurves)
-     setSandbox(savedSandbox)
+      const savedSandbox = await sandboxesServices.saveFirstSandbox({
+        ...sandbox,
+        dataURL: thumbnail,
+      })
+      //  const savedCurves = savedSandbox.curves
+      //  setCurves(savedCurves)
+      setSandbox(savedSandbox)
     }
   }
-  
+
   async function handleDeleteCurve() {
     console.log('wow')
   }
