@@ -5,6 +5,7 @@ import { Modal } from 'react-responsive-modal'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 import { logOut } from '../../utilities/users-service'
 import lerpr from '../../assets/lerpr.png'
+import { NavLink } from 'react-router-dom'
 
 export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
   function handleSignIn() {
@@ -33,14 +34,16 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
               <>
                 <p>
                   Hello,{' '}
-                  <span
-                    style={{
-                      textDecoration: 'underline',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {user.name}
-                  </span>
+                  <NavLink to='/mysandboxes'>
+                    <span
+                      style={{
+                        textDecoration: 'underline',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      {user.name}
+                    </span>
+                  </NavLink>
                   &nbsp; | &nbsp;
                 </p>
                 <p className="link" onClick={handleSignOut}>

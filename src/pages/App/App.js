@@ -5,6 +5,7 @@ import Community from '../Community/Community'
 import Editor from '../Editor/Editor'
 import Header from '../../components/Header/Header'
 import Team from '../Team/Team'
+import MySandboxes from '../MySandboxes/MySandboxes'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
 
@@ -19,6 +20,7 @@ export default function App() {
       <Routes>
         <Route path="/resources" element={<Resources />} />
         <Route path="/community" element={<Community />} />
+        <Route path='/mysandboxes' element={<MySandboxes />} />
         <Route
           path="/editor"
           element={<Editor setUser={setUser} user={user} openSignIn={openSignIn} setOpenSignIn={setOpenSignIn} />}
