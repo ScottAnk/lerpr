@@ -7,7 +7,7 @@ import { logOut } from '../../utilities/users-service'
 import lerpr from '../../assets/lerpr.png'
 import { NavLink } from 'react-router-dom'
 
-export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
+export default function Header({ user, setUser, openSignIn, setOpenSignIn, defaultSandbox, setSandbox }) {
   function handleSignIn() {
     console.log('Sign In')
     setOpenSignIn(true)
@@ -59,7 +59,7 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn }) {
           </div>
         </div>
       </div>
-      <NavBar />
+      <NavBar defaultSandbox={defaultSandbox} setSandbox={setSandbox} />
       <Modal
         classNames={{
           overlay: 'customOverlay',

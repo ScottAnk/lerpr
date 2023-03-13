@@ -15,6 +15,20 @@ export default function App() {
 
   const linkedPoint = { x: 300, y: 300, solid: true }
   const linkedPoint2 = { x: 600, y: 0, solid: true }
+  const defaultSandbox = {
+    name: '',
+    colorStart: { r: 198, g: 153, b: 128 },
+    colorEnd: { r: 162, g: 181, b: 221 },
+    curves: [
+      {
+        startPoint: { x: 0, y: 600, solid: true },
+        endPoint: { x: 900, y: 0, solid: true },
+        control1: { x: 300, y: 400, solid: false },
+        control2: { x: 600, y: 200, solid: false },
+      }
+    ],
+  }
+
   const [sandbox, setSandbox] = useState({
     name: '',
     colorStart: { r: 198, g: 153, b: 128 },
@@ -48,6 +62,8 @@ export default function App() {
         setUser={setUser}
         openSignIn={openSignIn}
         setOpenSignIn={setOpenSignIn}
+        defaultSandbox={defaultSandbox}
+        setSandbox={setSandbox}
       />
 
       <Routes>
