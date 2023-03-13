@@ -19,7 +19,6 @@ export default function TaskBar({
   setSelectedCurve,
   sandbox,
   setSandbox,
-  makeThumbnail,
   exportRef,
 }) {
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
@@ -28,7 +27,13 @@ export default function TaskBar({
   async function handleSave() {
     if (!user) setOpenSignIn(true)
     if (user) {
-      const savedSandbox = await sandboxesServices.saveFirstSandbox(sandbox)
+      const thumbnail = await exportAsImage(exportRef.current)
+      const savedSandbox = await sandboxesServices.saveFirstSandbox({
+        ...sandbox,
+        dataURL: thumbnail,
+      })
+      //  const savedCurves = savedSandbox.curves
+      //  setCurves(savedCurves)
       setSandbox(savedSandbox)
     }
   }
@@ -65,7 +70,9 @@ export default function TaskBar({
   return (
     <div className="TaskBar">
       <button onClick={testSandbox}>testing testing</button>
+
       <button disabled={deleteStyle ? false : true}
+
         style={{
           backgroundColor: deleteStyle ? '#FFD494' : '',
         }}
