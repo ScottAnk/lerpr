@@ -66,7 +66,6 @@ export default function Resources() {
                 height="315"
                 src="https://www.youtube.com/embed/jvPPXbo87ds"
                 title="YouTube video player"
-                playbackRate='5'
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
