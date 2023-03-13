@@ -55,8 +55,6 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
             <Sandbox sandbox={sandbox} exportRef={exportRef} />
             <div className="TaskbarContainer">
               <TaskBar
-                curves={curves}
-                setCurves={setCurves}
                 setOpenSignIn={setOpenSignIn}
                 user={user}
                 openClearPrompt={openClearPrompt}
@@ -88,20 +86,14 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
           </div>
           <div className="InnerEditorContainer">
             <ControlPanel
-              curves={curves}
-              setCurves={setCurves}
+              sandbox={sandbox}
+              setSandbox={setSandbox}
               deleteStyle={deleteStyle}
               setDeleteStyle={setDeleteStyle}
               selectedCurve={selectedCurve}
               setSelectedCurve={setSelectedCurve}
             />
-            <GradientDisplay
-              curves={curves}
-              colorStart={colorStart}
-              colorStop={colorStop}
-              setColorStart={setColorStart}
-              setColorStop={setColorStop}
-            />
+            <GradientDisplay sandbox={sandbox} setSandbox={setSandbox} />
           </div>
         </div>
       </main>
