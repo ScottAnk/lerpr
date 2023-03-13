@@ -8,7 +8,9 @@ const userSchema = new Schema(
   {
     name: {
       type: String,
-      default: 'Guest',
+      required: true,
+      maxlength: 20,
+      unique: true,
     },
     email: {
       type: String,

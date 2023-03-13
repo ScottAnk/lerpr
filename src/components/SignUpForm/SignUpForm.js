@@ -51,11 +51,11 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
       <div className="CardContainer">
         <h2 className="AuthHeader"></h2>
         <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Name</label>
+          <label>Username</label>
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="Username"
             value={formData.name}
             onChange={handleChange}
             required
