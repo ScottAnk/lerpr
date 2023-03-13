@@ -9,7 +9,6 @@
 }
 
 .thumbnail {
-  padding: 50px;
   transition: transform 0.5s; /* Animation */
   width: 150px;
   height: 150px;

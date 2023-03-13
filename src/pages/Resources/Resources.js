@@ -81,17 +81,26 @@ export default function Resources() {
             <h4>Sources</h4>
             <ul className="SourcesList">
               <li>
-                <a href="https://www.toppr.com/guides/maths-formulas/linear-interpolation-formula/">
+                <a
+                  className="ResourceLinks"
+                  href="https://www.toppr.com/guides/maths-formulas/linear-interpolation-formula/"
+                >
                   Linear Interpolation
                 </a>
               </li>
               <li>
-                <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">
+                <a
+                  className="ResourceLinks"
+                  href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve"
+                >
                   Bézier Curves
                 </a>
               </li>
               <li>
-                <a href="https://en.wikipedia.org/wiki/Pierre_B%C3%A9zier">
+                <a
+                  className="ResourceLinks"
+                  href="https://en.wikipedia.org/wiki/Pierre_B%C3%A9zier"
+                >
                   Pierre Bézier
                 </a>
               </li>

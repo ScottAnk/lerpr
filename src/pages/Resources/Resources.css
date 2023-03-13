@@ -85,7 +85,7 @@ li {
   list-style-type: none;
 }
 
-a:hover {
+.ResourceLinks:hover {
   border-bottom: 1px solid;
   background-color: rgba(109, 107, 107, 0.408);
   cursor: pointer;
