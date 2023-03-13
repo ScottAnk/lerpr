@@ -23,10 +23,10 @@ export default function TaskBar({
 }) {
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
   const [openHelp, setOpenHelp] = useState(false)
-  const [savedState, setSavedState] = useState(false)
   const [openFirstSave, setOpenFirstSave] = useState(false)
 
   function nameSandbox(event) {
+    event.preventDefault()
     const sandboxName = event.target.value
     console.log(sandboxName)
     const namedSandbox = { ...sandbox }
@@ -34,7 +34,8 @@ export default function TaskBar({
     setSandbox(namedSandbox)
   }
 
-  async function handleSave() {
+  async function handleSave(event) {
+    event.preventDefault()
     setOpenFirstSave(true)
     const thumbnail = await exportAsImage(exportRef.current)
     const savedSandbox = await sandboxesServices.createNewSandbox({
@@ -42,17 +43,19 @@ export default function TaskBar({
       dataURL: thumbnail,
     })
     setSandbox(savedSandbox)
+    setOpenFirstSave(false)
     // sets the state of the sandbox from false to true upon first save of the sandbox
     // this is what determines if "updateSandbox" should run rather than "createNewSandbox"
   }
 
   async function handleUpdate() {
     console.log(sandbox.name)
-    // const thumbnail = await exportAsImage(exportRef.current)
-    const updatedSandbox = await sandboxesServices.updateSandbox({
+    const thumbnail = await exportAsImage(exportRef.current)
+    const updatedSandbox = {
       ...sandbox,
-      // dataURL: thumbnail,
-    })
+      dataURL: thumbnail,
+    }
+    await sandboxesServices.updateSandbox(updatedSandbox)
     setSandbox(updatedSandbox)
   }
 
@@ -107,7 +110,7 @@ export default function TaskBar({
             ? setOpenSignIn(true)
             : sandbox.name == ''
             ? setOpenFirstSave(true)
-            : handleUpdate
+            : handleUpdate()
         }
       >
         Save Sandbox
@@ -134,13 +137,11 @@ export default function TaskBar({
         onClose={() => setOpenFirstSave(false)}
         center
       >
-        <form className="SandboxSaveForm">
+        <form className="SandboxSaveForm" onSubmit={handleSave}>
           <h2>Name your sandbox to save:</h2>
           <label>Enter Sandbox Name Here</label>
           <input onChange={nameSandbox} />
-          <button type="submit" onClick={handleSave}>
-            Save Sandbox
-          </button>
+          <button type="submit">Save Sandbox</button>
         </form>
       </Modal>
       <Modal
