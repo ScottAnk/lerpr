@@ -2,41 +2,27 @@ import './ControlPanel.css'
 
 import ControlPoint from '../ControlPoint/ControlPoint'
 export default function ControlPanel({
-  curves,
-  setCurves,
+  sandbox,
+  setSandbox,
   deleteStyle,
   setDeleteStyle,
   selectedCurve,
   setSelectedCurve,
 }) {
-  // this component expects a curves prop of this format:
-  // const curves = [
-  //   [
-  //     { x: 100, y: 100, solid: true },
-  //     { x: 200, y: 500, solid: false },
-  //     { x: 300, y: 100, solid: false },
-  //     { x: 400, y: 200, solid: true },
-  //   ],
-  //   [
-  //     { x: 400, y: 200, solid: true },
-  //     { x: 100, y: 600, solid: false },
-  //     { x: 600, y: 400, solid: false },
-  //     { x: 600, y: 600, solid: true },
-  //   ],
-  // ]
-
   function modifyCurve(curveIndex, modifiedCurve) {
-    const newCurves = [...curves]
+    const newCurves = [...sandbox.curves]
     newCurves[curveIndex] = modifiedCurve
-    setCurves(newCurves)
+    setSandbox({ ...sandbox, curves: newCurves })
   }
 
   return (
     <>
-      <h3 style={{textAlign: 'center'}}><u>Control Panel</u></h3>
+      <h3 style={{ textAlign: 'center' }}>
+        <u>Control Panel</u>
+      </h3>
       <div className="ControlPanelMain">
         <ul>
-          {curves.map((curve, index) => (
+          {sandbox.curves.map((curve, index) => (
             <ControlPoint
               key={index}
               curve={curve}

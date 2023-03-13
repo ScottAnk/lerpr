@@ -33,19 +33,16 @@ export function sample100points(curve) {
 
 export async function deleteSelectedCurve(curves, curveIndex) {
   if (curves.length === 1) return curves
-
   else if (curveIndex == 0) {
     const nextCurve = 1
     curves[nextCurve].startPoint = curves[curveIndex].startPoint
     curves.splice(curveIndex, 1)
     // set second curve start point to be bottom-left corner
-  }
-  else if (curveIndex == curves.length - 1) {
+  } else if (curveIndex == curves.length - 1) {
     const previousCurve = curveIndex - 1
     curves[previousCurve].endPoint = curves[curveIndex].endPoint
     curves.splice(curveIndex, 1)
-  }
-  else {
+  } else {
     const nextCurve = curveIndex + 1
     curves[nextCurve].startPoint = curves[curveIndex].startPoint
     curves.splice(curveIndex, 1)
@@ -64,7 +61,7 @@ export async function clearAllCurves(sandbox) {
       control2: { x: 600, y: 200, solid: false },
     },
   ]
-  await sandboxesAPI.updateSandbox(sandbox._id, sandbox)
+  sandboxesAPI.updateSandbox(sandbox._id, sandbox)
 
-  return sandbox
+  return { ...sandbox }
 }
