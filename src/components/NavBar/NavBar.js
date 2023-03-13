@@ -20,6 +20,16 @@ export default function NavBar({ user }) {
         className={({ isActive }) =>
           isActive ? 'nav-active nav-link' : 'nav-link'
         }
+        to="/mysandboxes"
+        onClick={<Navigate to="/mysandboxes" />}
+      >
+        My Sandboxes
+      </NavLink>
+      &nbsp; | &nbsp;
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? 'nav-active nav-link' : 'nav-link'
+        }
         to="/resources"
         onClick={<Navigate to="/resources" />}
       >

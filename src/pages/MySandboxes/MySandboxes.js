@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as sandboxServices from '../../utilities/sandboxes-services'
 import Thumbnail from '../../components/Thumbnail/Thumbnail'
-import './Community.css'
+import './MySandboxes.css'
 
 export default function MySandboxes() {
   // const [user, setUser] = useState()
