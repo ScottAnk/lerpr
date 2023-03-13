@@ -2,9 +2,11 @@ import { sample100points } from '../../utilities/curves-service'
 import './GradientDisplayContainer.css'
 
 export default function GradientDisplay({ sandbox, setSandbox }) {
+  console.log('------drawing gradient. sandbox: -------------')
+  console.log(sandbox)
   const curves = sandbox.curves
   const colorStart = sandbox.colorStart
-  const colorStop = sandbox.colorStop
+  const colorEnd = sandbox.colorEnd
 
   // change CSS color code (#123012) into RGB object ({r:12, g:30, b:12})
   function hexToRGB(hexCode) {
@@ -34,9 +36,9 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
 
   // calculate the range of the gradient colors
   const gamut = {
-    r: colorStop.r - colorStart.r,
-    g: colorStop.g - colorStart.g,
-    b: colorStop.b - colorStart.b,
+    r: colorEnd.r - colorStart.r,
+    g: colorEnd.g - colorStart.g,
+    b: colorEnd.b - colorStart.b,
   }
 
   // sample points along the curves
@@ -99,12 +101,12 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
           />
         </span>
         <span className="ColorPickerLabel">
-          <label htmlFor="colorStop">stop</label>
+          <label htmlFor="colorEnd">stop</label>
           <input
-            name="colorStop"
-            id="colorStop"
+            name="colorEnd"
+            id="colorEnd"
             type="color"
-            value={RGBToHex(colorStop)}
+            value={RGBToHex(colorEnd)}
             onChange={handleColorChange}
           />
         </span>

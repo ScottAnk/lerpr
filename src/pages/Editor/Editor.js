@@ -18,7 +18,7 @@ export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
   const [sandbox, setSandbox] = useState({
     name: 'yourSandBox',
     colorStart: { r: 198, g: 153, b: 128 },
-    colorStop: { r: 162, g: 181, b: 221 },
+    colorEnd: { r: 162, g: 181, b: 221 },
     curves: [
       {
         startPoint: { x: 0, y: 600, solid: true },
