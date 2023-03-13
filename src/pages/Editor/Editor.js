@@ -8,38 +8,17 @@ import GradientDisplay from '../../components/GradientDisplay/GradientDisplay'
 import TaskBar from '../../components/TaskBar/TaskBar'
 import AuthPage from '../AuthPage/AuthPage'
 
-export default function Editor({ setUser, user, openSignIn, setOpenSignIn }) {
+export default function Editor({
+  setUser,
+  user,
+  openSignIn,
+  setOpenSignIn,
+  sandbox,
+  setSandbox,
+}) {
   const exportRef = useRef()
   const [open, setOpen] = useState(false)
   const [openClearPrompt, setOpenClearPrompt] = useState(false)
-
-  const linkedPoint = { x: 300, y: 300, solid: true }
-  const linkedPoint2 = { x: 600, y: 0, solid: true }
-  const [sandbox, setSandbox] = useState({
-    name: '',
-    colorStart: { r: 198, g: 153, b: 128 },
-    colorEnd: { r: 162, g: 181, b: 221 },
-    curves: [
-      {
-        startPoint: { x: 0, y: 600, solid: true },
-        endPoint: linkedPoint,
-        control1: { x: 100, y: 500, solid: false },
-        control2: { x: 200, y: 100, solid: false },
-      },
-      {
-        startPoint: linkedPoint,
-        endPoint: linkedPoint2,
-        control1: { x: 400, y: 100, solid: false },
-        control2: { x: 500, y: 500, solid: false },
-      },
-      {
-        startPoint: linkedPoint2,
-        endPoint: { x: 900, y: 0, solid: true },
-        control1: { x: 700, y: 100, solid: false },
-        control2: { x: 800, y: 500, solid: false },
-      },
-    ],
-  })
 
   // selecting specific curves
   const [selectedCurve, setSelectedCurve] = useState()

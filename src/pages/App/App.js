@@ -13,17 +13,65 @@ export default function App() {
   const [user, setUser] = useState(getUser())
   const [openSignIn, setOpenSignIn] = useState(false)
 
+  const linkedPoint = { x: 300, y: 300, solid: true }
+  const linkedPoint2 = { x: 600, y: 0, solid: true }
+  const [sandbox, setSandbox] = useState({
+    name: '',
+    colorStart: { r: 198, g: 153, b: 128 },
+    colorEnd: { r: 162, g: 181, b: 221 },
+    curves: [
+      {
+        startPoint: { x: 0, y: 600, solid: true },
+        endPoint: linkedPoint,
+        control1: { x: 100, y: 500, solid: false },
+        control2: { x: 200, y: 100, solid: false },
+      },
+      {
+        startPoint: linkedPoint,
+        endPoint: linkedPoint2,
+        control1: { x: 400, y: 100, solid: false },
+        control2: { x: 500, y: 500, solid: false },
+      },
+      {
+        startPoint: linkedPoint2,
+        endPoint: { x: 900, y: 0, solid: true },
+        control1: { x: 700, y: 100, solid: false },
+        control2: { x: 800, y: 500, solid: false },
+      },
+    ],
+  })
+
   return (
     <main className="App">
-      <Header user={user} setUser={setUser} openSignIn={openSignIn} setOpenSignIn={setOpenSignIn} />
+      <Header
+        user={user}
+        setUser={setUser}
+        openSignIn={openSignIn}
+        setOpenSignIn={setOpenSignIn}
+      />
 
       <Routes>
         <Route path="/resources" element={<Resources />} />
-        <Route path="/community" element={<Community />} />
-        <Route path='/mysandboxes' element={<MySandboxes />} />
+        <Route
+          path="/community"
+          element={<Community sandbox={sandbox} setSandbox={setSandbox} />}
+        />
+        <Route
+          path="/mysandboxes"
+          element={<MySandboxes sandbox={sandbox} setSandbox={setSandbox} />}
+        />
         <Route
           path="/editor"
-          element={<Editor setUser={setUser} user={user} openSignIn={openSignIn} setOpenSignIn={setOpenSignIn} />}
+          element={
+            <Editor
+              sandbox={sandbox}
+              setSandbox={setSandbox}
+              setUser={setUser}
+              user={user}
+              openSignIn={openSignIn}
+              setOpenSignIn={setOpenSignIn}
+            />
+          }
         />
         <Route path="/team" element={<Team />} />
         <Route path="/*" element={<Navigate to="/editor" />} />

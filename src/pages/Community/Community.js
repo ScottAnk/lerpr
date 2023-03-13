@@ -3,8 +3,7 @@ import * as sandboxServices from '../../utilities/sandboxes-services'
 import Thumbnail from '../../components/Thumbnail/Thumbnail'
 import './Community.css'
 
-export default function Community() {
-  // const [user, setUser] = useState()
+export default function Community({ setSandbox }) {
   const [sandboxes, setSandboxes] = useState([])
 
   async function index() {
@@ -24,8 +23,12 @@ export default function Community() {
 
   return (
     <div className="thumbnail-container">
-      {sandboxes.map((sandbox, index) => (
-        <Thumbnail sandbox={sandbox} key={index} />
+      {sandboxes.map((sandboxInstance, index) => (
+        <Thumbnail
+          setSandbox={setSandbox}
+          sandboxInstance={sandboxInstance}
+          key={index}
+        />
       ))}
     </div>
   )
