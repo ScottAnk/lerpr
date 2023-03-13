@@ -1,17 +1,12 @@
 import { sample100points } from '../../utilities/curves-service'
 import './GradientDisplayContainer.css'
 
-export default function GradientDisplay({
-  curves,
-  colorStart,
-  colorStop,
-  setColorStart,
-  setColorStop,
-}) {
-  // TODO later these colors will come from the sandbox properties
-  // const colorStart = { r: 0, g: 212, b: 255 }
-  // const colorStop = { r: 255, g: 0, b: 0 }
+export default function GradientDisplay({ sandbox, setSandbox }) {
+  const curves = sandbox.curves
+  const colorStart = sandbox.colorStart
+  const colorStop = sandbox.colorStop
 
+  // change CSS color code (#123012) into RGB object ({r:12, g:30, b:12})
   function hexToRGB(hexCode) {
     console.log('hextorgb input: ', hexCode)
     const red = '0x' + hexCode.slice(1, 3)
@@ -26,6 +21,7 @@ export default function GradientDisplay({
     return { r: Number(red), g: Number(green), b: Number(blue) }
   }
 
+  // change RGB object ({r:12, g:30, b:12}) into CSS color code (#123012)
   function RGBToHex(rgb) {
     console.log('RGBtoHex input: ', rgb)
     let hexCode = '#'
@@ -35,6 +31,7 @@ export default function GradientDisplay({
     console.log('RGBToHex return: ', hexCode)
     return hexCode
   }
+
   // calculate the range of the gradient colors
   const gamut = {
     r: colorStop.r - colorStart.r,
@@ -72,12 +69,23 @@ export default function GradientDisplay({
     boxSizing: 'border-box',
     background: gradientString,
     border: '5px solid #7E5A3D',
-    borderRadius: '10px'
+    borderRadius: '10px',
+  }
+
+  // update sandbox state when color picker values are changed
+  function handleColorChange(event) {
+    const newSandbox = {
+      ...sandbox,
+      [event.target.name]: hexToRGB(event.target.value),
+    }
+    setSandbox(newSandbox)
   }
 
   return (
     <div className="GradientDisplayContainer">
-      <h3><u>Gradient Display</u></h3>
+      <h3>
+        <u>Gradient Display</u>
+      </h3>
       <div className="ColorPickerContainer">
         {/* CODE REVIEW: should I be using arrow functions here? */}
         <span className="ColorPickerLabel">
@@ -87,9 +95,7 @@ export default function GradientDisplay({
             id="colorStart"
             type="color"
             value={RGBToHex(colorStart)}
-            onChange={function (event) {
-              setColorStart(hexToRGB(event.target.value))
-            }}
+            onChange={handleColorChange}
           />
         </span>
         <span className="ColorPickerLabel">
@@ -99,9 +105,7 @@ export default function GradientDisplay({
             id="colorStop"
             type="color"
             value={RGBToHex(colorStop)}
-            onChange={function (event) {
-              setColorStop(hexToRGB(event.target.value))
-            }}
+            onChange={handleColorChange}
           />
         </span>
       </div>
