@@ -36,7 +36,7 @@ export default function TaskBar({
 
   async function handleDeleteCurve() {
     const newCurves = await curvesServices.deleteSelectedCurve(
-      curves,
+      sandbox.curves,
       selectedCurve
     )
     const newSandbox = { ...sandbox, curves: newCurves }
