@@ -2,6 +2,7 @@ import './Thumbnail.css'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Thumbnail({ sandboxInstance, setSandbox }) {
+
   let location = useLocation()
 
   function handleLink() {
