@@ -1,13 +1,8 @@
-.CommunityHeader {
+.thumbnail-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 3rem;
+
 }
 
-.CommunityMain {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
