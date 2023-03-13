@@ -1,25 +1,8 @@
 import './Sandbox.css'
 import { useEffect } from 'react'
 
-export default function Sandbox({ curves, exportRef }) {
+export default function Sandbox({ sandbox, exportRef }) {
   // TODO express point coordinates as fractions of dynamic canvase dimentions
-
-  // this component expects a curves prop of this format:
-  // const curves = [
-  //   [
-  //     { x: 100, y: 100, solid: true },
-  //     { x: 200, y: 500, solid: false },
-  //     { x: 300, y: 100, solid: false },
-  //     { x: 400, y: 200, solid: true },
-  //   ],
-  //   [
-  //     { x: 400, y: 200, solid: true },
-  //     { x: 100, y: 600, solid: false },
-  //     { x: 600, y: 400, solid: false },
-  //     { x: 600, y: 600, solid: true },
-  //   ],
-  // ]
-
 
   useEffect(() => {
     const board = document.querySelector('#sandbox')
@@ -37,9 +20,9 @@ export default function Sandbox({ curves, exportRef }) {
       }
     }
 
-    for (let i = 0; i < curves.length; i++) {
+    for (let i = 0; i < sandbox.curves.length; i++) {
       // loop over each curve in cuves
-      const curve = curves[i]
+      const curve = sandbox.curves[i]
 
       // draw circles at each anchor and control point
       for (let point in curve) {
@@ -61,9 +44,15 @@ export default function Sandbox({ curves, exportRef }) {
     }
 
     // mark all the points on the canvas
-  }, [curves])
+  }, [sandbox])
 
   return (
-    <canvas className="Sandbox" id="sandbox" width="900px" height="600px" ref={exportRef}></canvas>
+    <canvas
+      className="Sandbox"
+      id="sandbox"
+      width="900px"
+      height="600px"
+      ref={exportRef}
+    ></canvas>
   )
 }
