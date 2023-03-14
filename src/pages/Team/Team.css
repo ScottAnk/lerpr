@@ -36,6 +36,12 @@ a {
   cursor: inherit;
 }
 
+.headshots {
+  width: 200px;
+  border-radius: 100px;
+  border: solid 2.5px;
+}
+
 .LinkedIn {
   padding: 20px;
   background-color: rgba(249, 249, 249, 0.408);
