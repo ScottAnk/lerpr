@@ -8,26 +8,26 @@ export default function HelpModal() {
       <div className="HelpContainer">
         <h3 className="HelpSubHeader">The Components</h3>
         <ul>
-          <li>
-            <b>Sandbox:</b> Located on the left hand side of the screen, the
+          <li className="HelpListItem">
+            <b style={{fontSize: '20px'}}>Sandbox:</b> Located on the left hand side of the screen, the
             sandbox will render and display any curves and coordinates that are
             input into the control panel.
           </li>
-          <li>
-            <b>Control Panel:</b> Located on the upper right hand side, the
+          <li className="HelpListItem">
+            <b style={{fontSize: '20px'}}>Control Panel:</b> Located on the upper right hand side, the
             control panel allows users to input sets of coorindinates that will
             then generate on the sandbox. When using the control panel, the
             first set of inputs just left of the 'X' and 'Y' coordinates will
             generate the beginning and end point of the curve, with the second
             pair of coordinates generating the control points of the curve.
           </li>
-          <li>
-            <b>Gradient:</b> Located on the right hand side, under the control
+          <li className="HelpListItem">
+            <b style={{fontSize: '20px'}}>Gradient:</b> Located on the right hand side, under the control
             panel, the gradient panel allows the user to alter that color
             gradient of their curves in the sandbox.
           </li>
         </ul>
-        <h3 className="HelpSubHeader">Using the Sandbox</h3>
+        <b className="HelpSubHeader">Using the Sandbox</b>
         <ul>
           <li>
             When using the sandbox, users will be able to create coordinates for

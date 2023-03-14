@@ -46,7 +46,6 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
 
   return (
     <>
-      <div className="line"></div>
       <div className="CardContainer">
         <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
           <div className="LabelInput">
