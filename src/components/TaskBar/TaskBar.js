@@ -5,7 +5,7 @@ import { Modal } from 'react-responsive-modal'
 import { useState } from 'react'
 import * as sandboxesServices from '../../utilities/sandboxes-services'
 import * as curvesServices from '../../utilities/curves-service'
-import { set } from 'mongoose'
+import { getUser } from '../../utilities/users-service'
 
 export default function TaskBar({
   setOpenSignIn,
@@ -129,9 +129,13 @@ export default function TaskBar({
       <div className="TaskBarTitle">
         <h3>Taskbar:</h3>
       </div>
-        <button style={{backgroundColor: "#fffcb3"}} className="TaskButton" onClick={() => setOpenHelp(true)}>
-          Help
-        </button>
+      <button
+        style={{ backgroundColor: '#fffcb3' }}
+        className="TaskButton"
+        onClick={() => setOpenHelp(true)}
+      >
+        Help
+      </button>
       <button
         className="TaskButton"
         disabled={deleteStyle ? false : true}
@@ -154,21 +158,21 @@ export default function TaskBar({
       >
         Split Curve
       </button>
-        <button className="TaskButton" onClick={() => setOpenClearPrompt(true)}>
-          Clear Sandbox
-        </button>
-        <button
-          className="TaskButton"
-          onClick={() =>
-            !user
-              ? setOpenSignIn(true)
-              : sandbox.name == ''
-              ? setOpenFirstSave(true)
-              : handleUpdate()
-          }
-        >
-          Save Sandbox
-        </button>
+      <button className="TaskButton" onClick={() => setOpenClearPrompt(true)}>
+        Clear Sandbox
+      </button>
+      <button
+        className="TaskButton"
+        onClick={() =>
+          !user
+            ? setOpenSignIn(true)
+            : sandbox.name === '' || user._id !== sandbox.owner._id
+            ? setOpenFirstSave(true)
+            : handleUpdate()
+        }
+      >
+        Save Sandbox
+      </button>
       <button
         className="TaskButton"
         style={{ backgroundColor: 'lightcoral', color: 'white' }}
