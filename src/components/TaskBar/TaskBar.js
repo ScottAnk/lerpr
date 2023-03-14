@@ -27,7 +27,6 @@ export default function TaskBar({
   function nameSandbox(event) {
     event.preventDefault()
     const sandboxName = event.target.value
-    console.log(sandboxName)
     const namedSandbox = { ...sandbox }
     namedSandbox.name = sandboxName
     setSandbox(namedSandbox)
@@ -73,7 +72,6 @@ export default function TaskBar({
     }
     const newSandbox = { ...sandbox }
     newSandbox.curves.splice(selectedCurve, 1, splitCurve1, splitCurve2)
-    console.log(newSandbox.curves)
     setSandbox(newSandbox)
   }
 
@@ -92,7 +90,6 @@ export default function TaskBar({
   }
 
   async function handleUpdate() {
-    console.log(sandbox.name)
     const thumbnail = await exportAsImage(exportRef.current)
     const updatedSandbox = {
       ...sandbox,
@@ -123,12 +120,7 @@ export default function TaskBar({
     await sandboxesServices.deleteSandbox(sandbox)
     setOpenDeletePrompt(false)
   }
-
-  async function testSandbox() {
-    console.log(sandbox)
-    console.log(sandbox.name)
-  }
-
+  
   return (
     <div className="TaskBar">
       {/* <button className="TaskButton" onClick={testSandbox}>

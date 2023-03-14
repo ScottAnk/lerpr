@@ -5,7 +5,6 @@ const BASE_URL = 'http://127.0.0.1:3001'
 
 // sign up main user
 export function signUp(userData) {
-  console.log(userData)
   return sendRequest(BASE_URL + '/api/users', 'POST', userData)
 }
 

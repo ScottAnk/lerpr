@@ -114,6 +114,7 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
                   : disabled
                   ? 'disabled'
                   : ''
+
               }
             >
               SIGN UP
