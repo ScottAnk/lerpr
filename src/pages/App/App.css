@@ -10,7 +10,7 @@
   --lightbrown: #fce0bc;
   --darkbrown: #4f433e;
   --orange: #edc6a8;
-  --text-light: #e3c8b2;
+  --div2bg: rgba(249, 249, 249, 0.408);
   --coordinate-x: #b1b999;
   --coordinate-y: rgb(245, 237, 187);
 }
@@ -32,13 +32,18 @@
 
   /* DarkMode Palette */
   --divbg: #848793;
-  --divborder: #7EA5BF;
+  --divborder: #7ea5bf;
   --containerbg: #4f4f54;
   --coordinate-x: antiquewhite;
   --coordinate-y: azure;
 }
 
 .DarkMode .Sandbox {
+  filter: invert();
+  border-color: #7e5a3d;
+}
+
+.DarkMode .thumbnail {
   filter: invert();
   border-color: #7e5a3d;
 }
@@ -92,4 +97,47 @@ p {
 
 input::placeholder {
   text-align: center;
+}
+
+/* LERP COIN ANIMATION */
+/* CREDIT TO ANIMISTA */
+
+.lerp-coin {
+  margin-top: 5px;
+  max-width: 35px;
+  max-height: 35px;
+}
+
+.lerp-coin:hover {
+  -webkit-animation: rotate-scale-up-diag-1 0.75s linear both;
+  animation: rotate-scale-up-diag-1 0.75s linear both;
+}
+
+@-webkit-keyframes rotate-scale-up-diag-1 {
+  0% {
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+    transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
+    transform: scale(2) rotate3d(1, 1, 0, -180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
+    transform: scale(1) rotate3d(1, 1, 0, -360deg);
+  }
+}
+@keyframes rotate-scale-up-diag-1 {
+  0% {
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+    transform: scale(1) rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
+    transform: scale(2) rotate3d(1, 1, 0, -180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
+    transform: scale(1) rotate3d(1, 1, 0, -360deg);
+  }
 }

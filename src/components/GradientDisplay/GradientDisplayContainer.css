@@ -14,10 +14,9 @@
   justify-content: center;
   row-gap: 20px;
   width: 98%;
-  border: 5px solid #7E5A3D;
+  border: 5px solid var(--divborder);
   border-radius: 5px;
-  background-color: var(--divbg);
-  padding: 50px 0px;
+  padding: 20px 0px;
 }
 
 .ColorPickerContainer {
@@ -46,5 +45,10 @@
 }
 
 .GradientBar {
+  height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 5px solid var(--divborder);
+  border-radius: 10px;
   max-width: 26em;
 }

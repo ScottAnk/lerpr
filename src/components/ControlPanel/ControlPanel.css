@@ -1,5 +1,4 @@
 .ControlPanelContainer {
-  border: 5px solid black;
   border-radius: 5px;
   max-height: 400px;
   overflow-y: scroll;
@@ -9,6 +8,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--divbg);
   margin: 0px 0px 0px 0px;
 }

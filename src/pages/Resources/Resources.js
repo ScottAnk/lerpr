@@ -121,7 +121,7 @@ export default function Resources() {
             <p className="TeamLink" onClick={handleNavigateTeam}>
               Meet the Team
             </p>
-            <img className="AppLogo" alt="Lerpr Logo" src={lerpr}></img>
+            <img className="lerp-coin" alt="Lerpr Logo" src={lerpr}></img>
           </div>
         </footer>
       </>

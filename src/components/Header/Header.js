@@ -41,7 +41,7 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
         ></input>
         </div>
         <div className="TitleContainer">
-          <img className="AppLogo" alt="Lerpr Logo" src={lerpr}></img>
+          <img className="lerp-coin" alt="Lerpr Logo" src={lerpr}></img>
           <h1 className="AppTitle">Lerpr</h1>
         </div>
         <div className="SignContainer">
