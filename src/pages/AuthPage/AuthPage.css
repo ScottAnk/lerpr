@@ -1,33 +1,48 @@
-.AuthPage {
-  height: 100%;
+.AuthPageContainer {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: var(--white);
-  border-radius: 2vmin;
-}
-
-.AuthPage h3 {
-  margin-top: 4vmin;
-  text-align: center;
-  color: var(--text-light);
-  cursor: pointer;
-}
-
-.CardContainer {
-  margin: 20px;
+  row-gap: 30px;
+  margin-top: 50px;
 }
 
 .SignUpForm {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  row-gap: 10px;
+  column-gap: 5em;
+  margin-bottom: 20px;
+}
 
-  justify-content: left;
+.SignUpColumns {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 10px;
 }
 
 .SignInForm {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  row-gap: 10px;
+  column-gap: 5em;
+  margin-bottom: 20px;
+}
+
+.SignInColumns {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 10px;
 }
 
 .form-container {

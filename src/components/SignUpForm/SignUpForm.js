@@ -1,13 +1,10 @@
 import '../../pages/AuthPage/AuthPage.css'
 
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { signUp } from '../../utilities/users-service'
 
 export default function SignUpForm({ setUser, setOpenSignIn }) {
-  const navigate = useNavigate()
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,56 +42,66 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
     })
   }
 
-  const disable = formData.password !== formData.confirmPassword
+  const disabled = formData.password !== formData.confirmPassword
+
   return (
     <div>
-      <div className="CardContainer">
-        <h2 className="AuthHeader"></h2>
-        <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Username</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Username"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Your Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <label>Confirm</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Re-Enter Password"
-            value={formData.confirm}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" disabled={disable} className="AuthSubmit">
-            SIGN UP
-          </button>
-        </form>
-        <div className="BreakContainer">
-          <div className="SectionBreak"></div>
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <div className="SignUpForm">
+          <div className="SignUpColumns">
+            <label>Username</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Username"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="SignUpColumns">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Re-Enter Password"
+              value={formData.confirm}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
-      </div>
+        <button
+          type="submit"
+          style={{
+            color: formData.password == '' ? 'black' : disabled ? 'black' : '',
+            backgroundColor: formData.password == '' ? 'grey' : disabled ? 'grey' : ''}}
+
+          disabled={
+            formData.password == '' ? 'disabled' : disabled ? 'disabled' : ''
+          }
+        >
+          SIGN UP
+        </button>
+      </form>
       <p className="error-message">{error}</p>
     </div>
   )

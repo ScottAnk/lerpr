@@ -17,24 +17,26 @@ export default function ControlPanel({
 
   return (
     <>
-      <h3 style={{ textAlign: 'center' }}>
-        <u>Control Panel</u>
-      </h3>
-      <div className="ControlPanelMain">
-        <ul>
-          {sandbox.curves.map((curve, index) => (
-            <ControlPoint
-              key={index}
-              curve={curve}
-              curveIndex={index}
-              modifyCurve={modifyCurve}
-              deleteStyle={deleteStyle}
-              setDeleteStyle={setDeleteStyle}
-              selectedCurve={selectedCurve}
-              setSelectedCurve={setSelectedCurve}
-            />
-          ))}
-        </ul>
+        <h3 style={{ textAlign: 'center' }}>
+          <u>Control Panel</u>
+        </h3>
+      <div className="ControlPanelContainer">
+        <div className="ControlPanelMain">
+            <ul>
+              {sandbox.curves.map((curve, index) => (
+                <ControlPoint
+                  key={index}
+                  curve={curve}
+                  curveIndex={index}
+                  modifyCurve={modifyCurve}
+                  deleteStyle={deleteStyle}
+                  setDeleteStyle={setDeleteStyle}
+                  selectedCurve={selectedCurve}
+                  setSelectedCurve={setSelectedCurve}
+                />
+              ))}
+            </ul>
+        </div>
       </div>
     </>
   )

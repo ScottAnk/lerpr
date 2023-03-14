@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Quantico:wght@400;700&display=swap');
+
 /* COLOR PALETTE */
 :root {
   --pagebg: #ab8a6f;
@@ -13,10 +15,13 @@
 
 body {
   background-color: var(--pagebg);
+  text-align: center;
 }
 
 * {
-  font-family: sans-serif;
+  font-family: 'Quantico', sans-serif;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
 
 ul {
@@ -39,10 +44,23 @@ h1 {
   font-size: 48px;
 }
 
+h2 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+p {
+  font-size: 18px;
+}
+
 :link {
   cursor: pointer;
 }
 
 .link {
   cursor: pointer;
+}
+
+input::placeholder {
+  text-align: center;
 }

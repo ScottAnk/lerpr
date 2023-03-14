@@ -86,30 +86,32 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
       <h3>
         <u>Gradient Display</u>
       </h3>
-      <div className="ColorPickerContainer">
-        {/* CODE REVIEW: should I be using arrow functions here? */}
-        <span className="ColorPickerLabel">
-          <label htmlFor="colorStart">start</label>
-          <input
-            name="colorStart"
-            id="colorStart"
-            type="color"
-            value={RGBToHex(colorStart)}
-            onChange={handleColorChange}
-          />
-        </span>
-        <span className="ColorPickerLabel">
-          <label htmlFor="colorEnd">stop</label>
-          <input
-            name="colorEnd"
-            id="colorEnd"
-            type="color"
-            value={RGBToHex(colorEnd)}
-            onChange={handleColorChange}
-          />
-        </span>
+      <div className="ColorToolsContainer">
+        <div className="ColorPickerContainer">
+          {/* CODE REVIEW: should I be using arrow functions here? */}
+          <span className="ColorPickerLabel">
+            <label htmlFor="colorStart">start</label>
+            <input
+              name="colorStart"
+              id="colorStart"
+              type="color"
+              value={RGBToHex(colorStart)}
+              onChange={handleColorChange}
+            />
+          </span>
+          <span className="ColorPickerLabel">
+            <label htmlFor="colorEnd">stop</label>
+            <input
+              name="colorEnd"
+              id="colorEnd"
+              type="color"
+              value={RGBToHex(colorEnd)}
+              onChange={handleColorChange}
+            />
+          </span>
+        </div>
+        <div style={gradientStyle}></div>
       </div>
-      <div style={gradientStyle}></div>
     </div>
   )
 }

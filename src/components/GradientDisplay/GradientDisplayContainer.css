@@ -3,13 +3,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin-top: 2em;
+}
+
+.ColorToolsContainer {
+  width: 100%;
+  border: 5px solid #7E5A3D;
 }
 
 .ColorPickerContainer {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 12em;
 }
 
 .ColorPickerLabel {
