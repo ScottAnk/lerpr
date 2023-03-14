@@ -43,7 +43,7 @@ export default function HelpModal() {
             alter that curvature of any given curves.
           </li>
         </ul>
-        <img className="img" style={{marginTop: "30px"}} src={instructions}></img>
+        <img className="img" alt="Control Panel Instructions" style={{marginTop: "30px"}} src={instructions}></img>
       </div>
     </>
   )

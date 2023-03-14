@@ -1,5 +1,4 @@
 .Header {
-    margin-top: 25px;
     text-align: center;
 }
 
@@ -15,9 +14,23 @@
 
 .CoinContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     text-align: left;
+}
+
+.DarkModeCheckbox {
+    margin-left: 5px;
+    width: 1em;
+    height: 1em;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: bisque;
+    color: white;
+}
+
+.DarkModeCheckbox:checked {
+    background-color: grey;
 }
 
 .TitleContainer {
@@ -34,12 +47,6 @@
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 15px;
-}
-
-.AppLogo {
-    margin-top: 5px;
-    max-width: 35px;
-    max-height: 35px;
 }
 
 .SignContainer {

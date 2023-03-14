@@ -14,9 +14,9 @@ export default function Editor({
   setOpenSignIn,
   sandbox,
   setSandbox,
+  darkMode
 }) {
   const exportRef = useRef()
-  const [open, setOpen] = useState(false)
   const [openClearPrompt, setOpenClearPrompt] = useState(false)
 
   // selecting specific curves
@@ -30,7 +30,7 @@ export default function Editor({
 
         <div className="MainEditorContainer">
           <div className="WorkspaceContainer">
-            <Sandbox sandbox={sandbox} exportRef={exportRef} />
+            <Sandbox sandbox={sandbox} exportRef={exportRef} darkMode={darkMode} />
             <div className="TaskbarContainer">
               <TaskBar
                 setOpenSignIn={setOpenSignIn}

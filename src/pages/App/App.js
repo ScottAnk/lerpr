@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Resources from '../Resources/Resources'
 import Community from '../Community/Community'
 import Editor from '../Editor/Editor'
@@ -11,6 +11,7 @@ import { getUser } from '../../utilities/users-service'
 
 export default function App() {
   const [user, setUser] = useState(getUser())
+  const [darkMode, setDarkMode] = useState(false)
   const [openSignIn, setOpenSignIn] = useState(false)
 
   const linkedPoint = { x: 300, y: 300, solid: true }
@@ -55,8 +56,16 @@ export default function App() {
     ],
   })
 
+  const darkModeOn = localStorage.getItem('Dark Mode', 'On')
+
+  console.log(darkModeOn)
+
+useEffect(() => {if (darkModeOn) setDarkMode(true)}, [])
+
+
+
   return (
-    <main className="App">
+    <main className={darkMode ? 'DarkMode' : 'App'}>
       <Header
         user={user}
         setUser={setUser}
@@ -64,13 +73,15 @@ export default function App() {
         setOpenSignIn={setOpenSignIn}
         defaultSandbox={defaultSandbox}
         setSandbox={setSandbox}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
 
       <Routes>
         <Route path="/resources" element={<Resources />} />
         <Route
           path="/community"
-          element={<Community sandbox={sandbox} setSandbox={setSandbox} />}
+          element={<Community darkMode={darkMode} sandbox={sandbox} setSandbox={setSandbox} />}
         />
         <Route
           path="/mysandboxes"
@@ -82,6 +93,7 @@ export default function App() {
             <Editor
               sandbox={sandbox}
               setSandbox={setSandbox}
+              darkMode={darkMode}
               setUser={setUser}
               user={user}
               openSignIn={openSignIn}
@@ -89,7 +101,7 @@ export default function App() {
             />
           }
         />
-        <Route path="/team" element={<Team />} />
+        <Route path="/team" element={<Team darkMode={darkMode} />} />
         <Route path="/*" element={<Navigate to="/editor" />} />
       </Routes>
     </main>

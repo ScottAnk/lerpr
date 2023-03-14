@@ -6,7 +6,7 @@ import { logOut } from '../../utilities/users-service'
 import lerpr from '../../assets/lerpr.png'
 import { NavLink } from 'react-router-dom'
 
-export default function Header({ user, setUser, openSignIn, setOpenSignIn, defaultSandbox, setSandbox }) {
+export default function Header({ user, setUser, openSignIn, setOpenSignIn, defaultSandbox, setSandbox, darkMode, setDarkMode }) {
   function handleSignIn() {
     setOpenSignIn(true)
   }
@@ -17,12 +17,29 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
     setOpenSignIn(false)
   }
 
+  function toggleDarkMode() {
+    !darkMode ? localStorage.setItem('Dark Mode', 'On') : localStorage.removeItem('Dark Mode', 'On') 
+    setDarkMode(!darkMode)
+  }
+
+
+
   return (
     <main className="Header">
       <div className="HeaderAuthContainer">
-        <h3 className="CoinContainer">Lerp Coin</h3>
+        <div className="CoinContainer">
+        <h5>{darkMode ? 'Light Mode' : 'Dark Mode'}</h5>
+        <input 
+        type="checkbox" 
+        className="DarkModeCheckbox" 
+        name="DarkMode"
+        value={darkMode ? `${'&#x25a2'}` : ''}
+        checked={darkMode ? true : false}
+        onChange={toggleDarkMode}
+        ></input>
+        </div>
         <div className="TitleContainer">
-          <img className="AppLogo" src={lerpr}></img>
+          <img className="lerp-coin" alt="Lerpr Logo" src={lerpr}></img>
           <h1 className="AppTitle">Lerpr</h1>
         </div>
         <div className="SignContainer">

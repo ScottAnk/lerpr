@@ -62,14 +62,6 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
     gradientStops += `, rgb(${r},${g},${b}) ${gradientProgess}%`
   }
   const gradientString = `linear-gradient(90deg${gradientStops})`
-  const gradientStyle = {
-    height: '100px',
-    width: '100%',
-    boxSizing: 'border-box',
-    background: gradientString,
-    border: '5px solid #7E5A3D',
-    borderRadius: '10px',
-  }
 
   // update sandbox state when color picker values are changed
   function handleColorChange(event) {
@@ -91,6 +83,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
           <span className="ColorPickerLabel">
             <label htmlFor="colorStart">start</label>
             <input
+              className="ColorInput"
               name="colorStart"
               id="colorStart"
               type="color"
@@ -101,6 +94,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
           <span className="ColorPickerLabel">
             <label htmlFor="colorEnd">stop</label>
             <input
+              className="ColorInput"
               name="colorEnd"
               id="colorEnd"
               type="color"
@@ -109,7 +103,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
             />
           </span>
         </div>
-        <div style={gradientStyle}></div>
+        <div className="GradientBar" style={{background: gradientString}}></div>
       </div>
     </div>
   )
