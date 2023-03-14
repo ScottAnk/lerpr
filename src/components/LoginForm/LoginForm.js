@@ -29,11 +29,13 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
   }
 
   return (
-    <div>
+    <>
+      <div className="line"></div>
       <div className="form-container">
         <form className="SignInForm" autoComplete="off" onSubmit={handleSubmit}>
           <label>Email</label>
           <input
+            className="AuthInput"
             type="text"
             name="email"
             value={credentials.email}
@@ -42,16 +44,19 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
           />
           <label>Password</label>
           <input
+            className="AuthInput"
             type="password"
             name="password"
             value={credentials.password}
             onChange={handleChange}
             required
           />
-          <button type="submit">LOG IN</button>
+          <button className="AuthButton LoginButton" type="submit">
+            LOG IN
+          </button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </>
   )
 }

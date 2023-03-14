@@ -5,11 +5,12 @@ import LoginForm from '../../components/LoginForm/LoginForm'
 export default function AuthPage({ setUser, setOpenSignIn }) {
   const [showSignUp, setShowSignUp] = useState(false)
   return (
-    <main>
+    <main className="MainAuth">
       <h3>Not a user yet? Please sign up or sign in to save your Sandbox</h3>
-      <button onClick={() => setShowSignUp(!showSignUp)}>
+      <button className="AuthButton" onClick={() => setShowSignUp(!showSignUp)}>
         {showSignUp ? 'Log In' : 'Sign Up'}
       </button>
+
       {showSignUp ? (
         <SignUpForm setUser={setUser} setOpenSignIn={setOpenSignIn} />
       ) : (
