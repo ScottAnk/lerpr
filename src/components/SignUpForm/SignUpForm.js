@@ -1,13 +1,10 @@
 import '../../pages/AuthPage/AuthPage.css'
 
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { signUp } from '../../utilities/users-service'
 
 export default function SignUpForm({ setUser, setOpenSignIn }) {
-  const navigate = useNavigate()
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,7 +42,8 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
     })
   }
 
-  const disable = formData.password !== formData.confirmPassword
+  const disabled = formData.password !== formData.confirmPassword
+
   return (
     <>
       <div className="line"></div>
@@ -83,6 +81,7 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               type="password"
               name="password"
               placeholder="Your Password"
+
               value={formData.password}
               onChange={handleChange}
               required
@@ -90,7 +89,7 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
           </div>
 
           <div className="LabelInput extra">
-            <label>Confirm</label>
+            <label>Confirm Password</label>
             <input
               className="AuthInput"
               type="password"
@@ -101,6 +100,7 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               required
             />
           </div>
+
           <div className="ButtonContainer">
             <button
               type="submit"
@@ -113,8 +113,21 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
         </form>
         <div className="BreakContainer">
           <div className="SectionBreak"></div>
+
         </div>
-      </div>
+        <button
+          type="submit"
+          style={{
+            color: formData.password == '' ? 'black' : disabled ? 'black' : '',
+            backgroundColor: formData.password == '' ? 'grey' : disabled ? 'grey' : ''}}
+
+          disabled={
+            formData.password == '' ? 'disabled' : disabled ? 'disabled' : ''
+          }
+        >
+          SIGN UP
+        </button>
+      </form>
       <p className="error-message">{error}</p>
     </>
   )

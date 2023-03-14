@@ -29,6 +29,7 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
   }
 
   return (
+
     <>
       <div className="line"></div>
       <div className="form-container">
@@ -51,11 +52,17 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
             onChange={handleChange}
             required
           />
-          <button className="AuthButton LoginButton" type="submit">
+          <button
+           style={{
+            color: credentials.password.length < 3 ? 'black' : '',
+            backgroundColor: credentials.password.length < 3 ? 'grey' : ''}}
+            disabled={credentials.password.length < 3 ? 'disabled' : ''}
+            className="AuthButton LoginButton" type="submit">
             LOG IN
           </button>
         </form>
       </div>
+
       <p className="error-message">&nbsp;{error}</p>
     </>
   )

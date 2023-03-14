@@ -131,32 +131,59 @@ export default function TaskBar({
 
   return (
     <div className="TaskBar">
-      <button onClick={testSandbox}>testing testing</button>
-
+      {/* <button className="TaskButton" onClick={testSandbox}>
+        testing testing
+      </button> */}
+      <div className="TaskBarTitle">
+        <h3>Taskbar:</h3>
+      </div>
+        <button style={{backgroundColor: "#fffcb3"}} className="TaskButton" onClick={() => setOpenHelp(true)}>
+          Help
+        </button>
       <button
+        className="TaskButton"
         disabled={deleteStyle ? false : true}
         style={{
           backgroundColor: deleteStyle ? '#FFD494' : '',
+          color: deleteStyle ? 'black' : 'black',
         }}
         onClick={handleDeleteCurve}
       >
         Delete Selected Curve
       </button>
-      <button onClick={() => setOpenClearPrompt(true)}>Clear Sandbox</button>
       <button
-        onClick={() =>
-          !user
-            ? setOpenSignIn(true)
-            : sandbox.name == ''
-            ? setOpenFirstSave(true)
-            : handleUpdate()
-        }
+        disabled={deleteStyle ? false : true}
+        style={{
+          backgroundColor: deleteStyle ? '#FFD494' : '',
+          color: deleteStyle ? 'black' : 'black',
+        }}
+        className="TaskButton"
+        onClick={splitCurve}
       >
-        Save Sandbox
+        Split Curve
       </button>
-      <button onClick={() => setOpenHelp(true)}>Help</button>
-      <button onClick={splitCurve}>Split Curve</button>
-      <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>
+        <button className="TaskButton" onClick={() => setOpenClearPrompt(true)}>
+          Clear Sandbox
+        </button>
+        <button
+          className="TaskButton"
+          onClick={() =>
+            !user
+              ? setOpenSignIn(true)
+              : sandbox.name == ''
+              ? setOpenFirstSave(true)
+              : handleUpdate()
+          }
+        >
+          Save Sandbox
+        </button>
+      <button
+        className="TaskButton"
+        style={{ backgroundColor: 'lightcoral', color: 'white' }}
+        onClick={() => setOpenDeletePrompt(true)}
+      >
+        Delete Sandbox
+      </button>
       <Modal
         classNames={{
           overlay: 'customOverlay',

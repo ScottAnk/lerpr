@@ -22,14 +22,17 @@ export default function MySandboxes({ setSandbox }) {
   }, [])
 
   return (
-    <div className="thumbnail-container">
-      {sandboxes.map((sandboxInstance, index) => (
-        <Thumbnail
-          setSandbox={setSandbox}
-          sandboxInstance={sandboxInstance}
-          key={index}
-        />
-      ))}
+    <div className="MySandboxes">
+      <h2>My Sandboxes</h2>
+      <div className="thumbnail-container">
+        {sandboxes.map((sandboxInstance, index) => (
+          <Thumbnail
+            setSandbox={setSandbox}
+            sandboxInstance={sandboxInstance}
+            key={index}
+          />
+        ))}
+      </div>
     </div>
   )
 }

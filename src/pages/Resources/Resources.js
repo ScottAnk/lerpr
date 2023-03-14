@@ -19,14 +19,16 @@ export default function Resources() {
         {/* link for team page */}
         <div className="flex-container">
           <div className="bezier-container">
-            <h4>Why Lerpr?</h4>
-            <p>
-              Lerpr is short for Linear Interpolation which is used for the
-              creation of Bézier curves using linear polynomials. Interpolation
-              helps estimate the value between two points.
-            </p>
-            <h4>What is a Bézier Curve?</h4>
+              <h2><u>Why Lerpr?</u></h2>
+            <div className="lerpr-info">
+              <p>
+                Lerpr is short for Linear Interpolation which is used for the
+                creation of Bézier curves using linear polynomials.
+                Interpolation helps estimate the value between two points.
+              </p>
+            </div>
             <div className="curve-info">
+            <h2><u>What is a Bézier Curve?</u></h2>
               <p>
                 A Bézier curve is a parametric curve used in computer graphics
                 and related fields. A set of discrete "control points" defines a
@@ -41,10 +43,32 @@ export default function Resources() {
               </p>
             </div>
           </div>
+          <div className="links-container">
+            <h2>
+              <u>Curves In Action</u>
+            </h2>
+            <div className="links">
+              <h4>
+                "The Continuity of Splines"
+              </h4>
+              <p>by Freya Holmér</p>
+              <iframe
+                width="450"
+                height="275"
+                src="https://www.youtube.com/embed/jvPPXbo87ds"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+              {/* <a href="https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s">
+                The Continuity of Splines
+              </a> */}
+            </div>
+            </div>
           <div className="pierre-container">
-            <h4>Who was Pierre Bézier?</h4>
-            <img className="right pierre" src={pierre}></img>
             <div className="pierre-info">
+            <h2 style={{marginBottom: "1.25em"}}><u>Who was Pierre Bézier?</u></h2>
+            <img className="pierre" src={pierre}></img>
               <p>
                 Pierre Étienne Bézier was a French engineer and one of the
                 founders of the fields of solid, geometric and physical
@@ -57,27 +81,11 @@ export default function Resources() {
               </p>
             </div>
           </div>
-          <div className="links-container">
-            <h3>Want to learn more?</h3>
-            <div className="links">
-              <h2>The Continuity of Splines</h2>
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/jvPPXbo87ds"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-              {/* <a href="https://www.youtube.com/watch?v=jvPPXbo87ds&t=255s">
-                The Continuity of Splines
-              </a> */}
-            </div>
-          </div>
+
         </div>
         <footer className="Footer">
           <div className="Sources">
-            <h4>Sources</h4>
+            <h4 style={{textAlign: 'center'}}>Sources</h4>
             <ul className="SourcesList">
               <li>
                 <a
