@@ -92,6 +92,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
           <span className="ColorPickerLabel">
             <label htmlFor="colorStart">start</label>
             <input
+              className="ColorInput"
               name="colorStart"
               id="colorStart"
               type="color"
@@ -102,6 +103,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
           <span className="ColorPickerLabel">
             <label htmlFor="colorEnd">stop</label>
             <input
+              className="ColorInput"
               name="colorEnd"
               id="colorEnd"
               type="color"
@@ -110,7 +112,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
             />
           </span>
         </div>
-        <div style={gradientStyle}></div>
+        <div className="GradientBar" style={gradientStyle}></div>
       </div>
     </div>
   )

@@ -5,17 +5,46 @@
   --pagebg: #ab8a6f;
   --divbg: #f8ecde;
   --divborder: #7e5a3d;
+  --containerbg: #f8ecde;
   --olive: #8b956d;
   --lightbrown: #fce0bc;
   --darkbrown: #4f433e;
   --orange: #edc6a8;
   --text-light: #e3c8b2;
-  --text-dark: #615954;
+  --coordinate-x: #b1b999;
+  --coordinate-y: rgb(245, 237, 187);
+}
+
+.App {
+  background-color: var(--pagebg);
+  text-align: center;
+  color: black;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+.DarkMode {
+  background-color: #313646;
+  height: 100vh;
+  overflow-x: auto;
+  color: white;
+  text-align: center;
+
+  /* DarkMode Palette */
+  --divbg: #848793;
+  --divborder: #7EA5BF;
+  --containerbg: #4f4f54;
+  --coordinate-x: antiquewhite;
+  --coordinate-y: azure;
+}
+
+.DarkMode .Sandbox {
+  filter: invert();
+  border-color: #7e5a3d;
 }
 
 body {
-  background-color: var(--pagebg);
-  text-align: center;
+  margin: 0px;
 }
 
 * {

@@ -89,7 +89,7 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
           </div>
 
           <div className="LabelInput extra">
-            <label>Confirm Password</label>
+            <label>Confirm</label>
             <input
               className="AuthInput"
               type="password"
@@ -104,31 +104,21 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
           <div className="ButtonContainer">
             <button
               type="submit"
-              disabled={disable}
               className="AuthButton SignUpButton"
+              style={{
+                color: formData.password == '' ? 'black' : disabled ? 'black' : '',
+                backgroundColor: formData.password == '' ? 'grey' : disabled ? 'grey' : ''}}
+      
+              disabled={
+                formData.password == '' ? 'disabled' : disabled ? 'disabled' : ''
+              }
             >
               SIGN UP
             </button>
           </div>
         </form>
-        <div className="BreakContainer">
-          <div className="SectionBreak"></div>
-
-        </div>
-        <button
-          type="submit"
-          style={{
-            color: formData.password == '' ? 'black' : disabled ? 'black' : '',
-            backgroundColor: formData.password == '' ? 'grey' : disabled ? 'grey' : ''}}
-
-          disabled={
-            formData.password == '' ? 'disabled' : disabled ? 'disabled' : ''
-          }
-        >
-          SIGN UP
-        </button>
-      </form>
       <p className="error-message">{error}</p>
+      </div>
     </>
   )
 }

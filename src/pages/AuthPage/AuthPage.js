@@ -7,9 +7,6 @@ export default function AuthPage({ setUser, setOpenSignIn, openSignIn }) {
   return (
     <main className="MainAuth">
       <h3>{showSignUp ? 'Sign Up for a Lerpr Account in order to Save your Sandbox:' : 'Login to your Lerpr Account to Save your Sandbox:'}</h3>
-      <button className="AuthButton" onClick={() => setShowSignUp(!showSignUp)}>
-        {showSignUp ? 'Log In' : 'Sign Up'}
-      </button>
 
       {showSignUp ? (
         <SignUpForm setUser={setUser} setOpenSignIn={setOpenSignIn} />
@@ -21,7 +18,7 @@ export default function AuthPage({ setUser, setOpenSignIn, openSignIn }) {
           ? `Have an Account Already? Login Below` : 'Not a User Yet? Sign-Up for a Lerpr Account:'
           }
       </h3>
-      <button onClick={() => setShowSignUp(!showSignUp)}>
+      <button className="AuthButton" onClick={() => setShowSignUp(!showSignUp)}>
         {showSignUp ? 'Log In' : 'Sign Up'}
       </button>
     </main>

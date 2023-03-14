@@ -1,5 +1,6 @@
 .Sandbox {
-  border: 5px solid #7E5A3D;
+  border: 5px solid var(--divborder);
   border-radius: 5px;
-  background-color: #F8ECDE;
+  background-color: #f8ecde;
 }
+

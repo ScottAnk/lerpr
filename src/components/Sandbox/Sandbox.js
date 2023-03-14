@@ -1,7 +1,7 @@
 import './Sandbox.css'
 import { useEffect } from 'react'
 
-export default function Sandbox({ sandbox, exportRef }) {
+export default function Sandbox({ sandbox, exportRef, darkMode }) {
   // TODO express point coordinates as fractions of dynamic canvase dimentions
 
   useEffect(() => {
