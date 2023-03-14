@@ -26,7 +26,7 @@ export default function App() {
         endPoint: { x: 900, y: 0, solid: true },
         control1: { x: 300, y: 400, solid: false },
         control2: { x: 600, y: 200, solid: false },
-      }
+      },
     ],
   }
 
@@ -58,11 +58,9 @@ export default function App() {
 
   const darkModeOn = localStorage.getItem('Dark Mode', 'On')
 
-  console.log(darkModeOn)
-
-useEffect(() => {if (darkModeOn) setDarkMode(true)}, [])
-
-
+  useEffect(() => {
+    if (darkModeOn) setDarkMode(true)
+  }, [])
 
   return (
     <main className={darkMode ? 'DarkMode' : 'App'}>
@@ -81,7 +79,13 @@ useEffect(() => {if (darkModeOn) setDarkMode(true)}, [])
         <Route path="/resources" element={<Resources />} />
         <Route
           path="/community"
-          element={<Community darkMode={darkMode} sandbox={sandbox} setSandbox={setSandbox} />}
+          element={
+            <Community
+              darkMode={darkMode}
+              sandbox={sandbox}
+              setSandbox={setSandbox}
+            />
+          }
         />
         <Route
           path="/mysandboxes"

@@ -12,7 +12,6 @@ function createJWT(user) {
 }
 
 function checkToken(req, res) {
-  console.log(req.user)
   res.json(req.exp)
 }
 

@@ -1,5 +1,5 @@
 import sendRequest from './send-request'
-const BASE_URL = 'https://lerpr.herokuapp.com/'
+const BASE_URL = 'https://lerpr.herokuapp.com'
 
 // this can be used to create any single curve on any sandbox
 export function createCurve(sandboxId, curveData) {
