@@ -174,8 +174,7 @@ export default function TaskBar({
         onClick={() =>
           !user
             ? setOpenSignIn(true)
-            : sandbox.name == '' ||
-              (console.log(sandbox.owner), getUser()._id !== sandbox.owner._id)
+            : sandbox.name === '' || user._id !== sandbox.owner._id
             ? setOpenFirstSave(true)
             : handleUpdate()
         }
