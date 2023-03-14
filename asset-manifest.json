@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/lerpr/static/css/main.3253647d.css",
+    "main.js": "/lerpr/static/js/main.2d1ce6e5.js",
+    "static/media/PaulT.jpeg": "/lerpr/static/media/PaulT.c3753f0dccec5ff359db.jpeg",
+    "static/media/pickle.png": "/lerpr/static/media/pickle.5934105cd933be319b1a.png",
+    "static/media/scott.jpeg": "/lerpr/static/media/scott.763b380915b1036932ec.jpeg",
+    "static/media/ControlPanelInstructions.png": "/lerpr/static/media/ControlPanelInstructions.99b98723db300232684d.png",
+    "static/media/pierre.jpeg": "/lerpr/static/media/pierre.5dd6fce41ed1d9bcfb96.jpeg",
+    "static/media/lerpr.png": "/lerpr/static/media/lerpr.c07f3e03cb74242c7d49.png",
+    "static/media/eddie.jpeg": "/lerpr/static/media/eddie.7dc0131edfbbfd42eea7.jpeg",
+    "index.html": "/lerpr/index.html",
+    "main.3253647d.css.map": "/lerpr/static/css/main.3253647d.css.map",
+    "main.2d1ce6e5.js.map": "/lerpr/static/js/main.2d1ce6e5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3253647d.css",
+    "static/js/main.2d1ce6e5.js"
+  ]
+}
