@@ -8,12 +8,10 @@ import { NavLink } from 'react-router-dom'
 
 export default function Header({ user, setUser, openSignIn, setOpenSignIn, defaultSandbox, setSandbox }) {
   function handleSignIn() {
-    console.log('Sign In')
     setOpenSignIn(true)
   }
 
   function handleSignOut() {
-    console.log('Sign Out')
     setUser(null)
     logOut()
     setOpenSignIn(false)
