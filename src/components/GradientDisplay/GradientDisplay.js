@@ -28,7 +28,6 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
     hexCode += rgb.r.toString(16).padStart(2, '0')
     hexCode += rgb.g.toString(16).padStart(2, '0')
     hexCode += rgb.b.toString(16).padStart(2, '0')
-    console.log('RGBToHex return: ', hexCode)
     return hexCode
   }
 

@@ -11,7 +11,6 @@ export default function ControlPoint({ curve, curveIndex, modifyCurve, deleteSty
 
   function selectCurve() {
     setSelectedCurve(curveIndex)
-    console.log(selectedCurve)
     setDeleteStyle(!deleteStyle)
   }
 

@@ -16,7 +16,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   }
 
   const res = await fetch(url, options)
-  console.log(res)
+
   // res.ok will be false if the status code set to 4xx in the controller action
   if (res.ok && res.status !== 204) {
     return res.json()
