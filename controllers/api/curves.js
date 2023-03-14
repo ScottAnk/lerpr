@@ -30,7 +30,6 @@ async function clearCurves(req, res, next) {
     })
     sandbox.save().then(() => res.status(201).json({ sandbox: sandbox }))
   } catch (error) {
-    console.log(error)
     next(error)
   }
 }
@@ -44,7 +43,6 @@ async function deleteOneCurve(req, res, next) {
     sandbox.curves.pull(curveId)
     return sandbox.save().then(() => res.sendStatus(204))
   } catch (error) {
-    console.log(error)
     next(error)
   }
 }

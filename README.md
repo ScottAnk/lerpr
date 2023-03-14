@@ -21,7 +21,7 @@
     2. Javascript
     3. CSS
     4. BCrypt
-    5. CORs
+    5. CORS
     6. Dotenv
     7. Express
     8. JsonwebToken
@@ -39,7 +39,7 @@
     [Trello Board:](https://trello.com/b/MdiMxixR/lerpr)
 
 ### Next Steps:
-    The following items are out iceebox items that will be implemented in later versions
+    The following items are our icebox items that will be implemented in later versions.
     1. As a user, I want to be able to use Dark Mode.
     2. As a user, I want to be able to access premade backgrounds to trace.
     3. As a user, I want to be able to add more control points to a curve.
