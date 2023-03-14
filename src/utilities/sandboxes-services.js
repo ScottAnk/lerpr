@@ -3,6 +3,7 @@ import * as curvesAPI from './curves-api'
 
 // initial sandbox creation
 export async function createNewSandbox(sandboxData) {
+  delete sandboxData._id
   const response = await sandboxesAPI.createSandbox(sandboxData)
   return response.sandbox
 }
