@@ -207,8 +207,10 @@ export default function TaskBar({
         <form className="SandboxSaveForm" onSubmit={handleSave}>
           <h2>Name your sandbox to save:</h2>
           <label>Enter Sandbox Name Here</label>
-          <input onChange={nameSandbox} />
-          <button type="submit">Save Sandbox</button>
+          <input className="AuthInput" onChange={nameSandbox} />
+          <button className="AuthButton SandboxButton" type="submit">
+            Save Sandbox
+          </button>
         </form>
       </Modal>
       <Modal
@@ -220,9 +222,18 @@ export default function TaskBar({
         onClose={() => setOpenClearPrompt(false)}
         center
       >
-        <h3>Are you sure you want to clear your Sandbox?</h3>
-        <button onClick={() => setOpenClearPrompt(false)}>No</button>
-        <button onClick={handleClear}>Yes</button>
+        <div className="ClearSandbox">
+          <h3>Are you sure you want to clear your Sandbox?</h3>
+          <button
+            className="AuthButton SandboxButton"
+            onClick={() => setOpenClearPrompt(false)}
+          >
+            No
+          </button>
+          <button className="AuthButton SandboxButton" onClick={handleClear}>
+            Yes
+          </button>
+        </div>
       </Modal>
       <Modal
         classNames={{
@@ -233,12 +244,24 @@ export default function TaskBar({
         onClose={() => setOpenDeletePrompt(false)}
         center
       >
-        <h3>Are you sure you want to delete your Sandbox?</h3>
-        <h3>
-          <b>this cannot be undone!</b>
-        </h3>
-        <button onClick={() => setOpenDeletePrompt(false)}>No</button>
-        <button onClick={handleDeleteSandbox}>Yes</button>
+        <div className="ClearSandbox">
+          <h3>Are you sure you want to delete your Sandbox?</h3>
+          <h3>
+            <b>THIS CANNOT BE UNDONE!</b>
+          </h3>
+          <button
+            className="AuthButton SandboxButton"
+            onClick={() => setOpenDeletePrompt(false)}
+          >
+            No
+          </button>
+          <button
+            className="AuthButton SandboxButton"
+            onClick={handleDeleteSandbox}
+          >
+            Yes
+          </button>
+        </div>
       </Modal>
     </div>
   )

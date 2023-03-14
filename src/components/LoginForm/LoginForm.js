@@ -29,39 +29,41 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
   }
 
   return (
-    <div>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div className="SignInForm">
-          <div className="SignInColumns">
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              placeholder="Email Address"
-              value={credentials.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="SignInColumns">
+
+    <>
+      <div className="line"></div>
+      <div className="form-container">
+        <form className="SignInForm" autoComplete="off" onSubmit={handleSubmit}>
+          <label>Email</label>
+          <input
+            className="AuthInput"
+            type="text"
+            name="email"
+            value={credentials.email}
+            onChange={handleChange}
+            required
+          />
           <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={credentials.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-        <button type="submit"
-        style={{
+          <input
+            className="AuthInput"
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+          />
+          <button
+           style={{
             color: credentials.password.length < 3 ? 'black' : '',
             backgroundColor: credentials.password.length < 3 ? 'grey' : ''}}
-            disabled={credentials.password.length < 3 ? 'disabled' : ''}>LOG IN</button>
-      </form>
+            disabled={credentials.password.length < 3 ? 'disabled' : ''}
+            className="AuthButton LoginButton" type="submit">
+            LOG IN
+          </button>
+        </form>
+      </div>
+
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </>
   )
 }

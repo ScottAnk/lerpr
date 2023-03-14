@@ -45,12 +45,15 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
   const disabled = formData.password !== formData.confirmPassword
 
   return (
-    <div>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div className="SignUpForm">
-          <div className="SignUpColumns">
+    <>
+      <div className="line"></div>
+      <div className="CardContainer">
+        <h2 className="AuthHeader"></h2>
+        <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
+          <div className="LabelInput">
             <label>Username</label>
             <input
+              className="AuthInput"
               type="text"
               name="name"
               placeholder="Username"
@@ -58,28 +61,37 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               onChange={handleChange}
               required
             />
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="SignUpColumns">
+          </div>
+          <div className="LabelInput">
+            <label>Email</label>
+            <input
+              className="AuthInput"
+              type="email"
+              name="email"
+              placeholder="Your Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="LabelInput">
             <label>Password</label>
             <input
+              className="AuthInput"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Your Password"
+
               value={formData.password}
               onChange={handleChange}
               required
             />
+          </div>
+
+          <div className="LabelInput extra">
             <label>Confirm Password</label>
             <input
+              className="AuthInput"
               type="password"
               name="confirmPassword"
               placeholder="Re-Enter Password"
@@ -88,6 +100,20 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               required
             />
           </div>
+
+          <div className="ButtonContainer">
+            <button
+              type="submit"
+              disabled={disable}
+              className="AuthButton SignUpButton"
+            >
+              SIGN UP
+            </button>
+          </div>
+        </form>
+        <div className="BreakContainer">
+          <div className="SectionBreak"></div>
+
         </div>
         <button
           type="submit"
@@ -103,6 +129,6 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
         </button>
       </form>
       <p className="error-message">{error}</p>
-    </div>
+    </>
   )
 }
