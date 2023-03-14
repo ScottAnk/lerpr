@@ -48,7 +48,6 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
     <>
       <div className="line"></div>
       <div className="CardContainer">
-        <h2 className="AuthHeader"></h2>
         <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
           <div className="LabelInput">
             <label>Username</label>
@@ -81,7 +80,6 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               type="password"
               name="password"
               placeholder="Your Password"
-
               value={formData.password}
               onChange={handleChange}
               required
@@ -106,18 +104,24 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               type="submit"
               className="AuthButton SignUpButton"
               style={{
-                color: formData.password == '' ? 'black' : disabled ? 'black' : '',
-                backgroundColor: formData.password == '' ? 'grey' : disabled ? 'grey' : ''}}
-      
+                color:
+                  formData.password === '' ? 'black' : disabled ? 'black' : '',
+                backgroundColor:
+                  formData.password === '' ? 'grey' : disabled ? 'grey' : '',
+              }}
               disabled={
-                formData.password == '' ? 'disabled' : disabled ? 'disabled' : ''
+                formData.password === ''
+                  ? 'disabled'
+                  : disabled
+                  ? 'disabled'
+                  : ''
               }
             >
               SIGN UP
             </button>
           </div>
         </form>
-      <p className="error-message">{error}</p>
+        <p className="error-message">{error}</p>
       </div>
     </>
   )

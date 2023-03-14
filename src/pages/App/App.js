@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Resources from '../Resources/Resources'
 import Community from '../Community/Community'
 import Editor from '../Editor/Editor'
@@ -56,13 +56,13 @@ export default function App() {
     ],
   })
 
-  if (darkMode == true) {
-  localStorage.setItem('Dark Mode', 'On')
-  }
+  const darkModeOn = localStorage.getItem('Dark Mode', 'On')
 
-  else if (darkMode == false) {
-    localStorage.removeItem('Dark Mode', 'On')
-  }
+  console.log(darkModeOn)
+
+useEffect(() => {if (darkModeOn) setDarkMode(true)}, [])
+
+
 
   return (
     <main className={darkMode ? 'DarkMode' : 'App'}>
@@ -101,7 +101,7 @@ export default function App() {
             />
           }
         />
-        <Route path="/team" element={<Team />} />
+        <Route path="/team" element={<Team darkMode={darkMode} />} />
         <Route path="/*" element={<Navigate to="/editor" />} />
       </Routes>
     </main>

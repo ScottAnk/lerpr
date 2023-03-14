@@ -17,7 +17,6 @@ export default function Editor({
   darkMode
 }) {
   const exportRef = useRef()
-  const [open, setOpen] = useState(false)
   const [openClearPrompt, setOpenClearPrompt] = useState(false)
 
   // selecting specific curves

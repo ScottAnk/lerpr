@@ -19,6 +19,13 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
     setOpenSignIn(false)
   }
 
+  function toggleDarkMode() {
+    !darkMode ? localStorage.setItem('Dark Mode', 'On') : localStorage.removeItem('Dark Mode', 'On') 
+    setDarkMode(!darkMode)
+  }
+
+
+
   return (
     <main className="Header">
       <div className="HeaderAuthContainer">
@@ -30,11 +37,11 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
         name="DarkMode"
         value={darkMode ? `${'&#x25a2'}` : ''}
         checked={darkMode ? true : false}
-        onChange={() => setDarkMode(!darkMode)}
+        onChange={toggleDarkMode}
         ></input>
         </div>
         <div className="TitleContainer">
-          <img className="AppLogo" src={lerpr}></img>
+          <img className="AppLogo" alt="Lerpr Logo" src={lerpr}></img>
           <h1 className="AppTitle">Lerpr</h1>
         </div>
         <div className="SignContainer">

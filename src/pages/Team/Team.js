@@ -4,11 +4,11 @@ import pault from '../../assets/PaulT.jpeg'
 import eddie from '../../assets/eddie.jpeg'
 import pauls from '../../assets/PaulS.jpeg'
 import quentin from '../../assets/quentin.jpeg'
+import pickle from '../../assets/pickle.png'
 
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function Team() {
-  const [user, setUser] = useState()
+export default function Team({ darkMode }) {
 
   return (
     <main className="TeamContainer">
@@ -17,7 +17,7 @@ export default function Team() {
       </div>
       <div className="TeamMain">
         <div className="TeamMemberCard">
-          <img className="headshots" src={scott}></img>
+          <img className="headshots" alt="Scott Ankiewicz" src={scott}></img>
           <h3>Scott Ankiewicz</h3>
           <a
             class="LinkedIn"
@@ -27,21 +27,21 @@ export default function Team() {
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="headshots" src={pault}></img>
+          <img className="headshots"alt="Paul Truitt" src={pault}></img>
           <h3>Paul Truitt</h3>
           <a class="LinkedIn" href="https://www.linkedin.com/in/paultruittdev/">
             LinkedIn
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="headshots" src={eddie}></img>
+          <img className="headshots" alt="Eddie Hernandez" src={eddie}></img>
           <h3>Eddie Hernandez</h3>
           <a class="LinkedIn" href="https://www.linkedin.com/in/edhz/">
             LinkedIn
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="headshots" src={pauls}></img>
+          <img className="headshots" alt="Paul Seabrook" src={pauls}></img>
           <h3>Paul Seabrook</h3>
           <a
             class="LinkedIn"
@@ -51,10 +51,26 @@ export default function Team() {
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="headshots" src={quentin}></img>
+          <img className="headshots" alt="Quentin Lee" src={quentin}></img>
           <h3>Quentin Lee</h3>
           <a class="LinkedIn" href="https://www.linkedin.com/in/quentinjlee/">
             LinkedIn
+          </a>
+        </div>
+        <div className="TeamMemberCard"
+        style={{display: darkMode ? '' : 'none'}}
+        >
+          <img
+            className="pickle"
+            alt="pickle the cat"
+            src={pickle}
+          ></img>
+          <h3>Pickle the Cat</h3>
+          <a
+            class="LinkedIn"
+            href="https://www.foodreference.com/html/fpickles.html"
+          >
+            Pickle Facts
           </a>
         </div>
       </div>
