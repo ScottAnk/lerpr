@@ -1,7 +1,7 @@
 // API modules are where the code lives to communicate
 // with the server via AJAX
 import sendRequest from './send-request'
-const BASE_URL = 'http://127.0.0.1:3001'
+const BASE_URL = 'https://lerpr.herokuapp.com/'
 
 // sign up main user
 export function signUp(userData) {
