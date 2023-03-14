@@ -3,3 +3,12 @@
     background-color: #F8ECDE;
     max-width: 200px;
 }
+
+.thumbnail-card {
+    background-color: rgb(225, 225, 225);
+    border: 5px solid #7E5A3D;
+    border-radius: 5px;
+    text-align: center;
+    padding: 1em 2em;
+    margin: 5px;
+}

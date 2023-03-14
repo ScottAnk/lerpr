@@ -16,7 +16,7 @@
 }
 
 .thumbnail:hover {
-  transform: scale(1.75);
+  transform: scale(1.92);
 }
 
 @media (max-width: 1500px) {

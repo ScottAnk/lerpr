@@ -1,5 +1,4 @@
 import './Editor.css'
-import 'react-responsive-modal/styles.css'
 import { Modal } from 'react-responsive-modal'
 import React, { useState, useRef } from 'react'
 import Sandbox from '../../components/Sandbox/Sandbox'
@@ -27,7 +26,7 @@ export default function Editor({
   return (
     <>
       <main className="Editor">
-        <h1>Sandbox</h1>
+        <h1>{sandbox.name == '' ? 'New Sandbox' : `${sandbox.name}`}</h1>
 
         <div className="MainEditorContainer">
           <div className="WorkspaceContainer">
@@ -58,7 +57,7 @@ export default function Editor({
                   onClose={() => setOpenSignIn(false)}
                   center
                 >
-                  <AuthPage setUser={setUser} setOpenSignIn={setOpenSignIn} />
+                  <AuthPage setUser={setUser} openSignIn={openSignIn} setOpenSignIn={setOpenSignIn} />
                 </Modal>
               </div>
             </div>

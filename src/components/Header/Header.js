@@ -1,6 +1,5 @@
 import NavBar from '../../components/NavBar/NavBar'
 import './Header.css'
-// import 'react-responsive-modal/styles.css'
 import { Modal } from 'react-responsive-modal'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 import { logOut } from '../../utilities/users-service'
