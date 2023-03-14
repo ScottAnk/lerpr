@@ -6,5 +6,11 @@
 }
 
 .HelpSubHeader {
-  margin: 10px 0px;
+  margin: 30px 0px 10px 0px;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.HelpListItem {
+  margin-bottom: 20px;
 }

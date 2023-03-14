@@ -28,7 +28,7 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
     <main className="Header">
       <div className="HeaderAuthContainer">
         <div className="CoinContainer">
-        <h5>{darkMode ? 'Light Mode' : 'Dark Mode'}</h5>
+        <h5>Dark Mode</h5>
         <input 
         type="checkbox" 
         className="DarkModeCheckbox" 
