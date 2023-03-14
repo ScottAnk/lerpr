@@ -2,19 +2,19 @@
 
 ### Screenshots: 
 Editor Page:
-![Editor Page](../lerpr/src/assets/Editor_Page.png)
+![Editor Page](./src/assets/Editor_Page.png)
 
 Resources Page:
-![Resources Page](../lerpr/src/assets/Resources_Page.png)
+![Resources Page](./src/assets/Resources_Page.png)
 
 Team Page:
-![Team Page](../lerpr/src/assets/Team_Page.png)
+![Team Page](./src/assets/Team_Page.png)
 
 Sign In Page:
-![Sign In Page](../lerpr/src/assets/SignIn_Page.png)
+![Sign In Page](./src/assets/SignIn_Page.png)
 
 Sign Up Page:
-![Sign Up Page](../lerpr/src/assets/SignUp_Page.png)
+![Sign Up Page](./src/assets/SignUp_Page.png)
 
 ### Technologies Used: 
 1. HTML
