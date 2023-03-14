@@ -8,22 +8,15 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
 
   // change CSS color code (#123012) into RGB object ({r:12, g:30, b:12})
   function hexToRGB(hexCode) {
-    console.log('hextorgb input: ', hexCode)
     const red = '0x' + hexCode.slice(1, 3)
     const green = '0x' + hexCode.slice(3, 5)
     const blue = '0x' + hexCode.slice(5, 7)
 
-    console.log('hextorgb return: ', {
-      r: Number(red),
-      g: Number(green),
-      b: Number(blue),
-    })
     return { r: Number(red), g: Number(green), b: Number(blue) }
   }
 
   // change RGB object ({r:12, g:30, b:12}) into CSS color code (#123012)
   function RGBToHex(rgb) {
-    console.log('RGBtoHex input: ', rgb)
     let hexCode = '#'
     hexCode += rgb.r.toString(16).padStart(2, '0')
     hexCode += rgb.g.toString(16).padStart(2, '0')
@@ -103,7 +96,10 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
             />
           </span>
         </div>
-        <div className="GradientBar" style={{background: gradientString}}></div>
+        <div
+          className="GradientBar"
+          style={{ background: gradientString }}
+        ></div>
       </div>
     </div>
   )

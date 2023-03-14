@@ -16,6 +16,8 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,5 +41,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://127.0.0.1:3001"
+  "proxy": "https://127.0.0.1:3001",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  },
+  "homepage": "https://scottank.github.io/lerpr/"
 }

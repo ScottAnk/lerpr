@@ -17,10 +17,8 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
   async function handleSubmit(event) {
     event.preventDefault()
     try {
-      console.log(formData)
       const signUpData = { ...formData }
       delete signUpData.confirmPassword
-      console.log(signUpData)
       // The promise returned by the signUp service method
       // will resolve to the user object included in the
       // payload of the JSON Web Token (JWT)
@@ -114,7 +112,6 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
                   : disabled
                   ? 'disabled'
                   : ''
-
               }
             >
               SIGN UP

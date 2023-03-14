@@ -1,5 +1,5 @@
 import sendRequest from './send-request'
-const BASE_URL = 'http://127.0.0.1:3001'
+const BASE_URL = 'https://lerpr.herokuapp.com'
 
 export function createSandbox(sandboxData) {
   return sendRequest(BASE_URL + '/api/sandboxes', 'POST', sandboxData)
@@ -18,7 +18,11 @@ export function findSandboxById(sandboxId) {
 }
 
 export function updateSandbox(sandboxId, sandboxData) {
-  return sendRequest(BASE_URL + `/api/sandboxes/update/${sandboxId}`, 'PATCH', sandboxData)
+  return sendRequest(
+    BASE_URL + `/api/sandboxes/update/${sandboxId}`,
+    'PATCH',
+    sandboxData
+  )
 }
 
 export function deleteSandbox(sandboxId) {

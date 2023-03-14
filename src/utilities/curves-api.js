@@ -1,5 +1,5 @@
 import sendRequest from './send-request'
-const BASE_URL = 'http://127.0.0.1:3001'
+const BASE_URL = 'https://lerpr.herokuapp.com'
 
 // this can be used to create any single curve on any sandbox
 export function createCurve(sandboxId, curveData) {
@@ -8,7 +8,11 @@ export function createCurve(sandboxId, curveData) {
 
 // this will delete a specific curve that user selects via control panel
 export function deleteCurve(sandboxId, curveId) {
-  return sendRequest(BASE_URL + `/api/curves/delete/${curveId}`, 'DELETE', sandboxId)
+  return sendRequest(
+    BASE_URL + `/api/curves/delete/${curveId}`,
+    'DELETE',
+    sandboxId
+  )
 }
 
 // this will delete all existing curves in current sandbox
