@@ -7,7 +7,10 @@ async function createSandbox(req, res, next) {
     const body = req.body
     body.owner = req.user._id
     const sandbox = await Sandbox.create(req.body)
-    res.status(201).json({ sandbox: sandbox })
+    const populatedSandbox = await Sandbox.findById(sandbox._id).populate(
+      'owner'
+    )
+    res.status(201).json({ sandbox: populatedSandbox })
   } catch (error) {
     console.log(error)
     next(error)
@@ -72,8 +75,11 @@ async function findSandboxById(req, res, next) {
 //Update
 
 async function updateSandbox(req, res, next) {
+  console.log('updating sandbox. id: ', req.params.id)
+  console.log(req.body)
   try {
     const sandbox = await Sandbox.findById(req.params.id)
+    delete req.body._id
     return sandbox.updateOne(req.body).then(() => res.sendStatus(204))
   } catch (error) {
     next(error)
