@@ -1,4 +1,4 @@
-# App Title: Lerpr
+# Lerpr
 
 ### Screenshots: 
 Editor Page:
