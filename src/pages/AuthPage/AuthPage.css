@@ -14,22 +14,107 @@
   cursor: pointer;
 }
 
-.CardContainer {
-  margin: 20px;
+.MainAuth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  height: 350px;
 }
 
 .SignUpForm {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
 
-  justify-content: left;
+.SignUpForm > * {
+  margin: 10px;
 }
 
 .SignInForm {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignInForm > * {
+  margin: 5px;
 }
 
 .form-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.line {
+  margin-top: 10px;
+  width: 400px;
+  height: 47px;
+  border-bottom: 2px solid black;
+}
+
+.AuthButton {
+  padding: 10px;
+  background-color: var(--pagebg);
+  border-radius: 10px;
+  color: bisque;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.AuthButton:hover {
+  background-color: #685443;
+}
+
+.AuthInput {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: bisque;
+  border: solid 0.5px black;
+  font-size: 0.75em;
+}
+
+.AuthInput:focus {
+  background-color: rgb(216, 184, 137);
+}
+
+.LoginButton {
+  width: 100px;
+  height: 35px;
+  font-size: 12px;
+}
+
+.SignUpButton {
+  width: 110px;
+  height: 35px;
+  font-size: 10px;
+}
+
+input {
+  all: unset;
+}
+
+.LabelInput > * {
+  margin: 10px;
+}
+
+.ButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.extra {
+  margin-left: -5px;
 }

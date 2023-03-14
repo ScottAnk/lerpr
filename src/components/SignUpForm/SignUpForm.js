@@ -47,55 +47,75 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
 
   const disable = formData.password !== formData.confirmPassword
   return (
-    <div>
+    <>
+      <div className="line"></div>
       <div className="CardContainer">
         <h2 className="AuthHeader"></h2>
         <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Username</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Username"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Your Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <label>Confirm</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Re-Enter Password"
-            value={formData.confirm}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" disabled={disable} className="AuthSubmit">
-            SIGN UP
-          </button>
+          <div className="LabelInput">
+            <label>Username</label>
+            <input
+              className="AuthInput"
+              type="text"
+              name="name"
+              placeholder="Username"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="LabelInput">
+            <label>Email</label>
+            <input
+              className="AuthInput"
+              type="email"
+              name="email"
+              placeholder="Your Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="LabelInput">
+            <label>Password</label>
+            <input
+              className="AuthInput"
+              type="password"
+              name="password"
+              placeholder="Your Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="LabelInput extra">
+            <label>Confirm</label>
+            <input
+              className="AuthInput"
+              type="password"
+              name="confirmPassword"
+              placeholder="Re-Enter Password"
+              value={formData.confirm}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="ButtonContainer">
+            <button
+              type="submit"
+              disabled={disable}
+              className="AuthButton SignUpButton"
+            >
+              SIGN UP
+            </button>
+          </div>
         </form>
         <div className="BreakContainer">
           <div className="SectionBreak"></div>
         </div>
       </div>
       <p className="error-message">{error}</p>
-    </div>
+    </>
   )
 }

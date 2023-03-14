@@ -17,7 +17,7 @@ export default function Team() {
       </div>
       <div className="TeamMain">
         <div className="TeamMemberCard">
-          <img className="img" src={scott}></img>
+          <img className="headshots" src={scott}></img>
           <h3>Scott Ankiewicz</h3>
           <a
             class="LinkedIn"
@@ -27,21 +27,21 @@ export default function Team() {
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="img" src={pault}></img>
+          <img className="headshots" src={pault}></img>
           <h3>Paul Truitt</h3>
           <a class="LinkedIn" href="https://www.linkedin.com/in/paultruittdev/">
             LinkedIn
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="img" src={eddie}></img>
+          <img className="headshots" src={eddie}></img>
           <h3>Eddie Hernandez</h3>
           <a class="LinkedIn" href="https://www.linkedin.com/in/edhz/">
             LinkedIn
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="img" src={pauls}></img>
+          <img className="headshots" src={pauls}></img>
           <h3>Paul Seabrook</h3>
           <a
             class="LinkedIn"
@@ -51,7 +51,7 @@ export default function Team() {
           </a>
         </div>
         <div className="TeamMemberCard">
-          <img className="img" src={quentin}></img>
+          <img className="headshots" src={quentin}></img>
           <h3>Quentin Lee</h3>
           <a class="LinkedIn" href="https://www.linkedin.com/in/quentinjlee/">
             LinkedIn

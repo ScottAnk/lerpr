@@ -24,7 +24,6 @@ export default function TaskBar({
   const [openHelp, setOpenHelp] = useState(false)
   const [openFirstSave, setOpenFirstSave] = useState(false)
 
-
   function nameSandbox(event) {
     event.preventDefault()
     const sandboxName = event.target.value
@@ -34,48 +33,48 @@ export default function TaskBar({
     setSandbox(namedSandbox)
   }
 
-  async function splitCurve(){
-      const startPointX = sandbox.curves[selectedCurve].startPoint.x
-      const startPointY = sandbox.curves[selectedCurve].startPoint.y
-      const endPointX = sandbox.curves[selectedCurve].endPoint.x
-      const endPointY = sandbox.curves[selectedCurve].endPoint.y
-      const splitPoint = {
-        x: (startPointX + endPointX)/2,
-        y: (startPointY + endPointY)/2,
-        solid: true
-      }
-      const splitCurve1 = {
-        startPoint: sandbox.curves[selectedCurve].startPoint,
-        endPoint: splitPoint,
-        control1: {
-          x: (splitPoint.x + startPointX)/3,
-          y: (splitPoint.y + startPointY)/3,
-          solid: false,
-        },
-        control2: {
-          x: (splitPoint.x + startPointX)*2/3,
-          y: (splitPoint.y + startPointY)*2/3,
-          solid: false
-        }
-      }
-      const splitCurve2 = {
-        startPoint: splitPoint,
-        endPoint: sandbox.curves[selectedCurve].endPoint,
-        control1: {
-          x: (splitPoint.x + endPointX)/3,
-          y: (splitPoint.y + endPointY)/3,
-          solid: false,
-        },
-        control2: {
-          x: (splitPoint.x + endPointX)*2/3,
-          y: (splitPoint.y + endPointY)*2/3,
-          solid: false
-        }
-      }
-      const newSandbox = {...sandbox}
-      newSandbox.curves.splice(selectedCurve, 1, splitCurve1, splitCurve2)
-      console.log(newSandbox.curves)
-      setSandbox(newSandbox)
+  async function splitCurve() {
+    const startPointX = sandbox.curves[selectedCurve].startPoint.x
+    const startPointY = sandbox.curves[selectedCurve].startPoint.y
+    const endPointX = sandbox.curves[selectedCurve].endPoint.x
+    const endPointY = sandbox.curves[selectedCurve].endPoint.y
+    const splitPoint = {
+      x: (startPointX + endPointX) / 2,
+      y: (startPointY + endPointY) / 2,
+      solid: true,
+    }
+    const splitCurve1 = {
+      startPoint: sandbox.curves[selectedCurve].startPoint,
+      endPoint: splitPoint,
+      control1: {
+        x: (splitPoint.x + startPointX) / 3,
+        y: (splitPoint.y + startPointY) / 3,
+        solid: false,
+      },
+      control2: {
+        x: ((splitPoint.x + startPointX) * 2) / 3,
+        y: ((splitPoint.y + startPointY) * 2) / 3,
+        solid: false,
+      },
+    }
+    const splitCurve2 = {
+      startPoint: splitPoint,
+      endPoint: sandbox.curves[selectedCurve].endPoint,
+      control1: {
+        x: (splitPoint.x + endPointX) / 3,
+        y: (splitPoint.y + endPointY) / 3,
+        solid: false,
+      },
+      control2: {
+        x: ((splitPoint.x + endPointX) * 2) / 3,
+        y: ((splitPoint.y + endPointY) * 2) / 3,
+        solid: false,
+      },
+    }
+    const newSandbox = { ...sandbox }
+    newSandbox.curves.splice(selectedCurve, 1, splitCurve1, splitCurve2)
+    console.log(newSandbox.curves)
+    setSandbox(newSandbox)
   }
 
   async function handleSave(event) {
@@ -156,7 +155,7 @@ export default function TaskBar({
         Save Sandbox
       </button>
       <button onClick={() => setOpenHelp(true)}>Help</button>
-      <button onClick = {splitCurve}>Split Curve</button>
+      <button onClick={splitCurve}>Split Curve</button>
       <button onClick={() => setOpenDeletePrompt(true)}>Delete Sandbox</button>
       <Modal
         classNames={{
@@ -181,8 +180,10 @@ export default function TaskBar({
         <form className="SandboxSaveForm" onSubmit={handleSave}>
           <h2>Name your sandbox to save:</h2>
           <label>Enter Sandbox Name Here</label>
-          <input onChange={nameSandbox} />
-          <button type="submit">Save Sandbox</button>
+          <input className="AuthInput" onChange={nameSandbox} />
+          <button className="AuthButton SandboxButton" type="submit">
+            Save Sandbox
+          </button>
         </form>
       </Modal>
       <Modal
@@ -194,9 +195,18 @@ export default function TaskBar({
         onClose={() => setOpenClearPrompt(false)}
         center
       >
-        <h3>Are you sure you want to clear your Sandbox?</h3>
-        <button onClick={() => setOpenClearPrompt(false)}>No</button>
-        <button onClick={handleClear}>Yes</button>
+        <div className="ClearSandbox">
+          <h3>Are you sure you want to clear your Sandbox?</h3>
+          <button
+            className="AuthButton SandboxButton"
+            onClick={() => setOpenClearPrompt(false)}
+          >
+            No
+          </button>
+          <button className="AuthButton SandboxButton" onClick={handleClear}>
+            Yes
+          </button>
+        </div>
       </Modal>
       <Modal
         classNames={{
@@ -207,12 +217,24 @@ export default function TaskBar({
         onClose={() => setOpenDeletePrompt(false)}
         center
       >
-        <h3>Are you sure you want to delete your Sandbox?</h3>
-        <h3>
-          <b>this cannot be undone!</b>
-        </h3>
-        <button onClick={() => setOpenDeletePrompt(false)}>No</button>
-        <button onClick={handleDeleteSandbox}>Yes</button>
+        <div className="ClearSandbox">
+          <h3>Are you sure you want to delete your Sandbox?</h3>
+          <h3>
+            <b>THIS CANNOT BE UNDONE!</b>
+          </h3>
+          <button
+            className="AuthButton SandboxButton"
+            onClick={() => setOpenDeletePrompt(false)}
+          >
+            No
+          </button>
+          <button
+            className="AuthButton SandboxButton"
+            onClick={handleDeleteSandbox}
+          >
+            Yes
+          </button>
+        </div>
       </Modal>
     </div>
   )
