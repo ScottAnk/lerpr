@@ -34,9 +34,9 @@ Sign Up Page:
 15. React-Scripts
 
 ### Getting Started:
-Deployed Link: <LINK>
+[Deployed Link](https://scottank.github.io/lerpr/)
 
-[Trello Board:](https://trello.com/b/MdiMxixR/lerpr)
+[Trello Board](https://trello.com/b/MdiMxixR/lerpr)
 
 ### Next Steps:
 The following items are our icebox items that will be implemented in later versions.
