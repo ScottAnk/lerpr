@@ -200,12 +200,31 @@ export default function TaskBar({
         center
       >
         <form className="SandboxSaveForm" onSubmit={handleSave}>
-          <h2>Name your sandbox to save:</h2>
+          <h2>
+            <u>Name your sandbox to save</u>:
+          </h2>
           <label>Enter Sandbox Name Here</label>
-          <input className="AuthInput" onChange={nameSandbox} />
-          <button className="AuthButton SandboxButton" type="submit">
-            Save Sandbox
+          <input
+            className="AuthInput"
+            placeholder="Sandbox Name"
+            onChange={nameSandbox}
+          />
+          <button className="AuthButton" type="submit">
+            Save
           </button>
+          <div>
+            <p style={{marginBottom: '1em'}}>
+              Once you save your sandbox, you'll be able to access it from the
+              "My Sandboxes" page.
+            </p>
+            <p>
+              Additionally, your newly created sandbox will be added to the community page!
+            </p>
+            <p>
+              Lerpr users will be able to interact with your sandbox, even make a
+              copy, <i>but not directly overwrite your original version.</i>
+            </p>
+          </div>
         </form>
       </Modal>
       <Modal
@@ -226,10 +245,12 @@ export default function TaskBar({
             Clearing your workspace will delete any modified curves you may have
             added to your existing sandbox.
           </p>
-          <a><i>
-            (your current sandbox will not be deleted by clearing your
-            workspace)
-            </i></a>
+          <a>
+            <i>
+              (your current sandbox will not be deleted by clearing your
+              workspace)
+            </i>
+          </a>
           <div className="ButtonRow">
             <button
               className="AuthButton"

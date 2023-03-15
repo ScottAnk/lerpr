@@ -18,12 +18,12 @@
 }
 
 .SandboxSaveForm {
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   row-gap: 20px;
   align-items: center;
-  height: 400px;
   font-size: 1.25em;
 }
 
