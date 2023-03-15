@@ -193,7 +193,7 @@ export default function TaskBar({
         onClose={() => setUpdateSuccess(false)}
         center
       >
-        <h2 style={{marginTop: '10em'}}>Sandbox Updated Successfully!</h2>
+        <h2 style={{marginTop: '5em'}}>Sandbox Updated Successfully!</h2>
       </Modal>
       <Modal
         classNames={{
