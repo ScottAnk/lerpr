@@ -4,9 +4,12 @@ import { Modal } from 'react-responsive-modal'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 import { logOut } from '../../utilities/users-service'
 import lerpr from '../../assets/lerpr.png'
-import { NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 export default function Header({ user, setUser, openSignIn, setOpenSignIn, defaultSandbox, setSandbox, darkMode, setDarkMode }) {
+
+  const navigate = useNavigate()
+
   function handleSignIn() {
     setOpenSignIn(true)
   }
@@ -15,6 +18,7 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
     setUser(null)
     logOut()
     setOpenSignIn(false)
+    localStorage.removeItem('Pickle', 'Unlocked')
   }
 
   function toggleDarkMode() {
@@ -22,7 +26,9 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
     setDarkMode(!darkMode)
   }
 
-
+  function clickLerpCoin() {
+    navigate('/editor')
+  }
 
   return (
     <main className="Header">
@@ -33,13 +39,13 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
         type="checkbox" 
         className="DarkModeCheckbox" 
         name="DarkMode"
-        value={darkMode ? `${'&#x25a2'}` : ''}
+        style={{marginLeft: '7px'}}
         checked={darkMode ? true : false}
         onChange={toggleDarkMode}
         ></input>
         </div>
         <div className="TitleContainer">
-          <img className="lerp-coin" alt="Lerpr Logo" src={lerpr}></img>
+          <img className="lerp-coin" alt="Lerpr Logo" src={lerpr} onClick={clickLerpCoin}></img>
           <h1 className="AppTitle">Lerpr</h1>
         </div>
         <div className="SignContainer">
@@ -50,12 +56,10 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
                   Hello,{' '}
                   <NavLink to='/mysandboxes'>
                     <span
-                      style={{
-                        textDecoration: 'underline',
-                        fontWeight: 'bold',
-                      }}
-                    >
+                    className='UserName'
+                    ><b>
                       {user.name}
+                      </b>
                     </span>
                   </NavLink>
                   &nbsp; | &nbsp;

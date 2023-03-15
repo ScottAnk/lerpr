@@ -16,12 +16,12 @@ export default function ControlPanel({
   }
 
   return (
-    <>
-        <h3 style={{ textAlign: 'center' }}>
+    <div className="ControlPage">
+        <h3>
           <u>Control Panel</u>
         </h3>
       <div className="ControlPanelContainer">
-        <div className="ControlPanelMain">
+        <div className="ControlPanel">
             <ul>
               {sandbox.curves.map((curve, index) => (
                 <ControlPoint
@@ -38,6 +38,6 @@ export default function ControlPanel({
             </ul>
         </div>
       </div>
-    </>
+    </div>
   )
 }

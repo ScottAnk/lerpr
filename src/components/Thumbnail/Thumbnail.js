@@ -2,12 +2,19 @@ import './Thumbnail.css'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Thumbnail({ sandboxInstance, setSandbox }) {
-
   let location = useLocation()
 
   function handleLink() {
     setSandbox(sandboxInstance)
   }
+
+  // reformatting json date to month-day-year
+  const date = sandboxInstance.createdAt
+  const newDay = date.substring(8, 10)
+  const newMonth = date.substring(5, 7)
+  const newYear = date.substring(0, 4)
+
+  const reformattedDate = `${newMonth}/${newDay}/${newYear}`
 
   return (
     <>
@@ -18,11 +25,16 @@ export default function Thumbnail({ sandboxInstance, setSandbox }) {
             className="thumbnail"
             alt="thumbnail"
           ></img>
-          <h3 style={{marginBlockStart: '0px', marginBlockEnd: '0px'}}>
-            <strong><u>'{sandboxInstance.name}'</u></strong>
-          </h3>
+          <h4>
+            <u>'{sandboxInstance.name}'</u>
+          </h4>
           {location.pathname === '/mysandboxes' ? null : (
-            <h5 style={{marginBlockStart: '0px', marginBlockEnd: '0px'}}>By {sandboxInstance.owner.name}</h5>
+            <div>
+              <h5>By {sandboxInstance.owner.name}</h5>
+              <p style={{marginTop: '0.5em', fontSize: '16px'}}>
+                <b>Last Updated:</b> {reformattedDate}
+              </p>
+            </div>
           )}
         </div>
       </Link>

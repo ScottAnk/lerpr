@@ -33,34 +33,41 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
       <div className="line"></div>
       <div className="form-container">
         <form className="SignInForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input
-            className="AuthInput"
-            type="text"
-            name="email"
-            value={credentials.email}
-            onChange={handleChange}
-            required
-          />
-          <label>Password</label>
-          <input
-            className="AuthInput"
-            type="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            required
-          />
+            <div className="AuthFormRow">
+            <label className="AuthLabel">Email</label>
+            <input
+              className="AuthInput"
+              type="text"
+              name="email"
+              placeholder="Email Address"
+              value={credentials.email}
+              onChange={handleChange}
+              required
+            />
+            </div>
+            <div className="AuthFormRow">
+              <label className="AuthLabel">Password</label>
+              <input
+                className="AuthInput"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={credentials.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
           <button
             style={{
               color: credentials.password.length < 3 ? 'black' : '',
               backgroundColor: credentials.password.length < 3 ? 'grey' : '',
+              fontSize: '18px',
             }}
             disabled={credentials.password.length < 3 ? 'disabled' : ''}
-            className="AuthButton LoginButton"
+            className="ModalButton"
             type="submit"
           >
-            LOG IN
+            Login
           </button>
         </form>
       </div>

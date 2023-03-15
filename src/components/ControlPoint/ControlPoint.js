@@ -16,9 +16,9 @@ export default function ControlPoint({ curve, curveIndex, modifyCurve, deleteSty
 
   return (
     <li className="ControlPointContainer">
-      <h3 className="CurveLabel" 
+      <h4 className="CurveLabel" 
       onClick={selectCurve}
-      >curve <span className="CurveIndex"> {curveIndex}</span>:</h3>
+      >curve <span className="CurveIndex"> {curveIndex}</span>:</h4>
       <span className="XLabel">X</span>
       <span className="YLabel">Y</span>
       {/* list out x.y coordinates */}

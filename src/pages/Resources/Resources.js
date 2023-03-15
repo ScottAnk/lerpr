@@ -1,15 +1,27 @@
 // import Team from '../Team/Team'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Resources.css'
-
+import { Modal } from 'react-responsive-modal'
 import lerpr from '../../assets/lerpr.png'
 import pierre from '../../assets/pierre.jpeg'
 
-export default function Resources() {
+export default function Resources({ darkMode }) {
+  const [openPickleModal, setOpenPickleModal] = useState(false)
   const navigate = useNavigate()
 
   function handleNavigateTeam() {
     navigate('/team')
+  }
+
+  const pickleUnlocked = localStorage.getItem('Pickle', 'Unlocked')
+
+  function unlockPickle() {
+    if (pickleUnlocked === 'Unlocked') return
+    else {
+      localStorage.setItem('Pickle', 'Unlocked')
+      setOpenPickleModal(!openPickleModal)
+    }
   }
 
   return (
@@ -53,7 +65,7 @@ export default function Resources() {
             </h2>
             <div className="links">
               <h4>"The Continuity of Splines"</h4>
-              <p>by Freya Holmér</p>
+              <p style={{ marginBottom: '1em' }}>by Freya Holmér</p>
               <iframe
                 width="450"
                 height="275"
@@ -88,12 +100,13 @@ export default function Resources() {
         </div>
         <footer className="Footer">
           <div className="Sources">
-            <h4 style={{ textAlign: 'center' }}>Sources</h4>
+            <h3 style={{ textAlign: 'center' }}>Sources</h3>
             <ul className="SourcesList">
               <li>
                 <a
                   className="ResourceLinks"
                   href="https://www.toppr.com/guides/maths-formulas/linear-interpolation-formula/"
+                  target='_blank'
                 >
                   Linear Interpolation
                 </a>
@@ -102,6 +115,7 @@ export default function Resources() {
                 <a
                   className="ResourceLinks"
                   href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve"
+                  target='_blank'
                 >
                   Bézier Curves
                 </a>
@@ -110,19 +124,47 @@ export default function Resources() {
                 <a
                   className="ResourceLinks"
                   href="https://en.wikipedia.org/wiki/Pierre_B%C3%A9zier"
+                  target='_blank'
                 >
                   Pierre Bézier
                 </a>
               </li>
             </ul>
           </div>
-
-          <div className="TeamDiv">
-            <p className="TeamLink" onClick={handleNavigateTeam}>
-              Meet the Team
-            </p>
-            <img className="lerp-coin" alt="Lerpr Logo" src={lerpr}></img>
+          <div>
+            <h3>About</h3>
+            <div className="TeamDiv">
+              <a className="TeamButton" onClick={handleNavigateTeam}>
+                Meet the Lerpr Team
+              </a>
+              <img
+                className="lerp-coin"
+                alt="Lerpr Logo"
+                style={{ display: darkMode ? '' : 'none', filter: 'invert()' }}
+                onClick={unlockPickle}
+                src={lerpr}
+              ></img>
+            </div>
           </div>
+          <Modal
+            classNames={{
+              overlay: 'customOverlay',
+              modal: 'customModal',
+            }}
+            open={openPickleModal}
+            onClose={() => setOpenPickleModal(false)}
+            center
+          >
+            <div className="PickleModal">
+              <h1>
+                <u>Congratulations!</u>
+              </h1>
+              <div>
+                <h3>You have successfully unlocked</h3>
+                <h1 className="PickleText">PICKLE</h1>
+              </div>
+            </div>
+          </Modal>
         </footer>
       </>
     </main>

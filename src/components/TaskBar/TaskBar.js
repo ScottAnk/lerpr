@@ -5,7 +5,6 @@ import { Modal } from 'react-responsive-modal'
 import { useState } from 'react'
 import * as sandboxesServices from '../../utilities/sandboxes-services'
 import * as curvesServices from '../../utilities/curves-service'
-import { getUser } from '../../utilities/users-service'
 
 export default function TaskBar({
   setOpenSignIn,
@@ -23,6 +22,8 @@ export default function TaskBar({
   const [openDeletePrompt, setOpenDeletePrompt] = useState(false)
   const [openHelp, setOpenHelp] = useState(false)
   const [openFirstSave, setOpenFirstSave] = useState(false)
+  const [saveSuccess, setSaveSuccess] = useState(false)
+  const [updateSuccess, setUpdateSuccess] = useState(false)
 
   function nameSandbox(event) {
     event.preventDefault()
@@ -76,6 +77,8 @@ export default function TaskBar({
   }
 
   async function handleSave(event) {
+    // sets the state of the sandbox from false to true upon first save of the sandbox
+    // this is what determines if "updateSandbox" should run rather than "createNewSandbox"
     event.preventDefault()
     setOpenFirstSave(true)
     const thumbnail = await exportAsImage(exportRef.current)
@@ -84,12 +87,12 @@ export default function TaskBar({
       dataURL: thumbnail,
     })
     setSandbox(savedSandbox)
-    setOpenFirstSave(false)
-    // sets the state of the sandbox from false to true upon first save of the sandbox
-    // this is what determines if "updateSandbox" should run rather than "createNewSandbox"
+    setSaveSuccess(!saveSuccess)
+    setTimeout(() => setOpenFirstSave(false), 1000)
   }
 
   async function handleUpdate() {
+    setUpdateSuccess(!updateSuccess)
     const thumbnail = await exportAsImage(exportRef.current)
     const updatedSandbox = {
       ...sandbox,
@@ -97,6 +100,7 @@ export default function TaskBar({
     }
     await sandboxesServices.updateSandbox(updatedSandbox)
     setSandbox(updatedSandbox)
+    setTimeout(() => setUpdateSuccess(false), 3000)
   }
 
   async function handleDeleteCurve() {
@@ -120,14 +124,14 @@ export default function TaskBar({
     await sandboxesServices.deleteSandbox(sandbox)
     setOpenDeletePrompt(false)
   }
-  
+
   return (
     <div className="TaskBar">
       {/* <button className="TaskButton" onClick={testSandbox}>
         testing testing
       </button> */}
       <div className="TaskBarTitle">
-        <h3>Taskbar:</h3>
+        <h5>Taskbar:</h5>
       </div>
       <button
         style={{ backgroundColor: '#fffcb3' }}
@@ -159,7 +163,7 @@ export default function TaskBar({
         Split Curve
       </button>
       <button className="TaskButton" onClick={() => setOpenClearPrompt(true)}>
-        Clear Sandbox
+        Clear Workspace
       </button>
       <button
         className="TaskButton"
@@ -185,6 +189,17 @@ export default function TaskBar({
           overlay: 'customOverlay',
           modal: 'customModal',
         }}
+        open={updateSuccess}
+        onClose={() => setUpdateSuccess(false)}
+        center
+      >
+        <h2 style={{marginTop: '5em'}}>Sandbox Updated Successfully!</h2>
+      </Modal>
+      <Modal
+        classNames={{
+          overlay: 'customOverlay',
+          modal: 'customModal',
+        }}
         open={openHelp}
         onClose={() => setOpenHelp(false)}
         center
@@ -200,14 +215,43 @@ export default function TaskBar({
         onClose={() => setOpenFirstSave(false)}
         center
       >
-        <form className="SandboxSaveForm" onSubmit={handleSave}>
-          <h2>Name your sandbox to save:</h2>
-          <label>Enter Sandbox Name Here</label>
-          <input className="AuthInput" onChange={nameSandbox} />
-          <button className="AuthButton SandboxButton" type="submit">
-            Save Sandbox
-          </button>
-        </form>
+        {saveSuccess ? (
+          <div style={{marginTop: '10em', maxWidth: '600px'}}>
+            <h2> Your Sandbox has been successfully saved!</h2>
+          </div>
+        ) : (
+          <>
+            <form className="SandboxSaveForm" onSubmit={handleSave}>
+              <h2>
+                <u>Name your sandbox to save</u>:
+              </h2>
+              <label>Enter Sandbox Name Here</label>
+              <input
+                className="AuthInput"
+                placeholder="Sandbox Name"
+                onChange={nameSandbox}
+              />
+              <button className="ModalButton" type="submit">
+                Save
+              </button>
+              <div>
+                <p style={{ marginBottom: '1em' }}>
+                  Once you save your sandbox, you'll be able to access it from
+                  the "My Sandboxes" page.
+                </p>
+                <p>
+                  Additionally, your newly created sandbox will be added to the
+                  community page!
+                </p>
+                <p>
+                  Lerpr users will be able to interact with your sandbox, even
+                  make a copy,{' '}
+                  <i>but not directly overwrite your original version.</i>
+                </p>
+              </div>
+            </form>
+          </>
+        )}
       </Modal>
       <Modal
         classNames={{
@@ -218,17 +262,32 @@ export default function TaskBar({
         onClose={() => setOpenClearPrompt(false)}
         center
       >
-        <div className="ClearSandbox">
-          <h3>Are you sure you want to clear your Sandbox?</h3>
-          <button
-            className="AuthButton SandboxButton"
-            onClick={() => setOpenClearPrompt(false)}
-          >
-            No
-          </button>
-          <button className="AuthButton SandboxButton" onClick={handleClear}>
-            Yes
-          </button>
+        <div className="TaskbarModal">
+          <h1>
+            <u>Clear Workspace</u>
+          </h1>
+          <h3>Are you sure you want to clear your Workspace?</h3>
+          <p>
+            Clearing your workspace will delete any modified curves you may have
+            added to your existing sandbox.
+          </p>
+          <a>
+            <i>
+              (your current sandbox will not be deleted by clearing your
+              workspace)
+            </i>
+          </a>
+          <div className="ButtonRow">
+            <button
+              className="ModalButton"
+              onClick={() => setOpenClearPrompt(false)}
+            >
+              No
+            </button>
+            <button className="ModalButton" onClick={handleClear}>
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
       <Modal
@@ -240,23 +299,25 @@ export default function TaskBar({
         onClose={() => setOpenDeletePrompt(false)}
         center
       >
-        <div className="ClearSandbox">
-          <h3>Are you sure you want to delete your Sandbox?</h3>
+        <div className="TaskbarModal">
+          <h1>
+            <u>Delete Sandbox</u>
+          </h1>
+          <h4>Are you sure you want to delete your Sandbox?</h4>
           <h3>
             <b>THIS CANNOT BE UNDONE!</b>
           </h3>
-          <button
-            className="AuthButton SandboxButton"
-            onClick={() => setOpenDeletePrompt(false)}
-          >
-            No
-          </button>
-          <button
-            className="AuthButton SandboxButton"
-            onClick={handleDeleteSandbox}
-          >
-            Yes
-          </button>
+          <div className="ButtonRow">
+            <button
+              className="ModalButton"
+              onClick={() => setOpenDeletePrompt(false)}
+            >
+              No
+            </button>
+            <button className="ModalButton" onClick={handleDeleteSandbox}>
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
     </div>

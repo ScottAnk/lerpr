@@ -13,3 +13,15 @@
 .nav-active {
     font-weight: bold;
   }
+
+.nav-link:hover {
+    color: var(--containerbg);
+}
+
+.DarkMode .nav-link:hover {
+    color: var(--divborder);
+}
+
+.OpenNewSandbox {
+    
+}

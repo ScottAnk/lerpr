@@ -13,6 +13,7 @@ export default function App() {
   const [user, setUser] = useState(getUser())
   const [darkMode, setDarkMode] = useState(false)
   const [openSignIn, setOpenSignIn] = useState(false)
+  const [pickle, setPickle] = useState(false)
 
   const linkedPoint = { x: 300, y: 300, solid: true }
   const linkedPoint2 = { x: 600, y: 0, solid: true }
@@ -76,7 +77,7 @@ export default function App() {
       />
 
       <Routes>
-        <Route path="/resources" element={<Resources />} />
+        <Route path="/resources" element={<Resources darkMode={darkMode} setPickle={setPickle} />} />
         <Route
           path="/community"
           element={
@@ -89,7 +90,7 @@ export default function App() {
         />
         <Route
           path="/mysandboxes"
-          element={<MySandboxes sandbox={sandbox} setSandbox={setSandbox} />}
+          element={<MySandboxes user={user} sandbox={sandbox} setSandbox={setSandbox} />}
         />
         <Route
           path="/editor"

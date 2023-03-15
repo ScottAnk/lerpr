@@ -59,7 +59,7 @@ a {
 
 .LinkedIn {
   padding: 20px;
-  background-color: rgba(249, 249, 249, 0.408);
+  border: 5px solid var(--divborder);
   border-radius: 25px;
 }
 

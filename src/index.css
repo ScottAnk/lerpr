@@ -40,7 +40,7 @@
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  background: #f8ecde !important;
+  background: #f8ecde;
   border: 5px solid var(--olive);
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
   margin: 1.2rem;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Quantico:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Metal+Mania&family=Quantico:wght@400;700&display=swap');
 
 /* COLOR PALETTE */
 :root {
@@ -7,7 +7,7 @@
   --divborder: #7e5a3d;
   --containerbg: #f8ecde;
   --olive: #8b956d;
-  --lightbrown: #fce0bc;
+  --lightblue: #224bac;
   --darkbrown: #4f433e;
   --orange: #edc6a8;
   --div2bg: rgba(249, 249, 249, 0.408);
@@ -21,6 +21,11 @@
   color: black;
   height: 100vh;
   overflow-x: auto;
+}
+
+iframe {
+  border: 5px solid var(--div2bg);
+  border-radius: 5px;
 }
 
 .DarkMode {
@@ -83,6 +88,18 @@ h2 {
   font-weight: normal;
 }
 
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
 p {
   font-size: 18px;
 }
@@ -93,6 +110,10 @@ p {
 
 .link {
   cursor: pointer;
+}
+
+.link:hover {
+  color: var(--divbg)
 }
 
 input::placeholder {
@@ -106,6 +127,7 @@ input::placeholder {
   margin-top: 5px;
   max-width: 35px;
   max-height: 35px;
+  cursor: pointer;
 }
 
 .lerp-coin:hover {
