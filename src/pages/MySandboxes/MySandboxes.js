@@ -23,7 +23,7 @@ export default function MySandboxes({ setSandbox }) {
 
   return (
     <div className="MySandboxes">
-      <h2>My Sandboxes</h2>
+      <h1>My Sandboxes</h1>
       <div className="thumbnail-container">
         {sandboxes.map((sandboxInstance, index) => (
           <Thumbnail

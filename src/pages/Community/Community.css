@@ -1,10 +1,14 @@
+.CommunityPage {
+  margin-top: 2rem;
+}
+
 .thumbnail-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  margin-top: 3rem;
+  grid-row-gap: 30px;
+  margin: 3rem 10vw;
   justify-items: center;
 }
 

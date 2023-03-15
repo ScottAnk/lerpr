@@ -10,6 +10,8 @@ import React from 'react'
 
 export default function Team({ darkMode }) {
 
+  const pickleUnlocked = localStorage.getItem('Pickle', 'Unlocked')
+
   return (
     <main className="TeamContainer">
       <div className="TeamHeader">
@@ -58,7 +60,7 @@ export default function Team({ darkMode }) {
           </a>
         </div>
         <div className="TeamMemberCard"
-        style={{display: darkMode ? '' : 'none'}}
+        style={{display: pickleUnlocked ? darkMode ? '' : 'none' : 'none'}}
         >
           <img
             className="pickle"
@@ -69,6 +71,7 @@ export default function Team({ darkMode }) {
           <a
             class="LinkedIn"
             href="https://www.foodreference.com/html/fpickles.html"
+            target="_blank"
           >
             Pickle Facts
           </a>

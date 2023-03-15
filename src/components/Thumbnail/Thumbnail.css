@@ -10,5 +10,10 @@
     border-radius: 5px;
     text-align: center;
     padding: 1em 2em;
-    margin: 5px;
+    width: 200px;
+    max-width: 200px;
+}
+
+.thumbnail-card:hover {
+    background-color: var(--div2bg);
 }

@@ -4,9 +4,9 @@ import './HelpModal.css'
 export default function HelpModal() {
   return (
     <>
-      <h1><u>Understanding the Sandbox</u></h1>
+      <h2 style={{margin: '0.5em 0em'}}>Understanding the Sandbox</h2>
       <div className="HelpContainer">
-        <h3 className="HelpSubHeader">The Components</h3>
+        <h4 className="HelpSubHeader">The Components</h4>
         <ul>
           <li className="HelpListItem">
             <b style={{fontSize: '20px'}}>Sandbox:</b> Located on the left hand side of the screen, the
@@ -27,13 +27,13 @@ export default function HelpModal() {
             gradient of their curves in the sandbox.
           </li>
         </ul>
-        <b className="HelpSubHeader">Using the Sandbox</b>
+        <h4 className="HelpSubHeader">Using the Sandbox</h4>
         <ul>
           <li>
             When using the sandbox, users will be able to create coordinates for
             their points via the control panel. The first column of coordinates
             will generate the start point for the curve. The right-most and
-            final column generates the end point for the curve. When both of
+            final column generates the end point for the curve.<br/>When both of
             these coordinates have an input, the sandbox will generate a curve
             between these two points.
           </li>
@@ -43,7 +43,7 @@ export default function HelpModal() {
             alter that curvature of any given curves.
           </li>
         </ul>
-        <img className="img" alt="Control Panel Instructions" style={{marginTop: "30px"}} src={instructions}></img>
+        <img className="img" alt="Control Panel Instructions" style={{marginTop: "2em"}} src={instructions}></img>
       </div>
     </>
   )

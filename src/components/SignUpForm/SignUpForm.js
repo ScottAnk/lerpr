@@ -44,10 +44,11 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
 
   return (
     <>
-      <div className="CardContainer">
-        <form className="SignUpForm" autoComplete="off" onSubmit={handleSubmit}>
-          <div className="LabelInput">
-            <label>Username</label>
+      <div className="line"></div>
+      <div className="SignUpForm">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <div className="SignUpFormRow">
+            <label className="AuthLabel">Username</label>
             <input
               className="AuthInput"
               type="text"
@@ -58,33 +59,32 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               required
             />
           </div>
-          <div className="LabelInput">
-            <label>Email</label>
+          <div className="SignUpFormRow">
+            <label className="AuthLabel">Email</label>
             <input
               className="AuthInput"
               type="email"
               name="email"
-              placeholder="Your Email Address"
+              placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
               required
             />
           </div>
-          <div className="LabelInput">
-            <label>Password</label>
+          <div className="SignUpFormRow">
+            <label className="AuthLabel">Password</label>
             <input
               className="AuthInput"
               type="password"
               name="password"
-              placeholder="Your Password"
+              placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
             />
           </div>
-
-          <div className="LabelInput extra">
-            <label>Confirm</label>
+          <div className="SignUpFormRow">
+            <label className="AuthLabel">Confirm Password</label>
             <input
               className="AuthInput"
               type="password"
@@ -95,28 +95,21 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
               required
             />
           </div>
-
-          <div className="ButtonContainer">
-            <button
-              type="submit"
-              className="AuthButton SignUpButton"
-              style={{
-                color:
-                  formData.password === '' ? 'black' : disabled ? 'black' : '',
-                backgroundColor:
-                  formData.password === '' ? 'grey' : disabled ? 'grey' : '',
-              }}
-              disabled={
-                formData.password === ''
-                  ? 'disabled'
-                  : disabled
-                  ? 'disabled'
-                  : ''
-              }
-            >
-              SIGN UP
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="AuthButton"
+            style={{
+              color:
+                formData.password === '' ? 'black' : disabled ? 'black' : '',
+              backgroundColor:
+                formData.password === '' ? 'grey' : disabled ? 'grey' : '',
+            }}
+            disabled={
+              formData.password === '' ? 'disabled' : disabled ? 'disabled' : ''
+            }
+          >
+            Sign Up
+          </button>
         </form>
         <p className="error-message">{error}</p>
       </div>

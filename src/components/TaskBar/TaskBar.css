@@ -6,6 +6,13 @@
   border-radius: 5px;
 }
 
+.TaskBarTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .TaskBar > * {
   margin: 10px;
 }
@@ -20,19 +27,19 @@
   font-size: 1.25em;
 }
 
-.SandboxButton {
-  width: 120px;
-  height: 45px;
-  font-size: 15px !important;
+.ButtonRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2em;
 }
 
 .ClearSandbox {
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  height: 400px;
-
+  row-gap: 1em;
 }
 
 .TaskButton {

@@ -22,14 +22,17 @@ export default function Community({ setSandbox }) {
   }, [])
 
   return (
-    <div className="thumbnail-container">
-      {sandboxes.map((sandboxInstance, index) => (
-        <Thumbnail
-          setSandbox={setSandbox}
-          sandboxInstance={sandboxInstance}
-          key={index}
-        />
-      ))}
+    <div className="CommunityPage">
+      <h1>Community Sandboxes</h1>
+      <div className="thumbnail-container">
+        {sandboxes.map((sandboxInstance, index) => (
+          <Thumbnail
+            setSandbox={setSandbox}
+            sandboxInstance={sandboxInstance}
+            key={index}
+          />
+        ))}
+      </div>
     </div>
   )
 }

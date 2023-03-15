@@ -19,10 +19,10 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
           isActive ? 'nav-active nav-link' : 'nav-link'
         }
         to="/editor"
-        onClick={() => location.pathname == '/editor' && setOpenNewSandbox(true)}
+        onClick={() => location.pathname === '/editor' && setOpenNewSandbox(true)}
       >
         <span >
-          {location.pathname == '/editor' ? 'New Sandbox' : 'Editor'}
+          {location.pathname === '/editor' ? 'New Sandbox' : 'Editor'}
         </span>
       </NavLink>
       <Modal

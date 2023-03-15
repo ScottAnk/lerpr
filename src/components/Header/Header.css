@@ -1,5 +1,6 @@
 .Header {
     text-align: center;
+    margin-top: 2em;
 }
 
 .HeaderAuthContainer {
@@ -19,23 +20,8 @@
     text-align: left;
 }
 
-.DarkModeCheckbox {
-    margin-left: 5px;
-    width: 1em;
-    height: 1em;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: bisque;
-    color: white;
-}
-
-.DarkModeCheckbox:checked {
-    background-color: grey;
-}
-
 .TitleContainer {
     display: flex;
-    flex-direction: row wrap;
     justify-content: center;
     align-items: center;
     margin-right: 40px;
@@ -44,7 +30,6 @@
 .AppTitle {
     /* border: 1px solid black; */
     font-family: 'Bungee Shade', cursive;
-    margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 15px;
 }
@@ -60,4 +45,13 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+
+.UserName {
+    text-decoration: 'underline';
+    font-weight: 'bold';
+}
+
+.UserName:hover {
+    color: var(--divbg)
 }

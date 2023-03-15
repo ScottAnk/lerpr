@@ -26,7 +26,7 @@ export default function Editor({
   return (
     <>
       <main className="Editor">
-        <h1>{sandbox.name == '' ? 'New Sandbox' : `${sandbox.name}`}</h1>
+        <h1>{sandbox.name === '' ? 'New Sandbox' : `${sandbox.name}`}</h1>
 
         <div className="MainEditorContainer">
           <div className="WorkspaceContainer">

@@ -5,7 +5,6 @@ import { Modal } from 'react-responsive-modal'
 import { useState } from 'react'
 import * as sandboxesServices from '../../utilities/sandboxes-services'
 import * as curvesServices from '../../utilities/curves-service'
-import { getUser } from '../../utilities/users-service'
 
 export default function TaskBar({
   setOpenSignIn,
@@ -120,14 +119,14 @@ export default function TaskBar({
     await sandboxesServices.deleteSandbox(sandbox)
     setOpenDeletePrompt(false)
   }
-  
+
   return (
     <div className="TaskBar">
       {/* <button className="TaskButton" onClick={testSandbox}>
         testing testing
       </button> */}
       <div className="TaskBarTitle">
-        <h3>Taskbar:</h3>
+        <h5>Taskbar:</h5>
       </div>
       <button
         style={{ backgroundColor: '#fffcb3' }}
@@ -159,7 +158,7 @@ export default function TaskBar({
         Split Curve
       </button>
       <button className="TaskButton" onClick={() => setOpenClearPrompt(true)}>
-        Clear Sandbox
+        Clear Workspace
       </button>
       <button
         className="TaskButton"
@@ -219,16 +218,29 @@ export default function TaskBar({
         center
       >
         <div className="ClearSandbox">
-          <h3>Are you sure you want to clear your Sandbox?</h3>
-          <button
-            className="AuthButton SandboxButton"
-            onClick={() => setOpenClearPrompt(false)}
-          >
-            No
-          </button>
-          <button className="AuthButton SandboxButton" onClick={handleClear}>
-            Yes
-          </button>
+          <h1>
+            <u>Clear Workspace</u>
+          </h1>
+          <h3>Are you sure you want to clear your Workspace?</h3>
+          <p>
+            Clearing your workspace will delete any modified curves you may have
+            added to your existing sandbox.
+          </p>
+          <a><i>
+            (your current sandbox will not be deleted by clearing your
+            workspace)
+            </i></a>
+          <div className="ButtonRow">
+            <button
+              className="AuthButton"
+              onClick={() => setOpenClearPrompt(false)}
+            >
+              No
+            </button>
+            <button className="AuthButton" onClick={handleClear}>
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
       <Modal
@@ -241,22 +253,24 @@ export default function TaskBar({
         center
       >
         <div className="ClearSandbox">
-          <h3>Are you sure you want to delete your Sandbox?</h3>
+          <h1>
+            <u>Delete Sandbox</u>
+          </h1>
+          <h4>Are you sure you want to delete your Sandbox?</h4>
           <h3>
             <b>THIS CANNOT BE UNDONE!</b>
           </h3>
-          <button
-            className="AuthButton SandboxButton"
-            onClick={() => setOpenDeletePrompt(false)}
-          >
-            No
-          </button>
-          <button
-            className="AuthButton SandboxButton"
-            onClick={handleDeleteSandbox}
-          >
-            Yes
-          </button>
+          <div className="ButtonRow">
+            <button
+              className="AuthButton"
+              onClick={() => setOpenDeletePrompt(false)}
+            >
+              No
+            </button>
+            <button className="AuthButton" onClick={handleDeleteSandbox}>
+              Yes
+            </button>
+          </div>
         </div>
       </Modal>
     </div>
