@@ -112,6 +112,10 @@ p {
   cursor: pointer;
 }
 
+.link:hover {
+  color: var(--divbg)
+}
+
 input::placeholder {
   text-align: center;
 }

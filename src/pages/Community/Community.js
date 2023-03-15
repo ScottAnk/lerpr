@@ -23,7 +23,10 @@ export default function Community({ setSandbox }) {
 
   return (
     <div className="CommunityPage">
-      <h1>Community Sandboxes</h1>
+      <h1 style={{marginBottom: '0.5em'}}>Community Sandboxes</h1>
+      <p>Feel free to browse the community page to see how other Lerpr users are building out their bézier curves,</p>
+        <p>you even have the option of creating your own copy of their sandbox!</p>
+        <p><b>(click on a sandbox to view full-screen / make a copy)</b></p> 
       <div className="thumbnail-container">
         {sandboxes.map((sandboxInstance, index) => (
           <Thumbnail

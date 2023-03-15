@@ -90,7 +90,7 @@ export default function App() {
         />
         <Route
           path="/mysandboxes"
-          element={<MySandboxes sandbox={sandbox} setSandbox={setSandbox} />}
+          element={<MySandboxes user={user} sandbox={sandbox} setSandbox={setSandbox} />}
         />
         <Route
           path="/editor"

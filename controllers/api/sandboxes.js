@@ -75,8 +75,6 @@ async function findSandboxById(req, res, next) {
 //Update
 
 async function updateSandbox(req, res, next) {
-  console.log('updating sandbox. id: ', req.params.id)
-  console.log(req.body)
   try {
     const sandbox = await Sandbox.findById(req.params.id)
     delete req.body._id

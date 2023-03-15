@@ -28,7 +28,7 @@ export default function HelpModal() {
           </li>
         </ul>
         <h4 className="HelpSubHeader">Using the Sandbox</h4>
-        <ul>
+        <ul style={{marginBottom: '2em'}}>
           <li>
             When using the sandbox, users will be able to create coordinates for
             their points via the control panel. The first column of coordinates
@@ -43,7 +43,7 @@ export default function HelpModal() {
             alter that curvature of any given curves.
           </li>
         </ul>
-        <img className="img" alt="Control Panel Instructions" style={{marginTop: "2em"}} src={instructions}></img>
+        <img className="img" alt="Control Panel Instructions" src={instructions}></img>
       </div>
     </>
   )

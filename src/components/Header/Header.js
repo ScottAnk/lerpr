@@ -57,12 +57,9 @@ export default function Header({ user, setUser, openSignIn, setOpenSignIn, defau
                   <NavLink to='/mysandboxes'>
                     <span
                     className='UserName'
-                      style={{
-                        textDecoration: 'underline',
-                        fontWeight: 'bold',
-                      }}
-                    >
+                    ><b>
                       {user.name}
+                      </b>
                     </span>
                   </NavLink>
                   &nbsp; | &nbsp;
