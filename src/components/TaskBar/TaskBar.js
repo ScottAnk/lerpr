@@ -209,7 +209,7 @@ export default function TaskBar({
             placeholder="Sandbox Name"
             onChange={nameSandbox}
           />
-          <button className="AuthButton" type="submit">
+          <button className="ModalButton" type="submit">
             Save
           </button>
           <div>
@@ -253,12 +253,12 @@ export default function TaskBar({
           </a>
           <div className="ButtonRow">
             <button
-              className="AuthButton"
+              className="ModalButton"
               onClick={() => setOpenClearPrompt(false)}
             >
               No
             </button>
-            <button className="AuthButton" onClick={handleClear}>
+            <button className="ModalButton" onClick={handleClear}>
               Yes
             </button>
           </div>
@@ -283,12 +283,12 @@ export default function TaskBar({
           </h3>
           <div className="ButtonRow">
             <button
-              className="AuthButton"
+              className="ModalButton"
               onClick={() => setOpenDeletePrompt(false)}
             >
               No
             </button>
-            <button className="AuthButton" onClick={handleDeleteSandbox}>
+            <button className="ModalButton" onClick={handleDeleteSandbox}>
               Yes
             </button>
           </div>

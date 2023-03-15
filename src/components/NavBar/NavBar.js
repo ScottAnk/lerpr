@@ -19,10 +19,12 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
           isActive ? 'nav-active nav-link' : 'nav-link'
         }
         to="/editor"
-        onClick={() => location.pathname === '/editor' && setOpenNewSandbox(true)}
+        onClick={() =>
+          location.pathname === '/editor' && setOpenNewSandbox(true)
+        }
       >
-        <span >
-          {location.pathname === '/editor' ? 'New Sandbox' : 'Editor'}
+        <span>
+          {location.pathname === '/editor' ? ' Create New Sandbox' : 'Editor'}
         </span>
       </NavLink>
       <Modal
@@ -34,13 +36,18 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
         onClose={() => setOpenNewSandbox(false)}
         center
       >
-        <h2>Are you sure you want to create a new Sandbox?</h2>
-        <h4>
-          you will lose any unsaved progress and be directed a new Sandbox
-          workspace
-        </h4>
-        <button onClick={() => setOpenNewSandbox(false)}>No</button>
-        <button onClick={handleNavigateEditor}>Yes</button>
+        <div className="ClearSandbox">
+          <h2>Are you sure you want to create a new Sandbox?</h2>
+          <a>
+            <i>
+            you will lose any unsaved progress and be directed a new
+            workspace</i>
+          </a>
+          <div className="ButtonRow">
+          <button onClick={() => setOpenNewSandbox(false)} className="ModalButton">No</button>
+          <button onClick={handleNavigateEditor} className="ModalButton">Yes</button>
+          </div>
+        </div>
       </Modal>
       &nbsp; | &nbsp;
       <NavLink

@@ -64,7 +64,7 @@ export default function LoginForm({ setUser, setOpenSignIn }) {
               fontSize: '18px',
             }}
             disabled={credentials.password.length < 3 ? 'disabled' : ''}
-            className="AuthButton"
+            className="ModalButton"
             type="submit"
           >
             Login

@@ -49,7 +49,7 @@
   border-bottom: 2px solid black;
 }
 
-.AuthButton {
+.ModalButton {
   background-color: var(--pagebg);
   border: 2px solid var(--divborder);
   border-radius: 5px;
@@ -61,7 +61,7 @@
   outline: inherit;
 }
 
-.AuthButton:hover {
+.ModalButton:hover {
   background-color: #685443;
 }
 

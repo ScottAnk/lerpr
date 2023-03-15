@@ -97,7 +97,7 @@ export default function SignUpForm({ setUser, setOpenSignIn }) {
           </div>
           <button
             type="submit"
-            className="AuthButton"
+            className="ModalButton"
             style={{
               color:
                 formData.password === '' ? 'black' : disabled ? 'black' : '',
