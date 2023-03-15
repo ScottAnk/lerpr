@@ -36,7 +36,7 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
         onClose={() => setOpenNewSandbox(false)}
         center
       >
-        <div className="ClearSandbox">
+        <div className="TaskbarModal">
           <h2>Are you sure you want to create a new Sandbox?</h2>
           <a>
             <i>
