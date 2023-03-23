@@ -1,5 +1,8 @@
 import sendRequest from './send-request'
-const BASE_URL = process.env.REACT_APP_BACKEND
+const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? process.env.REACT_APP_DEPLOYMENT_BACKEND
+    : process.env.REACT_APP_BACKEND
 
 // this can be used to create any single curve on any sandbox
 export function createCurve(sandboxId, curveData) {
