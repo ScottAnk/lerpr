@@ -46,7 +46,6 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
       </h3>
       <div className="ColorToolsContainer">
         <div className="ColorPickerContainer">
-          {/* CODE REVIEW: should I be using arrow functions here? */}
           <span className="ColorPickerLabel">
             <label htmlFor="colorStart">start</label>
             <input
