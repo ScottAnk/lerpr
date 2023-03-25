@@ -12,14 +12,6 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
   const colorStart = sandbox.colorStart
   const colorEnd = sandbox.colorEnd
 
-  // calculate the range of the gradient colors
-  const gamut = {
-    r: colorEnd.r - colorStart.r,
-    g: colorEnd.g - colorStart.g,
-    b: colorEnd.b - colorStart.b,
-    start: colorStart,
-  }
-
   // sample points along the curves
   let curveSamples = sample100points(curves[0])
 
@@ -28,7 +20,7 @@ export default function GradientDisplay({ sandbox, setSandbox }) {
   }
 
   // convert curves's (x,y) coordinates into stops on the gradient
-  const gradientString = samplesToCSS(curveSamples, gamut)
+  const gradientString = samplesToCSS(curveSamples, colorStart, colorEnd)
 
   // update sandbox state when color picker values are changed
   function handleColorChange(event) {
