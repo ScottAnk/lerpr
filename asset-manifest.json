@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/lerpr/static/css/main.bdfd36c6.css",
-    "main.js": "/lerpr/static/js/main.3e61cf86.js",
+    "main.js": "/lerpr/static/js/main.0da03bc1.js",
     "static/media/PaulT.jpeg": "/lerpr/static/media/PaulT.c3753f0dccec5ff359db.jpeg",
     "static/media/pickle.png": "/lerpr/static/media/pickle.5934105cd933be319b1a.png",
     "static/media/ControlPanelInstructions.png": "/lerpr/static/media/ControlPanelInstructions.24bac29e1b6974cc9965.png",
@@ -11,10 +11,10 @@
     "static/media/eddie.jpeg": "/lerpr/static/media/eddie.7dc0131edfbbfd42eea7.jpeg",
     "index.html": "/lerpr/index.html",
     "main.bdfd36c6.css.map": "/lerpr/static/css/main.bdfd36c6.css.map",
-    "main.3e61cf86.js.map": "/lerpr/static/js/main.3e61cf86.js.map"
+    "main.0da03bc1.js.map": "/lerpr/static/js/main.0da03bc1.js.map"
   },
   "entrypoints": [
     "static/css/main.bdfd36c6.css",
-    "static/js/main.3e61cf86.js"
+    "static/js/main.0da03bc1.js"
   ]
 }
