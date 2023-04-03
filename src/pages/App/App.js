@@ -8,6 +8,7 @@ import Team from '../Team/Team'
 import MySandboxes from '../MySandboxes/MySandboxes'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
+import wakeServer from '../../utilities/wake-service'
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -60,6 +61,7 @@ export default function App() {
   const darkModeOn = localStorage.getItem('Dark Mode', 'On')
 
   useEffect(() => {
+    wakeServer()
     if (darkModeOn) setDarkMode(true)
   }, [])
 
@@ -77,7 +79,10 @@ export default function App() {
       />
 
       <Routes>
-        <Route path="/resources" element={<Resources darkMode={darkMode} setPickle={setPickle} />} />
+        <Route
+          path="/resources"
+          element={<Resources darkMode={darkMode} setPickle={setPickle} />}
+        />
         <Route
           path="/community"
           element={
@@ -90,7 +95,13 @@ export default function App() {
         />
         <Route
           path="/mysandboxes"
-          element={<MySandboxes user={user} sandbox={sandbox} setSandbox={setSandbox} />}
+          element={
+            <MySandboxes
+              user={user}
+              sandbox={sandbox}
+              setSandbox={setSandbox}
+            />
+          }
         />
         <Route
           path="/editor"
