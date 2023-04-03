@@ -25,6 +25,7 @@ app.use(require('./config/checkToken'))
 app.use('/api/users', require('./routes/api/users'))
 app.use('/api/sandboxes', require('./routes/api/sandboxes'))
 app.use('/api/curves', require('./routes/api/curves'))
+app.use('/admin', require('./routes/admin'))
 
 // Protect the api routes below from anon users
 const ensureLoggedIn = require('./config/ensureLoggedIn')
