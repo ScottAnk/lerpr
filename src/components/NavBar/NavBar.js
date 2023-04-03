@@ -1,4 +1,4 @@
-import { Navigate, NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { Modal } from 'react-responsive-modal'
 import './NavBar.css'
@@ -40,12 +40,19 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
           <h2>Are you sure you want to create a new Sandbox?</h2>
           <a>
             <i>
-            you will lose any unsaved progress and be directed a new
-            workspace</i>
+              you will lose any unsaved progress and be directed a new workspace
+            </i>
           </a>
           <div className="ButtonRow">
-          <button onClick={() => setOpenNewSandbox(false)} className="ModalButton">No</button>
-          <button onClick={handleNavigateEditor} className="ModalButton">Yes</button>
+            <button
+              onClick={() => setOpenNewSandbox(false)}
+              className="ModalButton"
+            >
+              No
+            </button>
+            <button onClick={handleNavigateEditor} className="ModalButton">
+              Yes
+            </button>
           </div>
         </div>
       </Modal>
@@ -55,7 +62,6 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
           isActive ? 'nav-active nav-link' : 'nav-link'
         }
         to="/mysandboxes"
-        onClick={<Navigate to="/mysandboxes" />}
       >
         My Sandboxes
       </NavLink>
@@ -65,7 +71,6 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
           isActive ? 'nav-active nav-link' : 'nav-link'
         }
         to="/resources"
-        onClick={<Navigate to="/resources" />}
       >
         Resources
       </NavLink>
@@ -75,7 +80,6 @@ export default function NavBar({ user, defaultSandbox, setSandbox }) {
           isActive ? 'nav-active nav-link' : 'nav-link'
         }
         to="/community"
-        onClick={<Navigate to="/community" />}
       >
         Community
       </NavLink>
