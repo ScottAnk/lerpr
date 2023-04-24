@@ -85,3 +85,12 @@ export function convertToDatabaseFormat(curves) {
  * any curve where the start point is null gets linked back to the end of the previous curve
  * @param {Array} curves
  */
+export function convertToClientFormat(curves) {
+  for (let i = 1; i < curves.length; i++) {
+    if (curves[i].startPoint === null) {
+      curves[i].startPoint = curves[i - 1].endPoint
+    }
+  }
+
+  return curves
+}
