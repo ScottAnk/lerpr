@@ -1,17 +1,30 @@
 import * as sandboxesAPI from './sandboxes-api'
-import * as curvesAPI from './curves-api'
+import * as curvesServices from './curves-service'
 
 // initial sandbox creation
 export async function createNewSandbox(sandboxData) {
-  delete sandboxData._id
-  const response = await sandboxesAPI.createSandbox(sandboxData)
+  console.log('logging from service.createNew ', sandboxData)
+  const translatedSandbox = {
+    ...sandboxData,
+    curves: curvesServices.convertToDatabaseFormat(sandboxData.curves),
+  }
+  delete translatedSandbox._id
+
+  const response = await sandboxesAPI.createSandbox(translatedSandbox)
+
   return response.sandbox
 }
 
 // update sandbox
 export async function updateSandbox(sandbox) {
   const sandboxId = sandbox._id
-  const response = await sandboxesAPI.updateSandbox(sandboxId, sandbox)
+
+  const translatedSandbox = {
+    ...sandbox,
+    curves: curvesServices.convertToDatabaseFormat(sandbox.curves),
+  }
+
+  await sandboxesAPI.updateSandbox(sandboxId, translatedSandbox)
 }
 
 // indexes all sandboxes for community page
