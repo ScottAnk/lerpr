@@ -65,3 +65,32 @@ export async function clearAllCurves(sandbox) {
 
   return { ...sandbox }
 }
+
+/*
+ * removes startPoint from any curve where the start is the end of the previous curve
+ * @param {Array} curves
+ */
+export function convertToDatabaseFormat(curves) {
+  const translatedCurves = [...curves]
+  for (let i = 1; i < translatedCurves.length; i++) {
+    if (translatedCurves[i].startPoint === translatedCurves[i - 1].endPoint) {
+      translatedCurves[i] = { ...translatedCurves[i], startPoint: null }
+    }
+  }
+
+  return translatedCurves
+}
+
+/*
+ * any curve where the start point is null gets linked back to the end of the previous curve
+ * @param {Array} curves
+ */
+export function convertToClientFormat(curves) {
+  for (let i = 1; i < curves.length; i++) {
+    if (curves[i].startPoint === null) {
+      curves[i].startPoint = curves[i - 1].endPoint
+    }
+  }
+
+  return curves
+}
