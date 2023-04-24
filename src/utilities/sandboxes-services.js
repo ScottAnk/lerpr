@@ -3,7 +3,6 @@ import * as curvesServices from './curves-service'
 
 // initial sandbox creation
 export async function createNewSandbox(sandboxData) {
-  console.log('logging from service.createNew ', sandboxData)
   const translatedSandbox = {
     ...sandboxData,
     curves: curvesServices.convertToDatabaseFormat(sandboxData.curves),
