@@ -74,7 +74,7 @@
 2. Fill out the form and once completed click the `Sign Up` button to login.
 3. Upon login, you will find yourself at the Dashboard/Editor page, where you can create a new bézier curve.
 4. Use the Control Panel feature on the right to pinpoint where on the x/y grid you'd like each point to be.
-5. The `Taskbar` underneath the sandbox area allows for optimal design control: `Save` your sandbox in its current form, `Delete` a selected curve, `Clear Workspace` deletes all curves, `Split` a selected curve to add a new curve directly in between the selected curve and the following curve (if any), and `Help` allows for any additional assistance.
+5. The `Taskbar` underneath the sandbox area allows for optimal design control: `Save` your sandbox in its current form, `Delete` a selected curve, `Clear Workspace` deletes all curves, `Split` a selected curve to add a new curve directly in between the selected curve and the following curve (if any), and `Help` covers similar basics discussed here.
 6. `Click` on either 'My Sandboxes', 'Resources', or 'Community' to navigate to each page respectively.
 7. The 'Resources' button will take you to a page where you can access educational resources on bézier curves.
 8. Inside the 'Community' page, you can check out all of the curves the community has built on their own and even duplicate a copy of theirs!
